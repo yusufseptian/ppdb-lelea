@@ -36,7 +36,7 @@ CREATE TABLE `tb_berkas` (
   `berkas_nisn` varchar(100) NOT NULL,
   `berkas_ijazah_mda` varchar(100) NOT NULL,
   `berkas_user_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE `tb_ekskul` (
   `eks_nama` varchar(100) NOT NULL,
   `eks_kategori` enum('Wajib','Pilihan') NOT NULL,
   `eks_foto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_ekskul`
@@ -68,7 +68,7 @@ CREATE TABLE `tb_galeri` (
   `galeri_id` int NOT NULL,
   `galeri_nama` varchar(100) NOT NULL,
   `galeri_foto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_galeri`
@@ -90,7 +90,7 @@ CREATE TABLE `tb_nilai` (
   `nilai_inggris` int NOT NULL,
   `nilai_indo` int NOT NULL,
   `nilai_user_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,7 @@ CREATE TABLE `tb_orangtua` (
   `ortu_pendidikan_wali` varchar(100) NOT NULL,
   `ortu_telepon_wali` varchar(15) NOT NULL,
   `ortu_siswa_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -123,10 +123,10 @@ CREATE TABLE `tb_orangtua` (
 
 CREATE TABLE `tb_prestasi` (
   `p_id` int NOT NULL,
-  `p_judul` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `p_judul` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `p_keterangan` varchar(225) NOT NULL,
   `p_foto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_prestasi`
@@ -153,7 +153,7 @@ CREATE TABLE `tb_profil` (
   `profil_akreditasi` varchar(5) NOT NULL,
   `profil_visi` text NOT NULL,
   `profil_misi` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -164,7 +164,7 @@ CREATE TABLE `tb_profil` (
 CREATE TABLE `tb_role` (
   `role_id` int NOT NULL,
   `role_nama` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -180,7 +180,7 @@ CREATE TABLE `tb_sekolah_asal` (
   `sa_alamat_sekolah` varchar(100) NOT NULL,
   `sa_tahun_lulus` year NOT NULL,
   `sa_siswa_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -204,7 +204,7 @@ CREATE TABLE `tb_siswa` (
   `siswa_email` varchar(100) NOT NULL,
   `siswa_foto` varchar(100) NOT NULL,
   `siswa_jarak` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -217,7 +217,7 @@ CREATE TABLE `tb_tahun_ajaran` (
   `ta_tahun_ajaran` varchar(25) NOT NULL,
   `ta_kuota` int NOT NULL,
   `ta_status` enum('aktif','tidak aktif') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -232,7 +232,7 @@ CREATE TABLE `tb_user` (
   `user_email` varchar(100) NOT NULL,
   `user_token` varchar(15) NOT NULL,
   `user_role_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
