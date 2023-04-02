@@ -31,25 +31,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="<?= base_url('sejarah') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Sejarah</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="<?= base_url('prestasi') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Prestasi Siswa</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="<?= base_url('ekskul') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>ReaEkstra Kulikuler</p>
+                                <p>Ekstra Kulikuler</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="<?= base_url('galeri') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Galeri</p>
                             </a>
@@ -57,7 +57,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
                         <i class="nav-icon far fa-envelope"></i>
                         <p>
                             PPDB
@@ -66,19 +66,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>ACC Data Siswa</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Rangking</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Tahun Ajaran</p>
                             </a>
