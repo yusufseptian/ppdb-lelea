@@ -1,52 +1,54 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
-<div class="card">
-    <div class="card-header">
-        <div class="d-flex justify-content-between">
-            <button class="btn btn-sm btn-primary tambah" data-toggle="modal" data-target="#add">
-                Tambah Data
-            </button>
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-sm btn-primary tambah" data-toggle="modal" data-target="#add">
+                    Tambah Data
+                </button>
+            </div>
         </div>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
+        <!-- /.card-header -->
+        <div class="card-body">
 
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                <tr>
-                    <th>NO</th>
-                    <th>Judul</th>
-                    <th>Keterangan</th>
-                    <th>Foto</th>
-                    <th>AKSI</th>
-                </tr>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $no = 1;
-                foreach ($prestasi as $key => $value) { ?>
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
                     <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= $value['p_judul'] ?></td>
-                        <td><?= $value['p_keterangan'] ?></td>
-                        <td class="text-center">
-                            <img class="img-fluid shadow" src="<?= base_url('foto_prestasi/' . $value['p_foto']) ?>" width="100px">
-                        </td>
-                        <td>
-                            <button class="btn btn-sm btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['p_id'] ?>">
-                                <i class="fas fa-pen"></i>
-                            </button>
-                            <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['p_id'] ?>">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
+                    <tr>
+                        <th>NO</th>
+                        <th>Judul</th>
+                        <th>Keterangan</th>
+                        <th>Foto</th>
+                        <th>AKSI</th>
                     </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no = 1;
+                    foreach ($prestasi as $key => $value) { ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $value['p_judul'] ?></td>
+                            <td><?= $value['p_keterangan'] ?></td>
+                            <td class="text-center">
+                                <img class="img-fluid shadow" src="<?= base_url('foto_prestasi/' . $value['p_foto']) ?>" width="100px">
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['p_id'] ?>">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['p_id'] ?>">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
     </div>
-    <!-- /.card-body -->
 </div>
 <!-- Modal Add -->
 <div class="modal fade" id="add">
