@@ -2,7 +2,7 @@
    <header id="header" class="fixed-top">
        <div class="container d-flex align-items-center justify-content-between">
 
-           <a href="" class="logo"><img src="<?= base_url() ?>/assets/logo.jpg" alt="" style="max-height: 60px !important;" class="img-fluid"></a>
+           <a href="" class="logo"><img src="<?= base_url() ?>/assets/logo.png" alt="" style="max-height: 60px !important;" class="img-fluid"></a>
 
            <nav id="navbar" class="navbar">
                <ul>
