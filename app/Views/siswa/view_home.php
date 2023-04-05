@@ -33,12 +33,12 @@
     <?= $this->include('template_siswa/navbar.php'); ?>
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
+    <section id="hero" class="d-flex align-items-center" style="min-height: 700px;">
 
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <h1>SMP Negeri 1 Lelea</h1>
+                    <h1>SMP Negeri 2 Lelea</h1>
                     <h2>Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper.
                         Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum.</h2>
                     <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div>
@@ -54,23 +54,23 @@
     <main id="main">
 
         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
+        <section id="about" class="services section-bg" style="min-height: 650px;">
             <?= $this->include('template_siswa/tentang'); ?>
         </section><!-- End About Section -->
 
         <!-- ======= Prestasi Section ======= -->
-        <section id="prestasi" class="testimonials">
+        <section id="prestasi" class="testimonials" style="min-height: 650px;">
             <?= $this->include('template_siswa/prestasi'); ?>
         </section><!-- End Prestasi Section -->
 
 
         <!-- ======= Gallery Section ======= -->
-        <section id="gallery" class="gallery">
+        <section id="gallery" class="gallery" style="min-height: 650px;">
             <?= $this->include('template_siswa/galeri'); ?>
         </section><!-- End Gallery Section -->
 
         <!-- ======= Ekskul Section ======= -->
-        <section id="ekskul" class="team section-bg">
+        <section id="ekskul" class="team section-bg" style="min-height: 650px;">
             <?= $this->include('template_siswa/ekskul'); ?>
         </section><!-- End Ekskul Section -->
     </main><!-- End #main -->

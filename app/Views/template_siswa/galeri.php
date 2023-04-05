@@ -8,71 +8,16 @@
     </div>
 
     <div class="row no-gutters">
-
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-1.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-                    <img src="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-                </a>
+        <?php foreach ($galeri as $key => $value) { ?>
+            <div class="col-lg-3 col-md-4">
+                <div class="gallery-item">
+                    <a href="<?= base_url('foto_galeri/' . $value['galeri_foto']) ?>" class="galleery-lightbox" data-gallery="gallery-item">
+                        <img src="<?= base_url('foto_galeri/' . $value['galeri_foto']) ?>" alt="" class="img-fluid">
+                    </a>
+                    <h6 class="mt-3"><?= $value['galeri_nama'] ?></h6>
+                </div>
             </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-2.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-                    <img src="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-3.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-                    <img src="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-4.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-                    <img src="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-5.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-                    <img src="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-6.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-                    <img src="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-7.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-                    <img src="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-                <a href="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-8.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-                    <img src="<?= base_url() ?>/assets/Butterfly/assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
-                </a>
-            </div>
-        </div>
-
+        <?php } ?>
     </div>
 
 </div>

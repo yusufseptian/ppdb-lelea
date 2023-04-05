@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Msejarah extends Model
+class MTentang extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'tb_profil';
