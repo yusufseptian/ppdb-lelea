@@ -1,8 +1,8 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?php base_url() ?>/assets/index3.html" class="brand-link">
-        <img src="<?php base_url() ?>/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="<?= base_url('') ?>" class="brand-link">
+        <img src="<?= base_url() ?>/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">PPDB-SMP LELEA</span>
     </a>
 
@@ -11,7 +11,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?php base_url() ?>/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="<?= base_url() ?>/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Nganu</a>
@@ -23,7 +23,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-envelope"></i>
+                        <i class="nav-icon fas fa-place-of-worship"></i>
                         <p>
                             Profil Sekolah
                             <i class="fas fa-angle-left right"></i>
@@ -32,25 +32,25 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('sejarah') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-landmark nav-icon"></i>
                                 <p>Tentang Sekolah</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('prestasi') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-award nav-icon"></i>
                                 <p>Prestasi Siswa</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('ekskul') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-star nav-icon"></i>
                                 <p>Ekstra Kulikuler</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('galeri') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-photo-video nav-icon"></i>
                                 <p>Galeri</p>
                             </a>
                         </li>
@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
-                        <i class="nav-icon far fa-envelope"></i>
+                        <i class="nav-icon fa fa-paperclip"></i>
                         <p>
                             PPDB
                             <i class="fas fa-angle-left right"></i>
@@ -67,19 +67,19 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-check-square nav-icon"></i>
                                 <p>ACC Data Siswa</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-trophy nav-icon"></i>
                                 <p>Rangking</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-calendar nav-icon"></i>
                                 <p>Tahun Ajaran</p>
                             </a>
                         </li>

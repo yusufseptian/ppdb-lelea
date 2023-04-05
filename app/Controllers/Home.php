@@ -10,6 +10,7 @@ class Home extends BaseController
             'title' => 'Admin',
             'subtitle' => 'Dashboard Admin',
         ];
-        return view('template/index', $data);
+        // return view('template/index', $data);
+        return view('siswa/view_home', $data);
     }
 }
