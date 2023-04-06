@@ -109,6 +109,29 @@
             $("#example1").DataTable();
 
         });
+
+        function bacaGambar(input) {
+            try {
+                $('#gambar_load').attr('src', URL.createObjectURL(input.target.files[0]));
+                tampilPreview();
+            } catch (error) {
+
+            }
+        }
+
+        function tampilPreview() {
+            if ($('#foto').val() == '') {
+                $('#pre').addClass('d-none');
+            } else {
+                $('#pre').removeClass('d-none');
+            }
+        }
+
+        tampilPreview();
+
+        $('#foto').change(function() {
+            bacaGambar(this);
+        });
     </script>
 </body>
 

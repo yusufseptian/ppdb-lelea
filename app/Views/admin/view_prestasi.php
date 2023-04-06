@@ -92,7 +92,7 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label>Foto</label>
-                            <input id="p_foto" type="file" accept="image/*" name="p_foto" class="form-control" onchange="bacaGambar(event)" required>
+                            <input id="foto" type="file" accept="image/*" name="p_foto" class="form-control" onchange="bacaGambar(event)" required>
                         </div>
                         <div class="form-group" id="pre">
                             <label>Preview</label><br>

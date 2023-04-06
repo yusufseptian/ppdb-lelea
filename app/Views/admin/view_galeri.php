@@ -68,7 +68,7 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label>Foto</label>
-                            <input id="eks_foto" type="file" accept="image/*" name="galeri_foto" class="form-control" onchange="bacaGambar(event)" required>
+                            <input id="foto" type="file" accept="image/*" name="galeri_foto" class="form-control" onchange="bacaGambar(event)" required>
                         </div>
                         <div class="form-group" id="pre">
                             <label>Preview</label><br>

@@ -31,7 +31,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('sejarah') ?>" class="nav-link">
+                            <a href="<?= base_url('tentang') ?>" class="nav-link">
                                 <i class="fa fa-landmark nav-icon"></i>
                                 <p>Tentang Sekolah</p>
                             </a>
@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url('ekskul') ?>" class="nav-link">
                                 <i class="fa fa-star nav-icon"></i>
-                                <p>Ekstra Kulikuler</p>
+                                <p>Ekstrakurikuler</p>
                             </a>
                         </li>
                         <li class="nav-item">

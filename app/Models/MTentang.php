@@ -24,5 +24,6 @@ class MTentang extends Model
         'profil_akreditasi',
         'profil_visi',
         'profil_misi',
+        'profil_deskripsi',
     ];
 }
