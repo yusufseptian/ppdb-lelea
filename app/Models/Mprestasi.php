@@ -14,8 +14,11 @@ class Mprestasi extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'p_id',
-        'p_judul',
+        'p_nama',
         'p_keterangan',
+        'p_tahun',
+        'p_tingkat',
+        'p_prestasi',
         'p_foto',
     ];
 }

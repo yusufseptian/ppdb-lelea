@@ -27,7 +27,10 @@ class Prestasi extends BaseController
         $file = $this->request->getFile('p_foto');
         $nama_file = $file->getRandomName();
         $data = [
-            'p_judul' => $this->request->getPost('p_judul'),
+            'p_nama' => $this->request->getPost('p_nama'),
+            'p_tahun' => $this->request->getPost('p_tahun'),
+            'p_tingkat' => $this->request->getPost('p_tingkat'),
+            'p_prestasi' => $this->request->getPost('p_prestasi'),
             'p_keterangan' => $this->request->getPost('p_keterangan'),
             'p_foto' => $nama_file,
         ];
@@ -45,10 +48,11 @@ class Prestasi extends BaseController
         if ($file->getError() == 4) {
             $data = [
                 'p_id' => $p_id,
-                'p_judul' => $this->request->getPost('p_judul'),
-                'p_judul' => $this->request->getPost('p_judul'),
+                'p_nama' => $this->request->getPost('p_nama'),
+                'p_tahun' => $this->request->getPost('p_tahun'),
+                'p_tingkat' => $this->request->getPost('p_tingkat'),
+                'p_prestasi' => $this->request->getPost('p_prestasi'),
                 'p_keterangan' => $this->request->getPost('p_keterangan'),
-
             ];
             $this->Modelprestasi->update($p_id, $data);
         } else {
@@ -60,8 +64,10 @@ class Prestasi extends BaseController
             $nama_file = $file->getRandomName();
             $data = [
                 'p_id' => $p_id,
-                'p_judul' => $this->request->getPost('p_judul'),
-                'p_judul' => $this->request->getPost('p_judul'),
+                'p_nama' => $this->request->getPost('p_nama'),
+                'p_tahun' => $this->request->getPost('p_tahun'),
+                'p_tingkat' => $this->request->getPost('p_tingkat'),
+                'p_prestasi' => $this->request->getPost('p_prestasi'),
                 'p_keterangan' => $this->request->getPost('p_keterangan'),
                 'p_foto' => $nama_file,
             ];

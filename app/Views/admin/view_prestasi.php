@@ -17,8 +17,11 @@
                     <tr>
                     <tr>
                         <th>NO</th>
-                        <th>Judul</th>
+                        <th>Nama</th>
                         <th>Keterangan</th>
+                        <th>Tahun</th>
+                        <th>Tingkat</th>
+                        <th>Prestasi</th>
                         <th>Foto</th>
                         <th>AKSI</th>
                     </tr>
@@ -29,8 +32,11 @@
                     foreach ($prestasi as $key => $value) { ?>
                         <tr>
                             <td><?= $no++ ?></td>
-                            <td><?= $value['p_judul'] ?></td>
+                            <td><?= $value['p_nama'] ?></td>
                             <td><?= $value['p_keterangan'] ?></td>
+                            <td><?= $value['p_tahun'] ?></td>
+                            <td><?= $value['p_tingkat'] ?></td>
+                            <td><?= $value['p_prestasi'] ?></td>
                             <td class="text-center">
                                 <img class="img-fluid shadow" src="<?= base_url('foto_prestasi/' . $value['p_foto']) ?>" width="100px">
                             </td>
@@ -63,8 +69,20 @@
             <?= form_open_multipart('prestasi/insertdata') ?>
             <div class="modal-body">
                 <div class="form-group">
-                    <label>Judul</label>
-                    <input name="p_judul" class="form-control" placeholder="Masukkan Nama" required>
+                    <label>Nama</label>
+                    <input name="p_nama" class="form-control" placeholder="Masukkan Nama" required>
+                </div>
+                <div class="form-group">
+                    <label>Tahun</label>
+                    <input name="p_tahun" class="form-control" type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Tingkat</label>
+                    <input name="p_tingkat" class="form-control" placeholder="Masukkan Tingkat" required>
+                </div>
+                <div class="form-group">
+                    <label>Prestasi</label>
+                    <input name="p_prestasi" class="form-control" placeholder="Masukkan Prestasi" required>
                 </div>
                 <div class="form-group">
                     <label for="">Keterangan</label>
@@ -108,12 +126,24 @@
                 <?= form_open_multipart('prestasi/editdata/' . $value['p_id']) ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Judul</label>
-                        <input name="p_judul" class="form-control" placeholder="Masukkan Nama" value="<?= $value['p_judul'] ?>" required>
+                        <label>Nama</label>
+                        <input name="p_nama" class="form-control" placeholder="Masukkan Nama" value="<?= $value['p_nama'] ?>" required>
                     </div>
                     <div class="form-group">
+                        <label>Tahun</label>
+                        <input name="p_tahun" class="form-control" type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tingkat</label>
+                        <input name="p_tingkat" class="form-control" placeholder="Masukkan tingkat" value="<?= $value['p_tingkat'] ?>" required>
+                    </div>
+                    <div class=" form-group">
+                        <label>Prestasi</label>
+                        <input name="p_prestasi" class="form-control" placeholder="Masukkan Prestasi" value="<?= $value['p_prestasi'] ?>" required>
+                    </div>
+                    <div class=" form-group">
                         <label for="">Keterangan</label>
-                        <textarea class="form-control" name="p_keterangan" value="<?= $value['p_keterangan'] ?>" id="" rows="3"></textarea>
+                        <textarea class="form-control" name="p_keterangan" id="" rows="3"><?= $value['p_keterangan'] ?></textarea>
                     </div>
                     <div class="row">
                         <div class="col-6">
@@ -152,7 +182,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Apakah Anda ingin menghapus <b><?= $value['p_judul'] ?></b>?
+                    Apakah Anda ingin menghapus <b><?= $value['p_nama'] ?></b>?
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
