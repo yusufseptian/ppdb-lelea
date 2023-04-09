@@ -6,11 +6,14 @@
 
            <nav id="navbar" class="navbar">
                <ul>
-                   <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                   <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
-                   <li><a class="nav-link scrollto" href="#prestasi">Prestasi</a></li>
-                   <li><a class="nav-link scrollto " href="#gallery">Galeri</a></li>
-                   <li><a class="nav-link scrollto" href="#ekskul">Ekskul</a></li>
+                   <li><a class="nav-link scrollto active" href="<?= base_url('home/') ?>#hero">Home</a></li>
+                   <li><a class="nav-link scrollto" href="<?= base_url('home/') ?>#about">Tentang</a></li>
+                   <li><a class="nav-link scrollto" href="<?= base_url('home/') ?>#prestasi">Prestasi</a></li>
+                   <li><a class="nav-link scrollto " href="<?= base_url('home/') ?>#gallery">Galeri</a></li>
+                   <li><a class="nav-link scrollto" href="<?= base_url('home/') ?>#ekskul">Ekskul</a></li>
+                   <li><a class="nav-link" href="<?= base_url('daftar') ?>">
+                           <div class="btn btn-info text-white">Daftar</div>
+                       </a></li>
                </ul>
                <i class="bi bi-list mobile-nav-toggle"></i>
            </nav><!-- .navbar -->

@@ -19,7 +19,7 @@ class Home extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Admin',
+            'title' => 'Siswa',
             'subtitle' => 'Dashboard Admin',
             'tentang' => $this->db->table('tb_profil')->get()->getRowArray(),
             'prestasi' => $this->db->table('tb_prestasi')->get()->getResultArray(),

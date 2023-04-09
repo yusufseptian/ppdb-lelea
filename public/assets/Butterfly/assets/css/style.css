@@ -10,7 +10,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   color: #444444;
 }
 
@@ -30,7 +30,17 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
+}
+
+label {
+  font-weight: bold;
+  padding-block: 5px;
+}
+
+.form-check label {
+  font-weight: normal;
+  padding-block: 0px;
 }
 
 /*--------------------------------------------------------------
@@ -85,7 +95,7 @@ h6 {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
 }
 
 #header .logo a {
@@ -124,7 +134,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
   font-size: 15px;
   font-weight: 600;
   color: #0f394c;
@@ -350,7 +360,7 @@ h6 {
 }
 
 #hero .btn-get-started {
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -615,7 +625,7 @@ section {
   font-weight: 700;
   display: block;
   color: #49b5e7;
-  font-family: "Dosis", sans-serif;
+  /* font-family: "Dosis", sans-serif; */
 }
 
 .counts .counters p {
@@ -1293,7 +1303,7 @@ section {
 .breadcrumbs h2 {
   font-size: 28px;
   font-weight: 400;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
 }
 
 .breadcrumbs ol {
@@ -1414,7 +1424,7 @@ section {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
   color: #777777;
 }
 
