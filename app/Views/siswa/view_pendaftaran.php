@@ -36,6 +36,7 @@
             <div class="container-fluid">
                 <div class="row m-5 px-5">
                     <h4 class="text-center p-4">PPDB (Penerimaan Peserta Didik Baru) SMP Negeri 2 LELEA</h4>
+                    <?= form_open_multipart('daftar/insertSiswa') ?>
                     <div class="col-6">
                         <div class="card border-info">
                             <h5 class="card-header bg-info text-white">Formulir Data Siswa</h5>
@@ -99,12 +100,11 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Alamat</label>
-                                    <!-- <input type="text" class="form-control" name="siswa_alamat" required> -->
-                                    <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                                    <textarea name="siswa_alamat" id="" cols="30" rows="3" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Telepon</label>
-                                    <input type="tel" class="form-control" name="siswa_telepon" required>
+                                    <input type="number" class="form-control" name="siswa_telepon" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Email</label>
@@ -119,19 +119,19 @@
                             <div class="card-body">
                                 <div class="form-group mb-3">
                                     <label>Nama Ayah</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_nama_ayah" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Pendidikan Ayah</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_pendidikan_ayah" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Telepon Ayah</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_telepon_ayah" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Pekerjaan Ayah</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_pekerjaan_ayah" required>
                                 </div>
                             </div>
                         </div>
@@ -139,19 +139,19 @@
                             <div class="card-body">
                                 <div class="form-group mb-3">
                                     <label>Nama Ibu</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_nama_ibu" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Pendidikan Ibu</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_penddikan_ibu" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Telepon Ibu</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_telepon_ibu" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Pekerjaan Ibu</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_pekerjaan_ibu" required>
                                 </div>
                             </div>
                         </div>
@@ -159,23 +159,28 @@
                             <div class="card-body">
                                 <div class="form-group mb-3">
                                     <label>Nama Wali</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_nama_wali">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Pendidikan Wali</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_pendidikan_wali">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Telepon Wali</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_telepon_wali">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Pekerjaan Wali</label>
-                                    <input type="text" class="form-control" name="" required>
+                                    <input type="text" class="form-control" name="ortu_pekerjaan_wali">
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <button class="btn btn-success mt-4" type="submit">
+                        Daftar Sekarang
+                    </button>
+                    <?= form_close() ?>
                 </div>
             </div>
         </div>
