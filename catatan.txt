@@ -2,4 +2,7 @@ progress:
 data master fix
 home page fix
 ppdb view fix
-logic ppdb on progress
+logic ppdb (fix)
+
+kurang :
+view ppdb-> arul
