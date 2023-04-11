@@ -59,6 +59,7 @@ class Daftar extends BaseController
             'ortu_siswa_id'         => $id_siswa,
         ];
         $this->Mortu->insert($data_ortu);
+        //email smtp
         return redirect()->to(base_url('daftar'))->with('success', 'Data Berhasil Ditambahkan');
     }
 }
