@@ -34,9 +34,9 @@
     <div class="wrapper" style="margin-top: 100px;">
         <div class="content-wrapper">
             <div class="container-fluid">
-                <div class="row m-5 px-5">
+                <?= form_open_multipart('daftar/insertSiswa') ?>
+                <div class="row mx-5 px-5">
                     <h4 class="text-center p-4">PPDB (Penerimaan Peserta Didik Baru) SMP Negeri 2 LELEA</h4>
-                    <?= form_open_multipart('daftar/insertSiswa') ?>
                     <div class="col-6">
                         <div class="card border-info">
                             <h5 class="card-header bg-info text-white">Formulir Data Siswa</h5>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="form-group mb-3" id="pre">
                                     <label for="gbr">Preview</label><br>
-                                    <img src="" id="gambar_load" name="gbr" width="250px">
+                                    <img src="" id="gambar_load" name="gbr" width="275px">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -176,12 +176,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <button class="btn btn-success mt-4" type="submit">
-                        Daftar Sekarang
-                    </button>
-                    <?= form_close() ?>
                 </div>
+                <div class="row d-flex justify-content-center m-4">
+                    <button class="col-4 btn btn-success" type="submit">Daftar Sekarang</button>
+                </div>
+                <?= form_close() ?>
             </div>
         </div>
     </div>
