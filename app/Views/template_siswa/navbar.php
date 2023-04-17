@@ -11,8 +11,8 @@
                    <li><a class="nav-link scrollto" href="<?= base_url('home/') ?>#prestasi">Prestasi</a></li>
                    <li><a class="nav-link scrollto " href="<?= base_url('home/') ?>#gallery">Galeri</a></li>
                    <li><a class="nav-link scrollto" href="<?= base_url('home/') ?>#ekskul">Ekskul</a></li>
-                   <li><a class="nav-link" href="<?= base_url('daftar') ?>">
-                           <div class="btn btn-info text-white">Daftar</div>
+                   <li><a class="nav-link" href="<?= base_url('auth') ?>">
+                           <div class="btn btn-info text-white">Login</div>
                        </a></li>
                </ul>
                <i class="bi bi-list mobile-nav-toggle"></i>
