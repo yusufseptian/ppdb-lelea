@@ -27,5 +27,6 @@ class Msiswa extends Model
         'siswa_email',
         'siswa_foto',
         'siswa_jarak',
+        'siswa_token'
     ];
 }

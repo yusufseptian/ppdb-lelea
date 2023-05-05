@@ -5,6 +5,10 @@ namespace App\Controllers;
 use App\Models\Mortu;
 use App\Models\Msiswa;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 class Daftar extends BaseController
 {
     private $Msiswa;
@@ -14,6 +18,7 @@ class Daftar extends BaseController
         $this->Msiswa   = new Msiswa();
         $this->Mortu    = new Mortu();
         helper('form');
+        helper('text');
     }
     public function index()
     {
@@ -25,6 +30,8 @@ class Daftar extends BaseController
     }
     public function insertSiswa()
     {
+        $token = random_string('alnum', 6);
+        $mail = new PHPMailer(true);
         $file = $this->request->getFile('siswa_foto');
         $nama_file = $file->getRandomName();
         $data_siswa = [
@@ -41,6 +48,7 @@ class Daftar extends BaseController
             'siswa_email'           => $this->request->getPost('siswa_email'),
             'siswa_foto'            => $nama_file,
             'siswa_jarak'           => $this->request->getPost('siswa_jarak'),
+            'siswa_token'           => $token
         ];
         $file->move('foto_siswa/', $nama_file);
         $this->Msiswa->insert($data_siswa);
@@ -60,6 +68,34 @@ class Daftar extends BaseController
         ];
         $this->Mortu->insert($data_ortu);
         //email smtp
+        try {
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'yqhoirilia@gmail.com'; // ubah dengan alamat email Anda
+            $mail->Password   = ''; // ubah dengan password email Anda
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port       = 465;
+
+            $mail->setFrom('yqhoirilia@gmail.com', 'PPDB'); // ubah dengan alamat email Anda
+            $mail->addAddress($this->request->getPost('siswa_email'));
+            $mail->addReplyTo('yqhoirilia@gmail.com', 'PPDB'); // ubah dengan alamat email Anda
+
+            // Isi Email
+            $mail->isHTML(true);
+            $mail->Subject = 'Token Rahasia PPDB SMPN 2 Lelea';
+            $mail->Body    = 'Token pendaftaran untuk bisa login pada website PPDB Sebagai Calon Siswa <br> <b>' . $token . '</b>';
+
+            $mail->send();
+
+            // Pesan Berhasil Kirim Email/Pesan Error
+            // session()->setFlashdata('pesan', 'Berhasil mendaftar, silahkan login untuk melengkapi data!!');
+            // session()->set('reg_us_id', $this->request->getPost('us_email'));
+            return redirect()->to(base_url('/Register/InputToken'));
+        } catch (Exception $e) {
+            session()->setFlashdata('gagal', "Gagal mengirim email. Error: " . $mail->ErrorInfo);
+            dd($mail->ErrorInfo);
+        }
         return redirect()->to(base_url('daftar'))->with('success', 'Data Berhasil Ditambahkan');
     }
 }

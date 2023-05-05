@@ -31,7 +31,7 @@
                 <h4 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">PPDB - SMP Negeri 2 Lelea</h4>
                 <form action="" class="m-5">
                     <div class="form-group">
-                        <input type="text" class="form-control px-4" placeholder="Username">
+                        <input type="text" class="form-control px-4" placeholder="Email">
                     </div>
                     <div class="form-group mb-5">
                         <input type="password" class="form-control px-4" placeholder="Password">
