@@ -27,7 +27,9 @@ abstract class BaseController extends Controller
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
-
+    protected $kategori_ekskul = [
+        'Wajib', 'Pilihan'
+    ];
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 05 Bulan Mei 2023 pada 12.05
+-- Waktu pembuatan: 07 Bulan Mei 2023 pada 07.55
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -56,10 +56,11 @@ CREATE TABLE `tb_ekskul` (
 --
 
 INSERT INTO `tb_ekskul` (`eks_id`, `eks_nama`, `eks_kategori`, `eks_foto`) VALUES
-(1, 'Macul', 'Wajib', '1680422855_0fb6226e9660f9bf72f0.jpg'),
-(2, 'Mancing', 'Pilihan', '1680422855_0fb6226e9660f9bf72f0.jpg'),
-(3, 'Pramuka', 'Wajib', '1680422855_0fb6226e9660f9bf72f0.jpg'),
-(4, 'Muncak', 'Pilihan', '1680422855_0fb6226e9660f9bf72f0.jpg');
+(1, 'Futsal', 'Pilihan', '1683428535_d21fc38901e9509ecaac.jpg'),
+(2, 'Mancing', 'Pilihan', '1683422548_33a87bdc196ba4e35829.jpg'),
+(3, 'Pramuka', 'Wajib', '1683422548_33a87bdc196ba4e35829.jpg'),
+(4, 'Muncak', 'Pilihan', '1683421887_afd90dbfcee767826e71.jpg'),
+(5, 'Tari', 'Pilihan', '1683421887_afd90dbfcee767826e71.jpg');
 
 -- --------------------------------------------------------
 
@@ -78,9 +79,9 @@ CREATE TABLE `tb_galeri` (
 --
 
 INSERT INTO `tb_galeri` (`galeri_id`, `galeri_nama`, `galeri_foto`) VALUES
-(1, 'Shole HAH', '1680422909_13c3f76484213ba55467.jpg'),
-(2, 'Gamabar babi', '1680422909_13c3f76484213ba55467.jpg'),
-(3, 'gambar kucing', '1680422909_13c3f76484213ba55467.jpg');
+(1, 'Shole HAH', '1683429101_6f9481d92239d6b4ed30.jpg'),
+(2, 'Gamabar babi', '1683429101_6f9481d92239d6b4ed30.jpg'),
+(3, 'gambar kucing', '1683429101_6f9481d92239d6b4ed30.jpg');
 
 -- --------------------------------------------------------
 
@@ -141,7 +142,8 @@ CREATE TABLE `tb_prestasi` (
 --
 
 INSERT INTO `tb_prestasi` (`p_id`, `p_nama`, `p_keterangan`, `p_tahun`, `p_tingkat`, `p_prestasi`, `p_foto`) VALUES
-(3, 'haris', 'Lomba Mewarnai', '2023-04-06', 'Kabupaten', 'Juara 1', '1680799495_d6ae740f7e1ad7a93304.jpg');
+(3, 'haris', 'Lomba Mewarnai', '2023-04-06', 'Kabupaten', 'Juara 1', '1680799495_d6ae740f7e1ad7a93304.jpg'),
+(4, 'Melisa', 'Juara Lomba Debat', '2023-05-07', 'Provinsi', 'Juara 2', '1683420890_a01412fce1235aad73d6.jpg');
 
 -- --------------------------------------------------------
 
@@ -341,7 +343,7 @@ ALTER TABLE `tb_berkas`
 -- AUTO_INCREMENT untuk tabel `tb_ekskul`
 --
 ALTER TABLE `tb_ekskul`
-  MODIFY `eks_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `eks_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_galeri`
@@ -365,7 +367,7 @@ ALTER TABLE `tb_orangtua`
 -- AUTO_INCREMENT untuk tabel `tb_prestasi`
 --
 ALTER TABLE `tb_prestasi`
-  MODIFY `p_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `p_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_profil`

@@ -17,6 +17,7 @@ class Ekskul extends BaseController
     {
         $data = [
             'title' => 'Ekskul',
+            'kategori' => $this->kategori_ekskul,
             'subtitle' => 'Manajemen Ekstra Kulikuler',
             'ekskul' => $this->ModelEkskul->findAll()
         ];
@@ -48,10 +49,10 @@ class Ekskul extends BaseController
                 'eks_nama' => $this->request->getPost('eks_nama'),
                 'eks_kategori' => $this->request->getPost('eks_kategori'),
             ];
-            $this->Modelekskul->update($eks_id, $data);
+            $this->ModelEkskul->update($eks_id, $data);
         } else {
             // jika foto diganti
-            $ekskul = $this->Modelekskul->where('eks_id', $eks_id)->get()->getRowArray();
+            $ekskul = $this->ModelEkskul->where('eks_id', $eks_id)->get()->getRowArray();
             if ($ekskul['eks_foto'] != "") {
                 unlink('./foto_ekskul/' . $ekskul['eks_foto']);
             }
@@ -63,7 +64,7 @@ class Ekskul extends BaseController
                 'eks_foto' => $nama_file,
             ];
             $file->move('foto_ekskul/', $nama_file);
-            $this->Modelekskul->update($eks_id, $data);
+            $this->ModelEkskul->update($eks_id, $data);
         }
         session()->setFlashdata('edit', 'Data berhasil diedit..!!');
         return redirect()->to('ekskul');
@@ -71,14 +72,14 @@ class Ekskul extends BaseController
 
     public function deleteData($eks_id)
     {
-        $ekskul = $this->Modelekskul->where('eks_id', $eks_id)->get()->getRowArray();
+        $ekskul = $this->ModelEkskul->where('eks_id', $eks_id)->get()->getRowArray();
         if ($ekskul['eks_foto'] != "") {
             unlink('./foto_ekskul/' . $ekskul['eks_foto']);
         }
         $data = [
             'eks_id' => $eks_id,
         ];
-        $this->Modelekskul->delete($data);
+        $this->ModelEkskul->delete($data);
         session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
         return redirect()->to('ekskul');
     }

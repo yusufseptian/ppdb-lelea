@@ -118,7 +118,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-warning">
-                    <h4 class="modal-title">Edit prestasi</h4>
+                    <h4 class="modal-title">Edit Prestasi</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -149,11 +149,11 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input id="p_foto" type="file" accept="image/*" name="galeri_foto" class="form-control" onchange="bacaGambar(event)" required>
+                                <input id="p_foto" type="file" accept="image/*" name="p_foto" class="form-control" onchange="editGambar(event,'#gambar_load_edit')" required>
                             </div>
                             <div class="form-group" id="pre">
                                 <label>Preview</label><br>
-                                <img src="" id="gambar_load" width="200px">
+                                <img src="<?= base_url('foto_prestasi/' . $value['p_foto']) ?>" id="gambar_load_edit" width="200px">
                             </div>
                         </div>
                     </div>
