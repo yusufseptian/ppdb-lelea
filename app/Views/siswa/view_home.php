@@ -28,6 +28,7 @@
     <link href="<?= base_url() ?>/assets/Butterfly/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/splide/dist/css/splide.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/OwlCarousel/dist/assets/owl.theme.default.min.css">
 </head>
 
 <body>
@@ -120,27 +121,27 @@
         new Splide('.splide').mount();
     </script>
     <script>
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: false,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: true
-                },
-                600: {
-                    items: 3,
-                    nav: false
-                },
-                1000: {
-                    items: 4,
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    600: {
+                        items: 3,
+                    },
+                    1000: {
+                        items: 4,
+                    }
                 }
-            }
-        })
+            });
+        });
     </script>
 </body>
 
