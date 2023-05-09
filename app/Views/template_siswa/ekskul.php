@@ -8,9 +8,9 @@
     </div>
 
     <div class="row">
-        <?php foreach ($ekskul as $key => $value) { ?>
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                <div class="member">
+        <div class="owl-carousel owl-theme">
+            <?php foreach ($ekskul as $key => $value) { ?>
+                <div class="member item">
                     <div class="member-img">
                         <img src="<?= base_url('foto_ekskul/' . $value['eks_foto']) ?>" class="img-fluid" alt="">
                     </div>
@@ -19,8 +19,10 @@
                         <span><?= $value['eks_kategori'] ?></span>
                     </div>
                 </div>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
+
+
     </div>
 
 </div>

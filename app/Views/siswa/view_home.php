@@ -26,7 +26,8 @@
     <link href="<?= base_url() ?>/assets/Butterfly/assets/css/style.css" rel="stylesheet">
     <link href="<?= base_url() ?>/assets/Butterfly/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="<?= base_url() ?>/assets/Butterfly/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/splide/dist/css/splide.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/OwlCarousel/dist/assets/owl.carousel.min.css">
 </head>
 
 <body>
@@ -113,7 +114,34 @@
     <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
+    <script src="<?= base_url() ?>/assets/plugins/splide/dist/js/splide.min.js"></script>
+    <script src="<?= base_url() ?>/assets/plugins/owlcarousel/dist/owl.carousel.min.js"></script>
+    <script>
+        new Splide('.splide').mount();
+    </script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: false,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 4,
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>

@@ -8,16 +8,16 @@
     </div>
 
     <div class="row no-gutters">
-        <?php foreach ($galeri as $key => $value) { ?>
-            <div class="col-lg-3 col-md-4">
-                <div class="gallery-item">
+        <div class="owl-carousel owl-them">
+            <?php foreach ($galeri as $key => $value) { ?>
+                <div class="gallery-item item">
                     <a href="<?= base_url('foto_galeri/' . $value['galeri_foto']) ?>" class="galleery-lightbox" data-gallery="gallery-item">
                         <img src="<?= base_url('foto_galeri/' . $value['galeri_foto']) ?>" alt="" class="img-fluid">
                     </a>
                     <h6 class="mt-3"><?= $value['galeri_nama'] ?></h6>
                 </div>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
     </div>
 
 </div>
