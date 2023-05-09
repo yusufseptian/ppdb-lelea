@@ -25,5 +25,6 @@ class MTentang extends Model
         'profil_visi',
         'profil_misi',
         'profil_deskripsi',
+        'profil_foto'
     ];
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 09 Bulan Mei 2023 pada 03.28
+-- Waktu pembuatan: 09 Bulan Mei 2023 pada 14.29
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -144,7 +144,7 @@ CREATE TABLE `tb_prestasi` (
 --
 
 INSERT INTO `tb_prestasi` (`p_id`, `p_nama`, `p_keterangan`, `p_tahun`, `p_tingkat`, `p_prestasi`, `p_foto`) VALUES
-(3, 'haris', 'Lomba Mewarnai', '2023-04-06', 'Kabupaten', 'Juara 1', '1680799495_d6ae740f7e1ad7a93304.jpg'),
+(3, 'haris', 'Lomba Mewarnai', '2023-05-15', 'Kabupaten', 'Juara 2', '1683616434_5ccc2d6846a3b04dc4e6.jpg'),
 (4, 'Melisa', 'Juara Lomba Debat', '2023-05-07', 'Provinsi', 'Juara 2', '1683420890_a01412fce1235aad73d6.jpg'),
 (5, 'Nasrullah', 'Juara 1 Lomba desain UI/UX', '2023-05-09', 'Nasional', 'Juara 1', '1683598473_0cf0a63e38dbe7cdc843.jpg'),
 (6, 'Septian', 'Juara Lomba Competitive Programming', '2023-05-10', 'Nasional', 'Juara 1', '1683598522_c62ec528fc8164eccafa.jpg');
@@ -167,15 +167,16 @@ CREATE TABLE `tb_profil` (
   `profil_akreditasi` varchar(5) COLLATE utf8mb4_general_ci NOT NULL,
   `profil_visi` text COLLATE utf8mb4_general_ci NOT NULL,
   `profil_misi` text COLLATE utf8mb4_general_ci NOT NULL,
-  `profil_deskripsi` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `profil_deskripsi` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `profil_foto` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_profil`
 --
 
-INSERT INTO `tb_profil` (`profil_id`, `profil_nama`, `profil_alamat`, `profil_kepsek`, `profil_email`, `profil_kontak`, `profil_npsb`, `profil_status`, `profil_akreditasi`, `profil_visi`, `profil_misi`, `profil_deskripsi`) VALUES
-(1, 'SMP 1 lelea', 'Mojogedang, Karangpandan, Magelang', 'Yudist', 'anjay@g.com', '0897098759', 9876543, 'Good', 'A', 'Terwujudnya Peserta Didik yang Bertaqwa, Berkarakter Unggul, Berprestasi, Berwawasan Global dan Berbudaya Lingkungan', 'Menanamkan keimanan dan ketaqwaan kepada Tuhan YME, Menyelanggarakan Pendidikan dan Pelatihan Yang Berkualitas, Berwawasan Global dan Berbudaya Lingkungan', 'SMP 1 lelea merupakan tempat belajar mengajar yang beralamatkan di Mojogedang, Karangpandan, Magelang dan memiliki Kepala Sekolah bernama Yudist ');
+INSERT INTO `tb_profil` (`profil_id`, `profil_nama`, `profil_alamat`, `profil_kepsek`, `profil_email`, `profil_kontak`, `profil_npsb`, `profil_status`, `profil_akreditasi`, `profil_visi`, `profil_misi`, `profil_deskripsi`, `profil_foto`) VALUES
+(1, 'SMP 1 lelea', '', 'Yudistira', 'anjay@g.com', '0897098759', 9876543, 'Good', 'A', 'Terwujudnya Peserta Didik yang Bertaqwa, Berkarakter Unggul, Berprestasi, Berwawasan Global dan Berbudaya Lingkungan', 'Menanamkan keimanan dan ketaqwaan kepada Tuhan YME, Menyelanggarakan Pendidikan dan Pelatihan Yang Berkualitas, Berwawasan Global dan Berbudaya Lingkungan', 'SMP 1 lelea merupakan tempat belajar mengajar yang beralamatkan di Mojogedang, Karangpandan, Magelang dan memiliki Kepala Sekolah bernama Yudistira hehe', '1683642291_e78e905369b43a798719.jpg');
 
 -- --------------------------------------------------------
 
