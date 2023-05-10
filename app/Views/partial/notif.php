@@ -42,7 +42,7 @@
 
         Toast.fire({
             icon: 'warning',
-            title: '<?= session('success'); ?>'
+            title: '<?= session('warning'); ?>'
         })
     </script>
 
@@ -64,8 +64,8 @@
         })
 
         Toast.fire({
-            icon: 'danger',
-            title: '<?= session('success'); ?>'
+            icon: 'error',
+            title: '<?= session('danger'); ?>'
         })
     </script>
 

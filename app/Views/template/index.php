@@ -142,6 +142,8 @@
             bacaGambar(this);
         });
     </script>
+
+    <?= $this->include('/partial/notif.php'); ?>
 </body>
 
 </html>

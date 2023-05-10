@@ -128,7 +128,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input id="eks_foto" type="file" accept="image/*" name="eks_foto" class="form-control" onchange="editGambar(event,'#gambar_load_edit')" required>
+                                <input id="eks_foto" type="file" accept="image/*" name="eks_foto" class="form-control" onchange="editGambar(event,'#gambar_load_edit')">
                             </div>
                             <div class="form-group" id="pre">
                                 <label>Preview</label><br>

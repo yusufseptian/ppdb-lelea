@@ -37,8 +37,7 @@ class Prestasi extends BaseController
         $file->move('foto_prestasi/', $nama_file);
         $this->Modelprestasi->insert($data);
 
-        session()->setFlashdata('tambah', 'Data berhasil ditambahkan..!!');
-        return redirect()->to('prestasi');
+        return redirect()->to('prestasi')->with('success', 'Data berhasil ditambah');
     }
 
     public function editData($p_id)
@@ -74,8 +73,7 @@ class Prestasi extends BaseController
             $file->move('foto_prestasi/', $nama_file);
             $this->Modelprestasi->update($p_id, $data);
         }
-        session()->setFlashdata('edit', 'Data berhasil diedit..!!');
-        return redirect()->to('prestasi');
+        return redirect()->to('prestasi')->with('warning', 'Data berhasil diedit');
     }
 
     public function deleteData($p_id)
@@ -88,7 +86,6 @@ class Prestasi extends BaseController
             'p_id' => $p_id,
         ];
         $this->Modelprestasi->delete($data);
-        session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
-        return redirect()->to('prestasi');
+        return redirect()->to('prestasi')->with('danger', 'Data berhasil dihapus');
     }
 }

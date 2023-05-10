@@ -130,8 +130,8 @@
                         <input name="p_nama" class="form-control" placeholder="Masukkan Nama" value="<?= $value['p_nama'] ?>" required>
                     </div>
                     <div class="form-group">
-                        <label>Tahun</label>
-                        <input name="p_tahun" class="form-control" type="date" required>
+                        <label>Tanggal</label>
+                        <input name="p_tahun" class="form-control" type="date">
                     </div>
                     <div class="form-group">
                         <label>Tingkat</label>
@@ -149,7 +149,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input id="p_foto" type="file" accept="image/*" name="p_foto" class="form-control" onchange="editGambar(event,'#gambar_load_edit')" required>
+                                <input id="p_foto" type="file" accept="image/*" name="p_foto" class="form-control" onchange="editGambar(event,'#gambar_load_edit')">
                             </div>
                             <div class="form-group" id="pre">
                                 <label>Preview</label><br>

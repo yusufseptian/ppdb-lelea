@@ -35,8 +35,7 @@ class Ekskul extends BaseController
         $file->move('foto_ekskul/', $nama_file);
         $this->ModelEkskul->insert($data);
 
-        session()->setFlashdata('tambah', 'Data berhasil ditambahkan..!!');
-        return redirect()->to('ekskul');
+        return redirect()->to('ekskul')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function editData($eks_id)
@@ -66,8 +65,7 @@ class Ekskul extends BaseController
             $file->move('foto_ekskul/', $nama_file);
             $this->ModelEkskul->update($eks_id, $data);
         }
-        session()->setFlashdata('edit', 'Data berhasil diedit..!!');
-        return redirect()->to('ekskul');
+        return redirect()->to('ekskul')->with('warning', 'Data berhasil diedit');
     }
 
     public function deleteData($eks_id)
@@ -81,6 +79,6 @@ class Ekskul extends BaseController
         ];
         $this->ModelEkskul->delete($data);
         session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
-        return redirect()->to('ekskul');
+        return redirect()->to('ekskul')->with('danger', 'Data berhasil dihapus');
     }
 }

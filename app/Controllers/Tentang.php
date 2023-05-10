@@ -72,7 +72,6 @@ class Tentang extends BaseController
             $file->move('foto_sekolah/', $nama_file);
             $this->ModelTentang->update($profil_id, $data_baru);
         }
-        session()->setFlashdata('success', 'Data berhasil diedit..!!');
-        return redirect()->to('tentang');
+        return redirect()->to('tentang')->with('success', 'Data berhasil diedit');
     }
 }

@@ -34,8 +34,7 @@ class Galeri extends BaseController
         $file->move('foto_galeri/', $nama_file);
         $this->ModelGaleri->insert($data);
 
-        session()->setFlashdata('tambah', 'Data berhasil ditambahkan..!!');
-        return redirect()->to('galeri');
+        return redirect()->to('galeri')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function editData($galeri_id)
@@ -64,8 +63,7 @@ class Galeri extends BaseController
             $file->move('foto_galeri/', $nama_file);
             $this->ModelGaleri->update($galeri_id, $data);
         }
-        session()->setFlashdata('edit', 'Data berhasil diedit..!!');
-        return redirect()->to('galeri');
+        return redirect()->to('galeri')->with('warning', 'Data berhasil diedit');
     }
 
     public function deleteData($galeri_id)
@@ -78,7 +76,6 @@ class Galeri extends BaseController
             'galeri_id' => $galeri_id,
         ];
         $this->ModelGaleri->delete($data);
-        session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
-        return redirect()->to('galeri');
+        return redirect()->to('galeri')->with('danger', 'Data berhasil dihapus');
     }
 }
