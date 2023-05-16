@@ -27,6 +27,14 @@ abstract class BaseController extends Controller
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
+    protected $agama = [
+        'Islam',
+        'Kristen',
+        'Katolik',
+        'Hindu',
+        'Buddha',
+        'Konghucu'
+    ];
     protected $kategori_ekskul = [
         'Wajib', 'Pilihan'
     ];

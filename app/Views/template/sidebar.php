@@ -14,7 +14,7 @@
                 <img src="<?= base_url() ?>/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Nganu</a>
+                <a href="#" class="d-block">Yolanda</a>
             </div>
         </div>
 
@@ -66,7 +66,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
+                            <a href="<?= base_url('datasiswa') ?>" class="nav-link">
                                 <i class="fa fa-check-square nav-icon"></i>
                                 <p>ACC Data Siswa</p>
                             </a>

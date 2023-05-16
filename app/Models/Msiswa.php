@@ -15,6 +15,7 @@ class Msiswa extends Model
     protected $allowedFields    = [
         'siswa_id',
         'siswa_nisn',
+        'siswa_nama',
         'siswa_username',
         'siswa_password',
         'siswa_jk',
@@ -27,6 +28,8 @@ class Msiswa extends Model
         'siswa_email',
         'siswa_foto',
         'siswa_jarak',
-        'siswa_token'
+        'siswa_token',
+        'siswa_sekolah_asal',
+        'siswa_status_pendaftaran'
     ];
 }

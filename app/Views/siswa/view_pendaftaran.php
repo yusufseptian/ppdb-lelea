@@ -50,6 +50,14 @@
                                     <input type="text" class="form-control" name="siswa_nama" required>
                                 </div>
                                 <div class="form-group mb-3">
+                                    <label class="bold">Asal Sekolah</label>
+                                    <input type="text" class="form-control" name="siswa_sekolah_asal" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="bold">Password</label>
+                                    <input type="password" class="form-control" name="siswa_password" required>
+                                </div>
+                                <div class="form-group mb-3">
                                     <label>Foto</label>
                                     <input id="foto" type="file" accept="image/*" name="siswa_foto" class="form-control" onchange="bacaGambar(event)" required>
                                 </div>
@@ -63,11 +71,11 @@
                                             <label>Jenis Kelamin</label>
                                             <div class="d-flex">
                                                 <div class="form-check ml-3">
-                                                    <input class="form-check-input" type="radio" id="jk_L" name="siswa_jenis_kelamin" required>
+                                                    <input class="form-check-input" type="radio" id="jk_L" value="Laki-Laki" name="siswa_jk" required>
                                                     <label class="form-check-label" for="jk_L">Laki-laki</label>
                                                 </div>
                                                 <div class="form-check px-5">
-                                                    <input class="form-check-input" type="radio" id="jk_P" name="siswa_jenis_kelamin">
+                                                    <input class="form-check-input" type="radio" id="jk_P" value="Perempuan" name="siswa_jk">
                                                     <label class="form-check-label" for="jk_P">Perempuan</label>
                                                 </div>
                                             </div>
@@ -75,10 +83,12 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group mb-3">
-                                            <label for="select_agama">Agama</label>
-                                            <select id="select_agama" name="siswa_jk" class="form-control">
-                                                <option selected>-- Pilih Agama --</option>
-                                                <option value="">Islam</option>
+                                            <label>Agama</label>
+                                            <select name="siswa_agama" class="form-control">
+                                                <option value="">--Pilih Agama--</option>
+                                                <?php foreach ($agama as $dt) : ?>
+                                                    <option value="<?= $dt ?>"><?= $dt ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
@@ -90,13 +100,23 @@
                                             <input type="text" class="form-control" name="siswa_tempat_lahir" required>
                                         </div>
                                         <div class="col-5">
-                                            <input type="date" class="form-control" name="siswa_tanggal_lahir" required>
+                                            <input type="date" class="form-control" name="siswa_tgl_lahir" required>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label>Status</label>
-                                    <input type="text" class="form-control" name="siswa_status" required>
+                                <div class="row">
+                                    <div class="col-6 form-group mb-3">
+                                        <label>Status</label>
+                                        <select name="siswa_status" class="form-control">
+                                            <option value="">--Pilih Status--</option>
+                                            <option value="Anak Kandung">Anak Kandung</option>
+                                            <option value="Anak Angkat">Anak Angkat</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 form-group mb-3">
+                                        <label>Jarak dari Rumah</label>
+                                        <input type="text" class="form-control" name="siswa_jarak" required>
+                                    </div>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Alamat</label>
@@ -143,7 +163,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Pendidikan Ibu</label>
-                                    <input type="text" class="form-control" name="ortu_penddikan_ibu" required>
+                                    <input type="text" class="form-control" name="ortu_pendidikan_ibu" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="bold">Telepon Ibu</label>

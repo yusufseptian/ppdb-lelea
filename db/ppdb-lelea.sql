@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 09 Bulan Mei 2023 pada 14.29
+-- Waktu pembuatan: 16 Bulan Mei 2023 pada 06.24
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -33,10 +33,18 @@ CREATE TABLE `tb_berkas` (
   `berkas_akta` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `berkas_kk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `berkas_ktp_ortu` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `berkas_nisn` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `berkas_rapor` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `berkas_surat_mutlak` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `berkas_ijazah_mda` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `berkas_user_id` int NOT NULL
+  `berkas_siswa_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_berkas`
+--
+
+INSERT INTO `tb_berkas` (`berkas_id`, `berkas_ijazah`, `berkas_akta`, `berkas_kk`, `berkas_ktp_ortu`, `berkas_rapor`, `berkas_surat_mutlak`, `berkas_ijazah_mda`, `berkas_siswa_id`) VALUES
+(1, '1683898571_757b7c6c5dfe4a76ef32.pdf', '1683898571_449e9b442d67e0d9a2da.pdf', '1683898571_a94aa68e67bceac8c2c7.pdf', '1683898571_07be05d3341d549f6abf.pdf', '1683898571_fea66d757a28318ae6af.pdf', '1683898571_93c9eac05a1b78699dc7.pdf', '1683898571_fa4eade0cd42aa9edf0d.pdf', 7);
 
 -- --------------------------------------------------------
 
@@ -95,10 +103,16 @@ CREATE TABLE `tb_nilai` (
   `nilai_id` int NOT NULL,
   `nilai_ipa` int NOT NULL,
   `nilai_mtk` int NOT NULL,
-  `nilai_inggris` int NOT NULL,
   `nilai_indo` int NOT NULL,
-  `nilai_user_id` int NOT NULL
+  `nilai_siswa_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_nilai`
+--
+
+INSERT INTO `tb_nilai` (`nilai_id`, `nilai_ipa`, `nilai_mtk`, `nilai_indo`, `nilai_siswa_id`) VALUES
+(1, 98, 78, 67, 7);
 
 -- --------------------------------------------------------
 
@@ -122,6 +136,17 @@ CREATE TABLE `tb_orangtua` (
   `ortu_telepon_wali` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
   `ortu_siswa_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_orangtua`
+--
+
+INSERT INTO `tb_orangtua` (`ortu_id`, `ortu_nama_ayah`, `ortu_pendidikan_ayah`, `ortu_telepon_ayah`, `ortu_pekerjaan_ayah`, `ortu_nama_ibu`, `ortu_pendidikan_ibu`, `ortu_telepon_ibu`, `ortu_pekerjaan_ibu`, `ortu_nama_wali`, `ortu_pekerjaan_wali`, `ortu_pendidikan_wali`, `ortu_telepon_wali`, `ortu_siswa_id`) VALUES
+(1, 'test', 'test', '42828', 'test', 'test', 'test', '217718', '', '', '', '', '', 3),
+(2, 'test', 'test', '32728', 'test', 'test', 'test', '21212', 'test', '', '', '', '', 4),
+(3, 'test', 'test', '72832', 'test', 'test', 'test', '72832', 'test', '', '', '', '', 5),
+(4, 'test', 'test', '83293', 'test', 'test', 'test', '2398', 'test', '', '', '', '', 6),
+(5, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '', '', '', '', 7);
 
 -- --------------------------------------------------------
 
@@ -176,7 +201,7 @@ CREATE TABLE `tb_profil` (
 --
 
 INSERT INTO `tb_profil` (`profil_id`, `profil_nama`, `profil_alamat`, `profil_kepsek`, `profil_email`, `profil_kontak`, `profil_npsb`, `profil_status`, `profil_akreditasi`, `profil_visi`, `profil_misi`, `profil_deskripsi`, `profil_foto`) VALUES
-(1, 'SMP 1 lelea', '', 'Yudistira', 'anjay@g.com', '0897098759', 9876543, 'Good', 'A', 'Terwujudnya Peserta Didik yang Bertaqwa, Berkarakter Unggul, Berprestasi, Berwawasan Global dan Berbudaya Lingkungan', 'Menanamkan keimanan dan ketaqwaan kepada Tuhan YME, Menyelanggarakan Pendidikan dan Pelatihan Yang Berkualitas, Berwawasan Global dan Berbudaya Lingkungan', 'SMP 1 lelea merupakan tempat belajar mengajar yang beralamatkan di Mojogedang, Karangpandan, Magelang dan memiliki Kepala Sekolah bernama Yudistira hehe', '1683642291_e78e905369b43a798719.jpg');
+(1, 'SMP 1 lelea', '', 'Yudistira', 'test@gmail.com', '0897098759', 9876543, 'Good', 'A', 'Terwujudnya Peserta Didik yang Bertaqwa, Berkarakter Unggul, Berprestasi, Berwawasan Global dan Berbudaya Lingkungan', 'Menanamkan keimanan dan ketaqwaan kepada Tuhan YME, Menyelanggarakan Pendidikan dan Pelatihan Yang Berkualitas, Berwawasan Global dan Berbudaya Lingkungan', 'SMP 1 lelea merupakan tempat belajar mengajar yang beralamatkan di Mojogedang, Karangpandan, Magelang dan memiliki Kepala Sekolah bernama Yudistira hehe', '1683642291_e78e905369b43a798719.jpg');
 
 -- --------------------------------------------------------
 
@@ -214,9 +239,9 @@ CREATE TABLE `tb_sekolah_asal` (
 CREATE TABLE `tb_siswa` (
   `siswa_id` int NOT NULL,
   `siswa_nisn` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `siswa_username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `siswa_password` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `siswa_nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `siswa_sekolah_asal` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `siswa_jk` enum('Laki-Laki','Perempuan') COLLATE utf8mb4_general_ci NOT NULL,
   `siswa_tempat_lahir` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `siswa_tgl_lahir` date NOT NULL,
@@ -226,9 +251,18 @@ CREATE TABLE `tb_siswa` (
   `siswa_telepon` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
   `siswa_email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `siswa_foto` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `siswa_jarak` int NOT NULL,
-  `siswa_token` varchar(10) COLLATE utf8mb4_general_ci NOT NULL
+  `siswa_jarak` float NOT NULL,
+  `siswa_token` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `siswa_status_pendaftaran` enum('Terdaftar','Diterima','Tidak Diterima') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_siswa`
+--
+
+INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nisn`, `siswa_password`, `siswa_nama`, `siswa_sekolah_asal`, `siswa_jk`, `siswa_tempat_lahir`, `siswa_tgl_lahir`, `siswa_agama`, `siswa_status`, `siswa_alamat`, `siswa_telepon`, `siswa_email`, `siswa_foto`, `siswa_jarak`, `siswa_token`, `siswa_status_pendaftaran`) VALUES
+(6, '3293', 'hehe', 'indriyani', '', 'Laki-Laki', 'magelang', '2023-05-10', 'Islam', 'Anak Kandung', 'nsdm', '43847', 'test@gmail.com', '1683811817_e15adff3438bad012890.jpg', 12, 'SycZX6', 'Terdaftar'),
+(7, '7887', 'hehe', 'indriyani', '', 'Perempuan', 'magelang', '2023-05-16', 'Kristen', 'Anak Kandung', 'test', '2178', 'test@gmail.com', '1683898433_35391ed1efd9624e31d3.jpg', 13, 'K2DTCu', 'Terdaftar');
 
 -- --------------------------------------------------------
 
@@ -342,7 +376,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT untuk tabel `tb_berkas`
 --
 ALTER TABLE `tb_berkas`
-  MODIFY `berkas_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `berkas_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_ekskul`
@@ -360,13 +394,13 @@ ALTER TABLE `tb_galeri`
 -- AUTO_INCREMENT untuk tabel `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
-  MODIFY `nilai_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `nilai_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_orangtua`
 --
 ALTER TABLE `tb_orangtua`
-  MODIFY `ortu_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ortu_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_prestasi`
@@ -396,7 +430,7 @@ ALTER TABLE `tb_sekolah_asal`
 -- AUTO_INCREMENT untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `siswa_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `siswa_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tahun_ajaran`
