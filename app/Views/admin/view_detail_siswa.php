@@ -29,8 +29,8 @@
                             <input type="text" class="form-control" name="siswa_jk" value="<?= $dt_siswa['siswa_jk'] ?>" required disabled>
                         </div>
                         <div class="form-group mb-3" id="pre">
-                            <label for="gbr">Foto Siswa</label><br>
-                            <img src="" id="gambar_load" name="gbr" width="275px">
+                            <label>Preview</label><br>
+                            <img src="<?= base_url('foto_siswa/' . $dt_siswa['siswa_foto']) ?>" id="gambar_load_edit" width="200px">
                         </div>
                         <div class="form-group mb-3">
                             <label>Tempat & Tanggal Lahir</label>
