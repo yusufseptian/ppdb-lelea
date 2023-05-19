@@ -269,7 +269,8 @@ class Address extends \Faker\Provider\Address
     ];
 
     protected static $addressFormats = [
-        '{{streetAddress}}, {{city}} {{postcode}}, {{stateAbbr}}',
+        // '{{streetAddress}}, {{city}} {{postcode}}, {{stateAbbr}}',
+        '{{streetAddress}}, {{city}} {{postcode}}, Indramayu',
     ];
 
     protected static $postcode = ['%####'];

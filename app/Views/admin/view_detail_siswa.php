@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label>Alamat</label>
-                            <textarea name="siswa_alamat" id="" cols="30" rows="3" class="form-control"><?= $dt_siswa['siswa_alamat'] ?></textarea>
+                            <textarea name="siswa_alamat" id="" cols="30" rows="3" class="form-control" disabled><?= $dt_siswa['siswa_alamat'] ?></textarea>
                         </div>
                         <div class="form-group mb-3">
                             <label>Telepon</label>

@@ -13,18 +13,18 @@ class Person extends \Faker\Provider\Person
         '{{firstNameMale}} {{lastNameMale}}',
         '{{firstNameMale}} {{lastNameMale}}',
         '{{firstNameMale}} {{lastNameMale}}',
-        '{{firstNameMale}} {{lastNameMale}} {{suffix}}',
+        // '{{firstNameMale}} {{lastNameMale}} {{suffix}}',
         '{{firstNameMale}} {{firstNameMale}} {{lastNameMale}}',
-        '{{firstNameMale}} {{firstNameMale}} {{lastNameMale}} {{suffix}}',
+        // '{{firstNameMale}} {{firstNameMale}} {{lastNameMale}} {{suffix}}',
     ];
 
     protected static $femaleNameFormats = [
         '{{firstNameFemale}} {{lastNameFemale}}',
         '{{firstNameFemale}} {{lastNameFemale}}',
         '{{firstNameFemale}} {{lastNameFemale}}',
-        '{{firstNameFemale}} {{lastNameFemale}} {{suffix}}',
+        // '{{firstNameFemale}} {{lastNameFemale}} {{suffix}}',
         '{{firstNameFemale}} {{firstNameFemale}} {{lastNameFemale}}',
-        '{{firstNameFemale}} {{firstNameFemale}} {{lastNameFemale}} {{suffix}}',
+        // '{{firstNameFemale}} {{firstNameFemale}} {{lastNameFemale}} {{suffix}}',
     ];
 
     /**
@@ -236,9 +236,11 @@ class Person extends \Faker\Provider\Person
      *
      * @see http://id.wikipedia.org/wiki/Gelar_akademik
      */
-    private static $suffix = ['S.Ked', 'S.Gz', 'S.Pt', 'S.IP', 'S.E.I',
+    private static $suffix = [
+        'S.Ked', 'S.Gz', 'S.Pt', 'S.IP', 'S.E.I',
         'S.E.', 'S.Kom', 'S.H.', 'S.T.', 'S.Pd', 'S.Psi', 'S.I.Kom',
-        'S.Sos', 'S.Farm', 'M.M.', 'M.Kom.', 'M.TI.', 'M.Pd', 'M.Farm', 'M.Ak', ];
+        'S.Sos', 'S.Farm', 'M.M.', 'M.Kom.', 'M.TI.', 'M.Pd', 'M.Farm', 'M.Ak',
+    ];
 
     /**
      * Return last name
