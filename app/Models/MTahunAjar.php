@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class MTahunAjar extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_tahun_ajar';
+    protected $table            = 'tb_tahun_ajaran';
     protected $primaryKey       = 'ta_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;

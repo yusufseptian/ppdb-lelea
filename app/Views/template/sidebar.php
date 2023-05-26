@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
+                            <a href="<?= base_url('tahunajar') ?>" class="nav-link">
                                 <i class="fa fa-calendar nav-icon"></i>
                                 <p>Tahun Ajaran</p>
                             </a>
