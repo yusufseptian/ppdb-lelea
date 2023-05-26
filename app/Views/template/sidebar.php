@@ -72,7 +72,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/beranda') ?>" class="nav-link">
+                            <a href="<?= base_url('ranking') ?>" class="nav-link">
                                 <i class="fa fa-trophy nav-icon"></i>
                                 <p>Rangking</p>
                             </a>
