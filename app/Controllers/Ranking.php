@@ -13,14 +13,15 @@ class Ranking extends BaseController
     {
         $this->modelSiswa = new Msiswa();
     }
-
+    // ($tmpNilai == $value['totalNilai']) ? $no : $no++
     public function index()
     {
+
         $data = [
             'title' => 'Pendaftaran',
             'subtitle' => 'Pendaftaran',
-            'dtSiswa' => $this->modelSiswa->where(''),
+            'dtSiswa' => $this->modelSiswa->getRanking(),
         ];
-        return view('admin/view_rangking', $data);
+        return view('admin/view_ranking', $data);
     }
 }
