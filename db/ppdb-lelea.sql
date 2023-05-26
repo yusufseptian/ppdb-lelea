@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Bulan Mei 2023 pada 16.04
+-- Waktu pembuatan: 26 Bulan Mei 2023 pada 10.25
 -- Versi server: 10.4.22-MariaDB
--- Versi PHP: 8.1.2
+-- Versi PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -291,29 +291,32 @@ CREATE TABLE `tb_siswa` (
   `siswa_foto` varchar(100) NOT NULL,
   `siswa_jarak` float NOT NULL,
   `siswa_token` varchar(10) NOT NULL,
-  `siswa_status_pendaftaran` enum('Terdaftar','Diterima','Tidak Diterima') NOT NULL
+  `siswa_status_pendaftaran` enum('Terdaftar','Diterima','Tidak Diterima') NOT NULL,
+  `siswa_ta_id` int(10) UNSIGNED NOT NULL,
+  `siswa_created_at` datetime DEFAULT NULL,
+  `siswa_edited_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_siswa`
 --
 
-INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nisn`, `siswa_password`, `siswa_nama`, `siswa_sekolah_asal`, `siswa_jk`, `siswa_tempat_lahir`, `siswa_tgl_lahir`, `siswa_agama`, `siswa_status`, `siswa_alamat`, `siswa_telepon`, `siswa_email`, `siswa_foto`, `siswa_jarak`, `siswa_token`, `siswa_status_pendaftaran`) VALUES
-(1, '4224437686', '1234', 'Ilyas Adriansyah', 'SD N 1 JAMBAK', 'Perempuan', 'Sumatera Barat', '2008-08-18', 'Islam', 'Anak Kandung', 'Ki. Rumah Sakit No. 797, Tomohon 48890, Indramayu', '0516 6426 1054', 'warta54@yahoo.com', '7aaf1fdc-3c27-3ceb-8372-5c90be2ed504.jpg', 3, 'LFG422', 'Terdaftar'),
-(2, '0293691479', '1234', 'Karna Sihotang', 'SD N 2 TUGU', 'Laki-Laki', 'Bali', '2009-12-29', 'Katolik', 'Anak Kandung', 'Dk. B.Agam 1 No. 30, Binjai 40059, Indramayu', '0235 0161 182', 'talia73@gmail.com', '9f3db2b3-0fc8-39e6-b637-d4f8e14d6354.jpg', 1, 'PCR202', 'Terdaftar'),
-(3, '7780046648', '1234', 'Dian Padmasari', 'SD N 2 TUGU', 'Perempuan', 'Sulawesi Utara', '2009-07-11', 'Islam', 'Anak Kandung', 'Kpg. Basudewo No. 501, Bekasi 81276, Indramayu', '(+62) 496 8441 ', 'mulya66@gmail.com', '1eb4a46e-ae2f-334d-aa0c-2f689e9b00f3.jpg', 1, 'STP024', 'Terdaftar'),
-(4, '6802449374', '1234', 'Hamima Kuswandari', 'SD N 1 JAMBAK', 'Perempuan', 'Jambi', '2009-06-02', 'Kristen', 'Anak Kandung', 'Dk. Sam Ratulangi No. 948, Sungai Penuh 59454, Indramayu', '(+62) 874 770 3', 'dimaz.lestari@gmail.com', 'd6d57d60-3fbe-3382-aeb2-56229a301ea2.jpg', 8, 'GWS340', 'Terdaftar'),
-(5, '7608407069', '1234', 'Eka Agustina', 'SD N 1 NUNUK', 'Perempuan', 'DI Yogyakarta', '2009-12-07', 'Kristen', 'Anak Kandung', 'Jln. Merdeka No. 951, Padang 52002, Indramayu', '0636 8632 032', 'sihombing.simon@gmail.com', '1e0ba6aa-3b93-3cd9-9532-83a028133952.jpg', 5, 'KPB042', 'Terdaftar'),
-(6, '7073647531', '1234', 'Anita Andriani', 'SD N 2 TUGU', 'Perempuan', 'Maluku Utara', '2009-07-09', 'Konghucu', 'Anak Angkat', 'Jln. Muwardi No. 920, Pematangsiantar 51744, Indramayu', '(+62) 524 5308 ', 'harsanto.prasetya@gmail.com', '7c265764-dc1b-31a8-ae20-d5c4f74ae3af.jpg', 12, 'JWJ423', 'Terdaftar'),
-(7, '1605911542', '1234', 'Gamani Waluyo', 'SD N 1 NUNUK', 'Laki-Laki', 'Gorontalo', '2009-07-18', 'Katolik', 'Anak Angkat', 'Kpg. Casablanca No. 195, Bengkulu 73483, Indramayu', '(+62) 484 7971 ', 'kani.pangestu@gmail.co.id', 'd110a7e0-4d20-386b-a8cd-747d422954c4.jpg', 15, 'VBK234', 'Terdaftar'),
-(8, '6779116939', '1234', 'Chelsea Suci Usada', 'SD N 1 JAMBAK', 'Perempuan', 'Sulawesi Barat', '2009-08-21', 'Hindu', 'Anak Kandung', 'Ki. Urip Sumoharjo No. 291, Bogor 57480, Indramayu', '(+62) 545 4550 ', 'hharyanto@gmail.co.id', '84f8a945-43cf-3a17-9f25-e9777c04ae7e.jpg', 14, 'TFU243', 'Terdaftar'),
-(9, '4024569503', '1234', 'Ajeng Rahayu', 'SD N BUNDER', 'Perempuan', 'Sulawesi Barat', '2009-05-03', 'Hindu', 'Anak Kandung', 'Jr. Kalimalang No. 294, Palopo 45573, Indramayu', '(+62) 981 6894 ', 'adriansyah.malika@yahoo.co.id', 'b9385984-1913-31f2-bdb6-4fb58ece8e37.jpg', 7, 'MKB211', 'Terdaftar'),
-(10, '9556095039', '1234', 'Garang Sidiq Halim', 'SD N 3 TELAGASARI', 'Laki-Laki', 'Sulawesi Tenggara', '2010-02-20', 'Hindu', 'Anak Angkat', 'Ki. Babadan No. 173, Kupang 18464, Indramayu', '020 0658 866', 'salimah92@yahoo.com', 'b3b330d5-c846-376d-8283-70eb4550a89e.jpg', 13, 'ODE214', 'Terdaftar'),
-(11, '8446130823', '1234', 'Hasna Kusmawati', 'SD N 1 JAMBAK', 'Perempuan', 'Kalimantan Timur', '2009-07-13', 'Katolik', 'Anak Kandung', 'Gg. Perintis Kemerdekaan No. 117, Bandar Lampung 78394, Indramayu', '0239 6311 843', 'saragih.zamira@gmail.com', '04c6c22b-137c-3f0f-a01a-fd6a6720e388.jpg', 6, 'JMY321', 'Terdaftar'),
-(12, '0644576073', '1234', 'Hesti Novitasari', 'SD N 3 TELAGASARI', 'Perempuan', 'Kepulauan Riau', '2009-03-05', 'Islam', 'Anak Kandung', 'Jr. Tambak No. 311, Kupang 64640, Indramayu', '0379 3650 500', 'mala.suartini@gmail.com', 'e55c4d8d-d872-34b1-a14e-5b263918a4a4.jpg', 4, 'CAT312', 'Terdaftar'),
-(13, '8001305449', '1234', 'Cahyono Ganda Jailani', 'SD N 2 RANCASARI', 'Laki-Laki', 'Sulawesi Selatan', '2009-02-13', 'Islam', 'Anak Angkat', 'Jln. Umalas No. 746, Padangpanjang 10937, Indramayu', '(+62) 856 8287 ', 'ika28@yahoo.co.id', 'adaca4a1-08b6-3671-ac42-6da4796b01a6.jpg', 13, 'BDD324', 'Terdaftar'),
-(14, '682518847X', '1234', 'Manah Tampubolon', 'SD N 1 JAMBAK', 'Perempuan', 'Kalimantan Barat', '2009-03-03', 'Islam', 'Anak Kandung', 'Jr. Karel S. Tubun No. 207, Pematangsiantar 61935, Indramayu', '(+62) 418 4159 ', 'yuniar.kartika@yahoo.com', 'd95f4129-2c85-39e2-8100-6df50d30d752.jpg', 7, 'VMU234', 'Terdaftar'),
-(15, '046627212X', '1234', 'Harto Sitorus', 'SD N 2 TUGU', 'Laki-Laki', 'Jawa Tengah', '2009-08-15', 'Hindu', 'Anak Kandung', 'Kpg. Bank Dagang Negara No. 965, Tasikmalaya 39606, Indramayu', '0235 0118 412', 'prasetya.hardiansyah@yahoo.co.id', '8af90dbf-eb19-3659-a315-3c52477e26cd.jpg', 3, 'RIN343', 'Terdaftar');
+INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nisn`, `siswa_password`, `siswa_nama`, `siswa_sekolah_asal`, `siswa_jk`, `siswa_tempat_lahir`, `siswa_tgl_lahir`, `siswa_agama`, `siswa_status`, `siswa_alamat`, `siswa_telepon`, `siswa_email`, `siswa_foto`, `siswa_jarak`, `siswa_token`, `siswa_status_pendaftaran`, `siswa_ta_id`, `siswa_created_at`, `siswa_edited_at`) VALUES
+(1, '4224437686', '1234', 'Ilyas Adriansyah', 'SD N 1 JAMBAK', 'Perempuan', 'Sumatera Barat', '2008-08-18', 'Islam', 'Anak Kandung', 'Ki. Rumah Sakit No. 797, Tomohon 48890, Indramayu', '0516 6426 1054', 'warta54@yahoo.com', '7aaf1fdc-3c27-3ceb-8372-5c90be2ed504.jpg', 3, 'LFG422', 'Terdaftar', 0, NULL, NULL),
+(2, '0293691479', '1234', 'Karna Sihotang', 'SD N 2 TUGU', 'Laki-Laki', 'Bali', '2009-12-29', 'Katolik', 'Anak Kandung', 'Dk. B.Agam 1 No. 30, Binjai 40059, Indramayu', '0235 0161 182', 'talia73@gmail.com', '9f3db2b3-0fc8-39e6-b637-d4f8e14d6354.jpg', 1, 'PCR202', 'Terdaftar', 0, NULL, NULL),
+(3, '7780046648', '1234', 'Dian Padmasari', 'SD N 2 TUGU', 'Perempuan', 'Sulawesi Utara', '2009-07-11', 'Islam', 'Anak Kandung', 'Kpg. Basudewo No. 501, Bekasi 81276, Indramayu', '(+62) 496 8441 ', 'mulya66@gmail.com', '1eb4a46e-ae2f-334d-aa0c-2f689e9b00f3.jpg', 1, 'STP024', 'Terdaftar', 0, NULL, NULL),
+(4, '6802449374', '1234', 'Hamima Kuswandari', 'SD N 1 JAMBAK', 'Perempuan', 'Jambi', '2009-06-02', 'Kristen', 'Anak Kandung', 'Dk. Sam Ratulangi No. 948, Sungai Penuh 59454, Indramayu', '(+62) 874 770 3', 'dimaz.lestari@gmail.com', 'd6d57d60-3fbe-3382-aeb2-56229a301ea2.jpg', 8, 'GWS340', 'Terdaftar', 0, NULL, NULL),
+(5, '7608407069', '1234', 'Eka Agustina', 'SD N 1 NUNUK', 'Perempuan', 'DI Yogyakarta', '2009-12-07', 'Kristen', 'Anak Kandung', 'Jln. Merdeka No. 951, Padang 52002, Indramayu', '0636 8632 032', 'sihombing.simon@gmail.com', '1e0ba6aa-3b93-3cd9-9532-83a028133952.jpg', 5, 'KPB042', 'Terdaftar', 0, NULL, NULL),
+(6, '7073647531', '1234', 'Anita Andriani', 'SD N 2 TUGU', 'Perempuan', 'Maluku Utara', '2009-07-09', 'Konghucu', 'Anak Angkat', 'Jln. Muwardi No. 920, Pematangsiantar 51744, Indramayu', '(+62) 524 5308 ', 'harsanto.prasetya@gmail.com', '7c265764-dc1b-31a8-ae20-d5c4f74ae3af.jpg', 12, 'JWJ423', 'Terdaftar', 0, NULL, NULL),
+(7, '1605911542', '1234', 'Gamani Waluyo', 'SD N 1 NUNUK', 'Laki-Laki', 'Gorontalo', '2009-07-18', 'Katolik', 'Anak Angkat', 'Kpg. Casablanca No. 195, Bengkulu 73483, Indramayu', '(+62) 484 7971 ', 'kani.pangestu@gmail.co.id', 'd110a7e0-4d20-386b-a8cd-747d422954c4.jpg', 15, 'VBK234', 'Terdaftar', 0, NULL, NULL),
+(8, '6779116939', '1234', 'Chelsea Suci Usada', 'SD N 1 JAMBAK', 'Perempuan', 'Sulawesi Barat', '2009-08-21', 'Hindu', 'Anak Kandung', 'Ki. Urip Sumoharjo No. 291, Bogor 57480, Indramayu', '(+62) 545 4550 ', 'hharyanto@gmail.co.id', '84f8a945-43cf-3a17-9f25-e9777c04ae7e.jpg', 14, 'TFU243', 'Terdaftar', 0, NULL, NULL),
+(9, '4024569503', '1234', 'Ajeng Rahayu', 'SD N BUNDER', 'Perempuan', 'Sulawesi Barat', '2009-05-03', 'Hindu', 'Anak Kandung', 'Jr. Kalimalang No. 294, Palopo 45573, Indramayu', '(+62) 981 6894 ', 'adriansyah.malika@yahoo.co.id', 'b9385984-1913-31f2-bdb6-4fb58ece8e37.jpg', 7, 'MKB211', 'Terdaftar', 0, NULL, NULL),
+(10, '9556095039', '1234', 'Garang Sidiq Halim', 'SD N 3 TELAGASARI', 'Laki-Laki', 'Sulawesi Tenggara', '2010-02-20', 'Hindu', 'Anak Angkat', 'Ki. Babadan No. 173, Kupang 18464, Indramayu', '020 0658 866', 'salimah92@yahoo.com', 'b3b330d5-c846-376d-8283-70eb4550a89e.jpg', 13, 'ODE214', 'Terdaftar', 0, NULL, NULL),
+(11, '8446130823', '1234', 'Hasna Kusmawati', 'SD N 1 JAMBAK', 'Perempuan', 'Kalimantan Timur', '2009-07-13', 'Katolik', 'Anak Kandung', 'Gg. Perintis Kemerdekaan No. 117, Bandar Lampung 78394, Indramayu', '0239 6311 843', 'saragih.zamira@gmail.com', '04c6c22b-137c-3f0f-a01a-fd6a6720e388.jpg', 6, 'JMY321', 'Terdaftar', 0, NULL, NULL),
+(12, '0644576073', '1234', 'Hesti Novitasari', 'SD N 3 TELAGASARI', 'Perempuan', 'Kepulauan Riau', '2009-03-05', 'Islam', 'Anak Kandung', 'Jr. Tambak No. 311, Kupang 64640, Indramayu', '0379 3650 500', 'mala.suartini@gmail.com', 'e55c4d8d-d872-34b1-a14e-5b263918a4a4.jpg', 4, 'CAT312', 'Terdaftar', 0, NULL, NULL),
+(13, '8001305449', '1234', 'Cahyono Ganda Jailani', 'SD N 2 RANCASARI', 'Laki-Laki', 'Sulawesi Selatan', '2009-02-13', 'Islam', 'Anak Angkat', 'Jln. Umalas No. 746, Padangpanjang 10937, Indramayu', '(+62) 856 8287 ', 'ika28@yahoo.co.id', 'adaca4a1-08b6-3671-ac42-6da4796b01a6.jpg', 13, 'BDD324', 'Terdaftar', 0, NULL, NULL),
+(14, '682518847X', '1234', 'Manah Tampubolon', 'SD N 1 JAMBAK', 'Perempuan', 'Kalimantan Barat', '2009-03-03', 'Islam', 'Anak Kandung', 'Jr. Karel S. Tubun No. 207, Pematangsiantar 61935, Indramayu', '(+62) 418 4159 ', 'yuniar.kartika@yahoo.com', 'd95f4129-2c85-39e2-8100-6df50d30d752.jpg', 7, 'VMU234', 'Terdaftar', 0, NULL, NULL),
+(15, '046627212X', '1234', 'Harto Sitorus', 'SD N 2 TUGU', 'Laki-Laki', 'Jawa Tengah', '2009-08-15', 'Hindu', 'Anak Kandung', 'Kpg. Bank Dagang Negara No. 965, Tasikmalaya 39606, Indramayu', '0235 0118 412', 'prasetya.hardiansyah@yahoo.co.id', '8af90dbf-eb19-3659-a315-3c52477e26cd.jpg', 3, 'RIN343', 'Terdaftar', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -325,7 +328,12 @@ CREATE TABLE `tb_tahun_ajaran` (
   `ta_id` int(11) NOT NULL,
   `ta_tahun_ajaran` varchar(25) NOT NULL,
   `ta_kuota` int(11) NOT NULL,
-  `ta_status` enum('aktif','tidak aktif') NOT NULL
+  `ta_mulai_daftar` datetime DEFAULT NULL,
+  `ta_selesai_daftar` datetime DEFAULT NULL,
+  `ta_created_at` datetime NOT NULL,
+  `ta_created_by` int(10) UNSIGNED NOT NULL,
+  `ta_edited_at` datetime DEFAULT NULL,
+  `ta_edited_by` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

@@ -30,6 +30,14 @@ class Msiswa extends Model
         'siswa_jarak',
         'siswa_token',
         'siswa_sekolah_asal',
-        'siswa_status_pendaftaran'
+        'siswa_status_pendaftaran',
+        'siswa_ta_id'
     ];
+
+    // Dates
+    protected $useTimestamps = true;
+    protected $dateFormat    = 'datetime';
+    protected $createdField  = 'siswa_created_at';
+    protected $updatedField  = 'siswa_edited_at';
+    protected $deletedField  = 'deleted_at';
 }
