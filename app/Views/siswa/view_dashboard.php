@@ -1,6 +1,14 @@
-<?= $this->extend('template/index') ?>
+<?= $this->extend('template_siswa/dashboard') ?>
 <?= $this->section('content') ?>
+
 <div class="row" style="margin-inline: 100px;">
+    <div class="col-12">
+        <div class="card border-info">
+            <h5 class="card-header bg-info text-white">Pengumuman</h5>
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
     <div class="col">
         <!-- siswa -->
         <div class="row">
@@ -82,44 +90,43 @@
                             <div class="form-group mb-3 mx-auto">
                                 <div class="btn">
                                     <label>Ijazah/Surat Keterangan Lulus/Kartu Ujian</label><br>
-                                    <a href="<?= base_url('ijazah_siswa/' . $dt_siswa['berkas_ijazah'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <input type="file" accept="pdf/*" name="berkas_ijazah" class="border border-dark rounded" required>
                                 </div>
                             </div>
                             <div class="form-group mb-3 mx-auto">
                                 <div class="btn">
                                     <label>Akte Kelahiran/Surat Keterangan Lahir</label><br>
-                                    <a href="<?= base_url('akta_siswa/' . $dt_siswa['berkas_akta'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <input type="file" accept="pdf/*" name="berkas_akta" class="border border-dark rounded" required>
                                 </div>
                             </div>
                             <div class="form-group mb-3 mx-auto">
                                 <div class="btn">
                                     <label>Kartu Keluarga (minimal satu tahun)</label><br>
-                                    <a href="<?= base_url('kk_siswa/' . $dt_siswa['berkas_kk'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
-
+                                    <input type="file" accept="pdf/*" name="berkas_kk" class="border border-dark rounded" required>
                                 </div>
                             </div>
                             <div class="form-group mb-3 mx-auto">
                                 <div class="btn">
                                     <label>KTP Orang Tua</label><br>
-                                    <a href="<?= base_url('ktp_ortu_siswa/' . $dt_siswa['berkas_ktp_ortu'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <input type="file" accept="pdf/*" name="berkas_ktp_ortu" class="border border-dark rounded" required>
                                 </div>
                             </div>
                             <div class="form-group mb-3 mx-auto">
                                 <div class="btn">
                                     <label>Buku Raport(Kelas 4-6)</label><br>
-                                    <a href="<?= base_url('rapor_siswa/' . $dt_siswa['berkas_rapor'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <input type="file" accept="pdf/*" name="berkas_rapor" class="border border-dark rounded" required>
                                 </div>
                             </div>
                             <div class="form-group mb-3 mx-auto">
                                 <div class="btn">
                                     <label>Surat Tanggung Jawab Mutlak Orang Tua</label><br>
-                                    <a href="<?= base_url('surat_mutlak_siswa/' . $dt_siswa['berkas_surat_mutlak'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <input type="file" accept="pdf/*" name="berkas_surat_mutlak" class="border border-dark rounded" required>
                                 </div>
                             </div>
                             <div class="form-group mb-3 mx-auto">
                                 <div class="btn">
                                     <label>Ijazah MDA/MDTA</label><br>
-                                    <a href="<?= base_url('ijazah_mda_siswa/' . $dt_siswa['berkas_ijazah_mda'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <input type="file" accept="pdf/*" name="berkas_ijazah_mda" class="border border-dark rounded" required>
                                 </div>
                             </div>
                         </div>

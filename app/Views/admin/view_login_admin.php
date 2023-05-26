@@ -27,19 +27,26 @@
                 <img src="<?= base_url('assets/MURID3.jpeg') ?>" class="rounded-left" style="object-position: -230px; filter: grayscale(100%);">
             </div>
             <div class="col-6 p-5 pb-1 rounded-right bg-light">
-                <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Login</h1>
+                <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Login Administrator</h1>
                 <h4 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">PPDB - SMP Negeri 2 Lelea</h4>
-                <form action="<?= base_url('auth/login_user') ?>" method="post" class="m-5">
+                <?php if (session('logFailed')) : ?>
                     <div class="form-group">
-                        <input type="text" class="form-control px-4" <?= $validation->hasError('siswa_email') ? 'is-invalid' : '' ?>" name="siswa_email" id="email" placeholder="email">
-                        <div class="invalid-feedback" id="emailFeedback">
-                            <?= $validation->getError('siswa_email') ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= session('logFailed') ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <form action="<?= base_url('auth/login_admin') ?>" method="post" class="m-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control px-4" <?= $validation->hasError('user_username') ? 'is-invalid' : '' ?>" name="user_username" id="username" placeholder="Username">
+                        <div class="invalid-feedback" id="usernameFeedback">
+                            <?= $validation->getError('user_username') ?>
                         </div>
                     </div>
                     <div class="form-group mb-5">
-                        <input type="password" class="form-control px-4" <?= $validation->hasError('siswa_password') ? 'is-invalid' : '' ?>" name="siswa_password" id="password" placeholder="Password">
+                        <input type="password" class="form-control px-4" <?= $validation->hasError('user_password') ? 'is-invalid' : '' ?>" name="user_password" id="password" placeholder="Password">
                         <div class="invalid-feedback" id="passwordFeedback">
-                            <?= $validation->getError('siswa_password') ?>
+                            <?= $validation->getError('user_password') ?>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-danger w-100">Masuk</button>

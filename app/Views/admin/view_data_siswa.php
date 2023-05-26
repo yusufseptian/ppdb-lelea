@@ -25,14 +25,24 @@
                             <td><?= $value['siswa_nisn'] ?></td>
                             <td><?= $value['siswa_nama'] ?></td>
                             <td><?= $value['siswa_sekolah_asal'] ?></td>
-                            <td class="text-primary text-center"><?= $value['siswa_status_pendaftaran'] ?></td>
-
+                            <td class="text-center p-0">
+                                <?php if ($value['siswa_status_pendaftaran'] == 'Terdaftar') { ?>
+                                    <div class="bg-primary p-3">Terdaftar</div>
+                                <?php } elseif ($value['siswa_status_pendaftaran'] == 'Diterima') { ?>
+                                    <div class="bg-success p-3">Diterima</div>
+                                <?php } else { ?>
+                                    <div class="bg-danger p-3">Tidak diterima</div>
+                                <?php } ?>
+                            </td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-flat btn-info" onclick="window.location.href='<?= base_url('datasiswa/detail/') . $value['siswa_nisn'] ?>'">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-flat btn-success" data-toggle="modal" data-target="#delete<?= $value['siswa_id'] ?>">
-                                    <i class="fas fa-check"></i>
+                                <button class="btn btn-sm btn-flat btn-success" onclick="window.location.href='<?= base_url('datasiswa/diterima/') . $value['siswa_nisn'] ?>'">
+                                    <i class=" fas fa-check"></i>
+                                </button>
+                                <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['siswa_nisn'] ?>">
+                                    <i class="fas fa-times"></i>
                                 </button>
                             </td>
                         </tr>
@@ -43,4 +53,34 @@
         <!-- /.card-body -->
     </div>
 </div>
+<!-- Modal delete -->
+<?php foreach ($dt_siswa as $key => $dt) { ?>
+    <div class="modal fade" id="delete<?= $dt['siswa_nisn'] ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h4 class="modal-title">Hapus Siswa ?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?= form_open('datasiswa/ditolak/' . $dt['siswa_nisn']) ?>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Deskripsi</label>
+                        <textarea class="form-control" name="siswa_alasan_ditolak" id="" rows="5"><?= $dt['siswa_alasan_ditolak'] ?></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-danger btn-sm">Ubah</button>
+                </div>
+                <?= form_close() ?>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+<?php } ?>
 <?= $this->endSection() ?>

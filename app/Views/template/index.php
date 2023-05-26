@@ -32,7 +32,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="<?= base_url('auth/logout_admin') ?>">
                         <i class="fa fa-sign-out-alt"></i> Logout
                     </a>
 

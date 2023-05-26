@@ -30,6 +30,7 @@ class Msiswa extends Model
         'siswa_jarak',
         'siswa_token',
         'siswa_sekolah_asal',
-        'siswa_status_pendaftaran'
+        'siswa_status_pendaftaran',
+        'siswa_alasan_ditolak'
     ];
 }
