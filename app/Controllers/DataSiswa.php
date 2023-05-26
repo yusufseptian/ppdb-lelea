@@ -6,6 +6,7 @@ use App\Models\Mberkas;
 use App\Models\Mnilai;
 use App\Models\Mortu;
 use App\Models\Msiswa;
+use App\Models\MTahunAjar;
 
 class DataSiswa extends BaseController
 {
@@ -13,21 +14,29 @@ class DataSiswa extends BaseController
     private $Mortu;
     private $Mnilai;
     private $Mberkas;
+    private $Mtahunajar;
+
     public function __construct()
     {
         $this->Msiswa   = new Msiswa();
         $this->Mortu    = new Mortu();
         $this->Mnilai   = new Mnilai();
         $this->Mberkas  = new Mberkas();
+        $this->Mtahunajar = new MTahunAjar();
         helper('form');
         helper('text');
     }
     public function index()
     {
+        $dtTA = $this->Mtahunajar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
+            return $this->redirectBack();
+        }
         $data = [
             'title' => 'Admin',
             'subtitle' => 'Manajemen Data Siswa',
-            'dt_siswa' => $this->Msiswa->findAll()
+            'dt_siswa' => $this->Msiswa->where('siswa_ta_id', $dtTA['ta_id'])->findAll()
         ];
         return view('admin/view_data_siswa', $data);
     }

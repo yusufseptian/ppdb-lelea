@@ -44,11 +44,13 @@ class Msiswa extends Model
 
     public function getRanking()
     {
-        $dtSiswa = $this->join('tb_nilai', 'siswa_id=nilai_siswa_id')->findAll();
-        $maxIPA = $this->select('max(nilai_ipa) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->first();
-        $maxMTK = $this->select('max(nilai_mtk) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->first();
-        $maxIndo = $this->select('max(nilai_indo) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->first();
-        $minJarak = $this->select('min(siswa_jarak) as min')->first();
+        $modelTahunAjar = new MTahunAjar();
+        $idTA = $modelTahunAjar->getTANow()['ta_id'];
+        $dtSiswa = $this->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->findAll();
+        $maxIPA = $this->select('max(nilai_ipa) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->first();
+        $maxMTK = $this->select('max(nilai_mtk) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->first();
+        $maxIndo = $this->select('max(nilai_indo) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->first();
+        $minJarak = $this->select('min(siswa_jarak) as min')->where('siswa_ta_id', $idTA)->first();
         $index = 0;
         foreach ($dtSiswa as $dt) {
             $nIPA = $dt['nilai_ipa'] / ($maxIPA['max']);

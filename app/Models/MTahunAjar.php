@@ -24,4 +24,9 @@ class MTahunAjar extends Model
     protected $createdField  = 'ta_created_at';
     protected $updatedField  = 'ta_edited_at';
     protected $deletedField  = 'deleted_at';
+
+    public function getTANow()
+    {
+        return $this->orderBy('ta_id', 'desc')->first();
+    }
 }
