@@ -10,5 +10,5 @@ view ppdb-> arul (fix)
 php mailer ->sup
 
 Kekurangan:
-- Pembatasan register siswa sesuai tahun ajaran.
 - Pengunduran diri level siswa
+- Pembatasan login calon siswa berdasarkan tahun ajaran

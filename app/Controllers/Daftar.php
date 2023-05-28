@@ -6,7 +6,7 @@ use App\Models\Mberkas;
 use App\Models\Mnilai;
 use App\Models\Mortu;
 use App\Models\Msiswa;
-
+use App\Models\MTahunAjar;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -17,17 +17,29 @@ class Daftar extends BaseController
     private $Mortu;
     private $Mnilai;
     private $Mberkas;
+    private $MTahunAjar;
+
     public function __construct()
     {
         $this->Msiswa   = new Msiswa();
         $this->Mortu    = new Mortu();
         $this->Mnilai   = new Mnilai();
         $this->Mberkas  = new Mberkas();
+        $this->MTahunAjar = new MTahunAjar();
         helper('form');
         helper('text');
     }
     public function index()
     {
+        $dtTA = $this->MTahunAjar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajar masih kosong');
+            return $this->redirectBack();
+        }
+        if (!$this->MTahunAjar->isOpened()) {
+            session()->setFlashdata('danger', 'Bukan dalam masa pendaftaran');
+            return $this->redirectBack();
+        }
         $data = [
             'title' => 'Pendaftaran',
             'subtitle' => 'Pendaftaran',
@@ -37,6 +49,15 @@ class Daftar extends BaseController
     }
     public function insertSiswa()
     {
+        $dtTA = $this->MTahunAjar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajar masih kosong');
+            return $this->redirectBack();
+        }
+        if (!$this->MTahunAjar->isOpened()) {
+            session()->setFlashdata('danger', 'Bukan dalam masa pendaftaran');
+            return $this->redirectBack();
+        }
         $token = random_string('alnum', 6);
         $mail = new PHPMailer(true);
         $file = $this->request->getFile('siswa_foto');
@@ -84,6 +105,15 @@ class Daftar extends BaseController
     }
     public function Berkas()
     {
+        $dtTA = $this->MTahunAjar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajar masih kosong');
+            return $this->redirectBack();
+        }
+        if (!$this->MTahunAjar->isOpened()) {
+            session()->setFlashdata('danger', 'Bukan dalam masa pendaftaran');
+            return $this->redirectBack();
+        }
         $data = [
             'title' => 'Pendaftaran',
             'subtitle' => 'Pendaftaran',
@@ -92,7 +122,15 @@ class Daftar extends BaseController
     }
     public function insertBerkas()
     {
-
+        $dtTA = $this->MTahunAjar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajar masih kosong');
+            return $this->redirectBack();
+        }
+        if (!$this->MTahunAjar->isOpened()) {
+            session()->setFlashdata('danger', 'Bukan dalam masa pendaftaran');
+            return $this->redirectBack();
+        }
         //get berkas
         $file_ijazah = $this->request->getFile('berkas_ijazah');
         $file_akta = $this->request->getFile('berkas_akta');

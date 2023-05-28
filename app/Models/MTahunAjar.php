@@ -29,4 +29,13 @@ class MTahunAjar extends Model
     {
         return $this->orderBy('ta_id', 'desc')->first();
     }
+
+    public function isOpened(): bool
+    {
+        $dtTA = $this->getTANow();
+        if (strtotime(date("Y-m-d H:i:s")) >= strtotime($dtTA['ta_mulai_daftar']) && strtotime(date("Y-m-d H:i:s")) <= strtotime($dtTA['ta_selesai_daftar'])) {
+            return true;
+        }
+        return false;
+    }
 }
