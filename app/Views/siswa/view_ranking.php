@@ -28,7 +28,7 @@
                                 <tr>
                                     <td>Ranking Kamu</td>
                                     <td>:</td>
-                                    <td><?= (is_null($dtRanking)) ? '-' : $dtRanking['ranking'] . ' dari ' . count($dtSiswa) . ' siswa' ?></td>
+                                    <td><?= (empty($dtRanking)) ? '-' : $dtRanking['ranking'] . ' dari ' . count($dtSiswa) . ' siswa' ?></td>
                                 </tr>
                             </table>
                         </div>
