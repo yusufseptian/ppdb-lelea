@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <?php
 if ($dt_siswa['siswa_status_pendaftaran'] == 'Diterima') {
-    if ($dtRanking['rangking'] > $dtTA['ta_kuota']) {
+    if ($dtRanking['ranking'] > $dtTA['ta_kuota']) {
         $class = 'bg-danger';
     } else {
         $class = 'bg-success';
@@ -19,9 +19,9 @@ if ($dt_siswa['siswa_status_pendaftaran'] == 'Diterima') {
             <h5 class="card-header text-white">Pengumuman</h5>
             <div class="card-body d-flex flex-column text-center">
                 <?php if ($dt_siswa['siswa_status_pendaftaran'] == 'Diterima') : ?>
-                    <?php if ($dtRanking['rangking'] > $dtTA['ta_kuota']) : ?>
+                    <?php if ($dtRanking['ranking'] > $dtTA['ta_kuota']) : ?>
                         <h1 class="w-100 my-auto"><b>Maaf anda tidak lolos pendaftaran</b></h1>
-                        <h6 class="m-0"><i>Hasil ini masih dapat berubah selama rentang waktu pendaftaran. Silahkan pantau perangkingan.</i></h6>
+                        <h6 class="m-0"><i>Hasil ini masih dapat berubah selama rentang waktu pendaftaran. Silahkan pantau perankingan.</i></h6>
                     <?php else : ?>
                         <h1 class="w-100 my-auto"><b>Selamat anda diterima.</b></h1>
                         <h6 class="m-0"><i>Hasil ini masih dapat berubah selama rentang waktu pendaftaran. Silahkan pantau perangkingan.</i></h6>

@@ -34,8 +34,8 @@
             <a href="" class="logo"><img src="<?= base_url() ?>/assets/logo.png" alt="" style="max-height: 60px !important;" class="img-fluid"></a>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="<?= base_url('home/') ?>#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="<?= base_url('home/') ?>">Rangking</a></li>
+                    <li><a class="nav-link scrollto active" href="<?= base_url('siswa/') ?>">Home</a></li>
+                    <li><a class="nav-link scrollto" href="<?= base_url('ranking/siswa') ?>">Rangking</a></li>
                     <li class="nav-item dropdown">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
                             <i class="fas fa-user"></i>&ensp;<?= session('log_auth')['akunName'] ?>
@@ -68,6 +68,19 @@
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>/assets/Butterfly/assets/js/main.js"></script>
     <script src="<?= base_url() ?>assets/Butterfly/assets/vendor/jquery/jquery.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="<?= base_url('assets') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/jszip/jszip.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
     <script>
         // preview img
@@ -95,6 +108,7 @@
         });
         //end preview img
     </script>
+    <?= $this->renderSection('bottomScript'); ?>
 </body>
 
 </html>

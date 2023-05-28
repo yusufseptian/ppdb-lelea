@@ -16,7 +16,6 @@ class Ranking extends BaseController
         $this->modelSiswa = new Msiswa();
         $this->modelTahunAjar = new MTahunAjar();
     }
-    // ($tmpNilai == $value['totalNilai']) ? $no : $no++
     public function index()
     {
         $dtTA = $this->modelTahunAjar->getTANow();
@@ -30,5 +29,21 @@ class Ranking extends BaseController
             'dtSiswa' => $this->modelSiswa->getRanking(),
         ];
         return view('admin/view_ranking', $data);
+    }
+    public function siswa()
+    {
+        $dtTA = $this->modelTahunAjar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
+            return $this->redirectBack();
+        }
+        $data = [
+            'title' => 'Pendaftaran',
+            'subtitle' => 'Perangkingan',
+            'dtSiswa' => $this->modelSiswa->getRanking(),
+            'dtTA' => $dtTA,
+            'dtRanking' => $this->modelSiswa->getRankingByID(session('log_auth')['akunID'])
+        ];
+        return view('siswa/view_ranking', $data);
     }
 }

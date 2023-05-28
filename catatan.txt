@@ -8,3 +8,7 @@ kurang :
 view ppdb-> arul (fix)
 
 php mailer ->sup
+
+Kekurangan:
+- Pembatasan register siswa sesuai tahun ajaran.
+- Pengunduran diri level siswa

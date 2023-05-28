@@ -79,7 +79,7 @@ class Msiswa extends Model
         foreach ($this->getRanking() as $dt) {
             if ($dt['siswa_id'] == $id) {
                 $tmp = $dt;
-                $tmp['rangking'] = $index;
+                $tmp['ranking'] = $index;
                 $dtSiswa = $tmp;
                 break;
             }
