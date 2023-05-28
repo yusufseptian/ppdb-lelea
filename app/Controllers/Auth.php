@@ -27,7 +27,11 @@ class Auth extends BaseController
     public function index()
     {
         if (session('log_auth')) {
-            return redirect()->to(base_url('/admin'));
+            if (session('log_auth')['akunRole'] == 'admin') {
+                return redirect()->to(base_url('/admin'));
+            } else {
+                return redirect()->to(base_url('/siswa'));
+            }
         }
         $validation = \Config\Services::validation();
         if (session('validation')) {
@@ -43,7 +47,11 @@ class Auth extends BaseController
     public function administrator()
     {
         if (session('log_auth')) {
-            return redirect()->to(base_url('/admin'));
+            if (session('log_auth')['akunRole'] == 'admin') {
+                return redirect()->to(base_url('/admin'));
+            } else {
+                return redirect()->to(base_url('/siswa'));
+            }
         }
         $validation = \Config\Services::validation();
         if (session('validation')) {
@@ -60,7 +68,11 @@ class Auth extends BaseController
     public function login_user()
     {
         if (session('log_auth')) {
-            return redirect()->to(base_url('/siswa'));
+            if (session('log_auth')['akunRole'] == 'admin') {
+                return redirect()->to(base_url('/admin'));
+            } else {
+                return redirect()->to(base_url('/siswa'));
+            }
         }
         $dtTA = $this->modelTahunAjar->getTANow();
         if (empty($dtTA)) {
@@ -100,6 +112,7 @@ class Auth extends BaseController
                 'akunID' => $dt[0]['siswa_id'],
                 'akunName' => $dt[0]['siswa_nama'],
                 'akunNisn' => $dt[0]['siswa_nisn'],
+                'akunRole' => 'siswa'
             ];
             session()->set('log_auth', $data);
             return redirect()->to(base_url('/siswa'));
@@ -111,7 +124,11 @@ class Auth extends BaseController
     public function login_admin()
     {
         if (session('log_auth')) {
-            return redirect()->to(base_url('/admin'));
+            if (session('log_auth')['akunRole'] == 'admin') {
+                return redirect()->to(base_url('/admin'));
+            } else {
+                return redirect()->to(base_url('/siswa'));
+            }
         }
         $user_username = $this->request->getPost('user_username');
         $user_password = $this->request->getPost('user_password');
@@ -143,7 +160,8 @@ class Auth extends BaseController
             }
             $data = [
                 'akunID' => $dt[0]['user_id'],
-                'akunName' => $dt[0]['user_username']
+                'akunName' => $dt[0]['user_username'],
+                'akunRole' => 'admin'
             ];
             session()->set('log_auth', $data);
             return redirect()->to(base_url('/admin'));

@@ -31,6 +31,13 @@ class Daftar extends BaseController
     }
     public function index()
     {
+        if (session('log_auth')) {
+            if (session('log_auth')['akunRole'] == 'admin') {
+                return redirect()->to(base_url('/admin'));
+            } else {
+                return redirect()->to(base_url('/siswa'));
+            }
+        }
         $dtTA = $this->MTahunAjar->getTANow();
         if (empty($dtTA)) {
             session()->setFlashdata('danger', 'Data tahun ajar masih kosong');

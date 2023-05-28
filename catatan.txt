@@ -11,4 +11,3 @@ php mailer ->sup
 
 Kekurangan:
 - Pengunduran diri level siswa
-- Pembatasan akses register setelah login

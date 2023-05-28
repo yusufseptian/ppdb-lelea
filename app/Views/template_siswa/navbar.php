@@ -11,9 +11,26 @@
                    <li><a class="nav-link scrollto" href="<?= base_url('home/') ?>#prestasi">Prestasi</a></li>
                    <li><a class="nav-link scrollto " href="<?= base_url('home/') ?>#gallery">Galeri</a></li>
                    <li><a class="nav-link scrollto" href="<?= base_url('home/') ?>#ekskul">Ekskul</a></li>
-                   <li><a class="nav-link" href="<?= base_url('auth') ?>">
-                           <div class="btn btn-info text-white">Login</div>
-                       </a></li>
+                   <?php if (session('log_auth')) : ?>
+                       <li class="nav-item dropdown">
+                           <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+                               <i class="fas fa-user"></i>&ensp;<?= session('log_auth')['akunName'] ?>
+                           </a>
+                           <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                               <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-home"></i>&ensp;Dashboard</a></li>
+                               <li class="dropdown-divider"></li>
+                               <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
+                               <li class="dropdown-divider"></li>
+                               <li><a href="<?= base_url('auth/logout_siswa') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a></li>
+                           </ul>
+                       </li>
+                   <?php else : ?>
+                       <li>
+                           <a class="nav-link" href="<?= base_url('auth') ?>">
+                               <div class="btn btn-info text-white">Login</div>
+                           </a>
+                       </li>
+                   <?php endif ?>
                </ul>
                <i class="bi bi-list mobile-nav-toggle"></i>
            </nav><!-- .navbar -->
