@@ -30,14 +30,21 @@
                 <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Login</h1>
                 <h4 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">PPDB - SMP Negeri 2 Lelea</h4>
                 <form action="<?= base_url('auth/login_user') ?>" method="post" class="m-5">
+                    <?php if (session('logFailed')) : ?>
+                        <div class="form-group my-1">
+                            <div class="alert alert-danger" role="alert">
+                                <?= session('logFailed') ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <div class="form-group">
-                        <input type="text" class="form-control px-4" <?= $validation->hasError('siswa_email') ? 'is-invalid' : '' ?>" name="siswa_email" id="email" placeholder="email">
+                        <input type="email" class="form-control px-4" <?= $validation->hasError('siswa_email') ? 'is-invalid' : '' ?> name="siswa_email" id="email" placeholder="email">
                         <div class="invalid-feedback" id="emailFeedback">
                             <?= $validation->getError('siswa_email') ?>
                         </div>
                     </div>
                     <div class="form-group mb-5">
-                        <input type="password" class="form-control px-4" <?= $validation->hasError('siswa_password') ? 'is-invalid' : '' ?>" name="siswa_password" id="password" placeholder="Password">
+                        <input type="password" class="form-control px-4" <?= $validation->hasError('siswa_password') ? 'is-invalid' : '' ?> name="siswa_password" id="password" placeholder="Password">
                         <div class="invalid-feedback" id="passwordFeedback">
                             <?= $validation->getError('siswa_password') ?>
                         </div>

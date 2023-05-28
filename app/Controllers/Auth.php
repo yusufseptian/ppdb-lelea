@@ -6,17 +6,21 @@ use App\Models\Msiswa;
 use App\Models\Muser;
 
 use App\Controllers\BaseController;
+use App\Models\MTahunAjar;
 
 class Auth extends BaseController
 {
     private $validation;
     private $modelSiswa = null;
     private $modelAdmin = null;
+    private $modelTahunAjar = null;
+
     public function __construct()
     {
         $this->validation = \config\Services::validation();
         $this->modelSiswa  = new Msiswa();
         $this->modelAdmin  = new Muser();
+        $this->modelTahunAjar = new MTahunAjar();
         helper('form');
         helper('text');
     }
@@ -58,6 +62,11 @@ class Auth extends BaseController
         if (session('log_auth')) {
             return redirect()->to(base_url('/siswa'));
         }
+        $dtTA = $this->modelTahunAjar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('logFailed', 'Akun tidak ditemukan');
+            return $this->redirectBack();
+        }
         $siswa_email = $this->request->getPost('siswa_email');
         $siswa_password = $this->request->getPost('siswa_password');
         $valid = $this->validate([
@@ -81,6 +90,7 @@ class Auth extends BaseController
             $tbAkun = $this->modelSiswa;
             $tbAkun->where('siswa_email', $siswa_email);
             $tbAkun->where('siswa_password', md5("$siswa_password"));
+            $tbAkun->where('siswa_ta_id', $dtTA['ta_id']);
             $dt = $tbAkun->get()->getResultArray();
             if (count($dt) != 1) {
                 session()->setFlashdata('logFailed', "Email atau password salah");
@@ -94,7 +104,7 @@ class Auth extends BaseController
             session()->set('log_auth', $data);
             return redirect()->to(base_url('/siswa'));
         } else {
-            session()->setFlashdata('validation', $this->validation);
+            session()->setFlashdata('logFailed', 'Mohon isi data dengan benar');
             return redirect()->to(base_url('/auth'));
         }
     }
@@ -138,7 +148,7 @@ class Auth extends BaseController
             session()->set('log_auth', $data);
             return redirect()->to(base_url('/admin'));
         } else {
-            session()->setFlashdata('validation', $this->validation);
+            session()->setFlashdata('logFailed', 'Mohon isi data dengan benar');
             return redirect()->to(base_url('/auth/administrator'));
         }
     }
