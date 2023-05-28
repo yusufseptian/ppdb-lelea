@@ -1,11 +1,38 @@
 <?= $this->extend('template_siswa/dashboard') ?>
 <?= $this->section('content') ?>
-
+<?php
+if ($dt_siswa['siswa_status_pendaftaran'] == 'Diterima') {
+    if ($dtRanking['rangking'] > $dtTA['ta_kuota']) {
+        $class = 'bg-danger';
+    } else {
+        $class = 'bg-success';
+    }
+} elseif ($dt_siswa['siswa_status_pendaftaran'] == 'Terdaftar') {
+    $class = 'bg-warning';
+} else {
+    $class = 'bg-danger';
+}
+?>
 <div class="row" style="margin-inline: 100px;">
     <div class="col-12">
-        <div class="card border-info">
-            <h5 class="card-header bg-info text-white">Pengumuman</h5>
-            <div class="card-body">
+        <div class="card border-info <?= $class ?>">
+            <h5 class="card-header text-white">Pengumuman</h5>
+            <div class="card-body d-flex flex-column text-center">
+                <?php if ($dt_siswa['siswa_status_pendaftaran'] == 'Diterima') : ?>
+                    <?php if ($dtRanking['rangking'] > $dtTA['ta_kuota']) : ?>
+                        <h1 class="w-100 my-auto"><b>Maaf anda tidak lolos pendaftaran</b></h1>
+                        <h6 class="m-0"><i>Hasil ini masih dapat berubah selama rentang waktu pendaftaran. Silahkan pantau perangkingan.</i></h6>
+                    <?php else : ?>
+                        <h1 class="w-100 my-auto"><b>Selamat anda diterima.</b></h1>
+                        <h6 class="m-0"><i>Hasil ini masih dapat berubah selama rentang waktu pendaftaran. Silahkan pantau perangkingan.</i></h6>
+                    <?php endif ?>
+                <?php elseif ($dt_siswa['siswa_status_pendaftaran'] == 'Tidak Diterima') : ?>
+                    <h1 class="w-100 my-auto"><b>Maaf pendaftaran anda ditolak.</b></h1>
+                    <h6 class="m-0"><i>Pendaftaran anda ditolak karena <?= $dt_siswa['siswa_alasan_ditolak'] ?></i></h6>
+                <?php else : ?>
+                    <h1 class="w-100 my-auto"><b>Pendaftaran anda masih dalam proses pengecekan.</b></h1>
+                    <h6 class="m-0"><i>Mohon pantau terus akun anda untuk informasi selanjutnya.</i></h6>
+                <?php endif ?>
             </div>
         </div>
     </div>

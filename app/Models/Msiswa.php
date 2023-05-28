@@ -46,11 +46,11 @@ class Msiswa extends Model
     {
         $modelTahunAjar = new MTahunAjar();
         $idTA = $modelTahunAjar->getTANow()['ta_id'];
-        $dtSiswa = $this->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->findAll();
-        $maxIPA = $this->select('max(nilai_ipa) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->first();
-        $maxMTK = $this->select('max(nilai_mtk) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->first();
-        $maxIndo = $this->select('max(nilai_indo) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->first();
-        $minJarak = $this->select('min(siswa_jarak) as min')->where('siswa_ta_id', $idTA)->first();
+        $dtSiswa = $this->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->findAll();
+        $maxIPA = $this->select('max(nilai_ipa) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
+        $maxMTK = $this->select('max(nilai_mtk) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
+        $maxIndo = $this->select('max(nilai_indo) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
+        $minJarak = $this->select('min(siswa_jarak) as min')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
         $index = 0;
         foreach ($dtSiswa as $dt) {
             $nIPA = $dt['nilai_ipa'] / ($maxIPA['max']);
@@ -67,6 +67,21 @@ class Msiswa extends Model
                     $dtSiswa[$b] = $dtSiswa[$b + 1];
                     $dtSiswa[$b + 1] = $tmp;
                 }
+            }
+        }
+        return $dtSiswa;
+    }
+
+    public function getRankingByID($id)
+    {
+        $index = 1;
+        $dtSiswa = [];
+        foreach ($this->getRanking() as $dt) {
+            if ($dt['siswa_id'] == $id) {
+                $tmp = $dt;
+                $tmp['rangking'] = $index;
+                $dtSiswa = $tmp;
+                break;
             }
         }
         return $dtSiswa;
