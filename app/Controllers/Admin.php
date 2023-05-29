@@ -10,6 +10,6 @@ class Admin extends BaseController
             'title' => 'Admin',
             'subtitle' => 'Dashboard Admin',
         ];
-        return view('template/index', $data);
+        return view('admin/view_dashboard', $data);
     }
 }

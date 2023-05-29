@@ -107,6 +107,10 @@
             bacaGambar(this);
         });
         //end preview img
+
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
     <?= $this->renderSection('bottomScript'); ?>
 </body>
