@@ -1,6 +1,10 @@
 <?= $this->extend('template/index'); ?>
 <?= $this->section('content'); ?>
-
+<style>
+    label {
+        font-weight: normal !important;
+    }
+</style>
 <div class="col">
     <div class="row mx-3">
         Tahun Ajaran : <?= $dtTA['ta_tahun_ajaran'] ?>

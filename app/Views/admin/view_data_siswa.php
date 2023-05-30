@@ -6,7 +6,7 @@
     }
 
     label {
-        font-weight: normal;
+        font-weight: normal !important;
     }
 </style>
 <div class="col-sm-12">
@@ -14,7 +14,7 @@
         <!-- /.card-header -->
         <div class="card-header d-flex justify-content-between">
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalFilter">Filter</button>
-            <button type="button" class="btn btn-success btn-sm">Cetak</button>
+            <button type="button" id="btnPrint" class="btn btn-success btn-sm">Cetak</button>
         </div>
         <div class="card-body">
             <div class="border-bottom d-flex justify-content-between mb-3 pb-2">
@@ -200,6 +200,18 @@
 <?= $this->endSection() ?>
 <?= $this->section('bottomScript'); ?>
 <script>
+    const countDtSiswa = Number(<?= count($dt_siswa) ?>);
+    $("#btnPrint").click(function() {
+        if (countDtSiswa < 1) {
+            Swal.fire(
+                'Gagal!',
+                'Data siswa masih kosong',
+                'warning'
+            );
+        } else {
+            window.location.href = '<?= base_url('datasiswa/print') ?>';
+        }
+    });
     $("#tbTAFilter").DataTable();
 </script>
 <?= $this->endSection(); ?>

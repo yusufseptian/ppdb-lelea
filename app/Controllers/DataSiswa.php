@@ -158,4 +158,39 @@ class DataSiswa extends BaseController
         session()->setFlashdata('success', 'Filter tahun berhasil dirubah');
         return $this->redirectBack();
     }
+    public function print()
+    {
+        $dtTA = $this->Mtahunajar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
+            return $this->redirectBack();
+        }
+        $dt_siswa = $this->Msiswa;
+        if (session('filterDataSiswa')) {
+            if (session('filterDataSiswa')['status'] == 'Mengundurkan Diri') {
+                $dt_siswa->onlyDeleted();
+            } elseif (session('filterDataSiswa')['status'] == 'All') {
+                $dt_siswa->withDeleted();
+            } else {
+                $dt_siswa->where('siswa_status_pendaftaran', session('filterDataSiswa')['status']);
+            }
+            $dt_siswa->where('siswa_ta_id', session('filterDataSiswa')['ta']);
+            $dtTA = $this->Mtahunajar->find(session('filterDataSiswa')['ta']);
+        } else {
+            $dt_siswa->where('siswa_ta_id', $dtTA['ta_id'])->withDeleted();
+        }
+        $dt_siswa = $dt_siswa->findAll();
+        if (count($dt_siswa) == 0) {
+            session()->setFlashdata('danger', 'Data kosong tidak bisa dicetak');
+            return $this->redirectBack();
+        }
+        $data = [
+            'title' => 'Admin',
+            'subtitle' => 'Manajemen Data Siswa',
+            'dt_siswa' => $dt_siswa,
+            'dt_ta' => $dtTA,
+            'listTA' => $this->Mtahunajar->findAll()
+        ];
+        return view('admin/view_print_data_siswa', $data);
+    }
 }
