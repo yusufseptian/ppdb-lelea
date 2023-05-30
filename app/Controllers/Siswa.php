@@ -52,7 +52,6 @@ class Siswa extends BaseController
         ];
         return view('siswa/view_dashboard', $data);
     }
-<<<<<<< HEAD
 
     public function undangan()
     {
@@ -60,7 +59,7 @@ class Siswa extends BaseController
             'title' => 'Surat Undangan'
         ];
         return view('siswa/view_surat_undangan', $data);
-=======
+    }
     public function pengunduranDiri($nisnSiswa)
     {
         $dtTA = $this->modelTahunAjar->getTANow();
@@ -140,6 +139,5 @@ class Siswa extends BaseController
         }
         session()->setFlashdata('danger', 'Pengunduran diri gagal. Silahkan coba lagi nanti');
         return $this->redirectBack();
->>>>>>> 5466aecb7f6b0e9b8550bfc4641b5c3751061f3c
     }
 }
