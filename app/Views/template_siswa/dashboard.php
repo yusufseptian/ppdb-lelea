@@ -42,12 +42,12 @@
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
                             <i class="fas fa-user"></i>&ensp;<?= session('log_auth')['akunName'] ?>
                         </a>
-                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <li><a class="dropdown-item" onclick="window.location='<?= base_url('siswa/undangan') ?>'"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" style="cursor: pointer;" <?= ($isOpened) ? ' data-bs-toggle="modal" data-bs-target="#modalPengunduranDiri"' : '' ?> id="btnPengunduranDiri"><i class="fas fa-trash"></i>&ensp;Pengunduran Diri</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a href="<?= base_url('auth/logout_siswa') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a></li>
+                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow p-0">
+                            <li class="dropdown-item p-0"><a onclick="window.location='<?= base_url('siswa/undangan') ?>'"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
+                            <li class="dropdown-divider p-0 m-0"></li>
+                            <li class="dropdown-item p-0"><a class="text-danger" style="cursor: pointer;" <?= ($isOpened) ? ' data-bs-toggle="modal" data-bs-target="#modalPengunduranDiri"' : '' ?> id="btnPengunduranDiri"><i class="fas fa-trash"></i>&ensp;Pengunduran Diri</a></li>
+                            <li class="dropdown-divider p-0 m-0"></li>
+                            <li class="dropdown-item p-0"><a href="<?= base_url('auth/logout_siswa') ?>"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a></li>
                         </ul>
                     </li>
                 </ul>
