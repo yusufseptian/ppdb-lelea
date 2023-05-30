@@ -93,7 +93,7 @@
                 <h3 class="font-weight-bold text-center p-2 text-uppercase">diterima</h3>
             </div>
             <p class="my-3">Sebagai siswa kelas VII SMP Negeri 2 Lelea Tahun Pelajaran 2023/2024 setelah memenuhi semua persyaratan sesuai dengan peraturan perundang-undangan yang berlaku.</p>
-            <p class="my-3">Demikian Surat Pernytaan ini kami buat dengan sesungguh-sungguhnya untuk dipergunakan sebagaimana mestinya.</p>
+            <p class="my-3">Demikian Surat Pernyataan ini kami buat dengan sesungguh-sungguhnya untuk dipergunakan sebagaimana mestinya.</p>
             <div class="float-right mt-5">
                 <div>Lelea, <?= date('d M Y'); ?></div>
                 <div class="text-center">Kepala Sekolah</div>
