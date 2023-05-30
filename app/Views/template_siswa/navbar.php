@@ -17,11 +17,17 @@
                                <i class="fas fa-user"></i>&ensp;<?= session('log_auth')['akunName'] ?>
                            </a>
                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                               <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-home"></i>&ensp;Dashboard</a></li>
-                               <li class="dropdown-divider"></li>
-                               <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
-                               <li class="dropdown-divider"></li>
-                               <li><a href="<?= base_url('auth/logout_siswa') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a></li>
+                               <?php if (session('log_auth')['akunRole'] == 'siswa') : ?>
+                                   <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-home"></i>&ensp;Dashboard</a></li>
+                                   <li class="dropdown-divider"></li>
+                                   <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
+                                   <li class="dropdown-divider"></li>
+                                   <li><a href="<?= base_url('auth/logout_siswa') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a></li>
+                               <?php else : ?>
+                                   <li><a href="<?= base_url('admin') ?>" class="dropdown-item"><i class="fas fa-home"></i>&ensp;Dashboard</a></li>
+                                   <li class="dropdown-divider"></li>
+                                   <li><a href="<?= base_url('auth/logout_admin') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a></li>
+                               <?php endif ?>
                            </ul>
                        </li>
                    <?php else : ?>

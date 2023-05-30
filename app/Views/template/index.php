@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <style>
+        .cellFit {
+            width: 1% !important;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -52,6 +58,8 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1><?= $subtitle ?></h1>
+                        </div>
+                        <div class="col-sm-6 d-flex" id="addInfo">
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -149,6 +157,7 @@
     </script>
 
     <?= $this->include('/partial/notif.php'); ?>
+    <?= $this->renderSection('bottomScript'); ?>
 </body>
 
 </html>

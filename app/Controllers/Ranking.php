@@ -42,7 +42,8 @@ class Ranking extends BaseController
             'subtitle' => 'Perangkingan',
             'dtSiswa' => $this->modelSiswa->getRanking(),
             'dtTA' => $dtTA,
-            'dtRanking' => $this->modelSiswa->getRankingByID(session('log_auth')['akunID'])
+            'dtRanking' => $this->modelSiswa->getRankingByID(session('log_auth')['akunID']),
+            'isOpened' => $this->modelTahunAjar->isOpened()
         ];
         return view('siswa/view_ranking', $data);
     }

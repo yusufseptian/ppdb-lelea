@@ -10,4 +10,4 @@ view ppdb-> arul (fix)
 php mailer ->sup
 
 Kekurangan:
-- Pengunduran diri level siswa
+- Pengunduran diri level siswa (Apakah perlu hapus data ortu dan wali? sementara yang terhapus adalah data berkas)
