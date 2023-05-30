@@ -43,7 +43,7 @@
                             <i class="fas fa-user"></i>&ensp;<?= session('log_auth')['akunName'] ?>
                         </a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
+                            <li><a class="dropdown-item" onclick="window.location='<?= base_url('siswa/undangan') ?>'"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
                             <li class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-danger" style="cursor: pointer;" <?= ($isOpened) ? ' data-bs-toggle="modal" data-bs-target="#modalPengunduranDiri"' : '' ?> id="btnPengunduranDiri"><i class="fas fa-trash"></i>&ensp;Pengunduran Diri</a></li>
                             <li class="dropdown-divider"></li>

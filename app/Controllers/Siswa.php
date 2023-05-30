@@ -52,6 +52,14 @@ class Siswa extends BaseController
         ];
         return view('siswa/view_dashboard', $data);
     }
+
+    public function undangan()
+    {
+        $data = [
+            'title' => 'Surat Undangan'
+        ];
+        return view('siswa/view_surat_undangan', $data);
+    }
     public function pengunduranDiri($nisnSiswa)
     {
         $dtTA = $this->modelTahunAjar->getTANow();
