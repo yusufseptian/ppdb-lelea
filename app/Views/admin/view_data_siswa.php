@@ -1,9 +1,41 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
+<style>
+    .card-header::after {
+        display: none;
+    }
+
+    label {
+        font-weight: normal !important;
+    }
+</style>
 <div class="col-sm-12">
     <div class="card">
         <!-- /.card-header -->
+        <div class="card-header d-flex justify-content-between">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalFilter">Filter</button>
+            <button type="button" class="btn btn-success btn-sm">Cetak</button>
+        </div>
         <div class="card-body">
+            <div class="border-bottom d-flex justify-content-between mb-3 pb-2">
+                <div>
+                    Tahun Ajaran : <?= $dt_ta['ta_tahun_ajaran'] ?>
+                </div>
+                <div>
+                    Status Pendaftaraan :
+                    <?php
+                    if (session('filterDataSiswa')) {
+                        if (session('filterDataSiswa')['status'] == 'All') {
+                            echo 'Semua';
+                        } else {
+                            echo session('filterDataSiswa')['status'];
+                        }
+                    } else {
+                        echo 'Semua';
+                    }
+                    ?>
+                </div>
+            </div>
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -57,6 +89,84 @@
         <!-- /.card-body -->
     </div>
 </div>
+<!-- Modal filter -->
+<div class="modal fade" id="modalFilter">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h4 class="modal-title">Filter Data Siswa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?= form_open('datasiswa/filter/') ?>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="cmbStatusPendaftaran">Status Pendaftaran</label>
+                    <select name="cmbStatusPendaftaran" id="cmbStatusPendaftaran" class="form-control">
+                        <?php if (session('filterDataSiswa')) : ?>
+                            <option value="All" <?= (session('filterDataSiswa')['status'] == 'All') ? 'selected' : '' ?>>Semua</option>
+                            <option value="Terdaftar" <?= (session('filterDataSiswa')['status'] == 'Terdaftar') ? 'selected' : '' ?>>Terdaftar</option>
+                            <option value="Diterima" <?= (session('filterDataSiswa')['status'] == 'Diterima') ? 'selected' : '' ?>>Diterima</option>
+                            <option value="Tidak Diterima" <?= (session('filterDataSiswa')['status'] == 'Tidak Diterima') ? 'selected' : '' ?>>Tidak Diterima</option>
+                            <option value="Mengundurkan Diri" <?= (session('filterDataSiswa')['status'] == 'Mengundurkan Diri') ? 'selected' : '' ?>>Mengundurkan Diri</option>
+                        <?php else : ?>
+                            <option value="All">Semua</option>
+                            <option value="Terdaftar">Terdaftar</option>
+                            <option value="Diterima">Diterima</option>
+                            <option value="Tidak Diterima">Tidak Diterima</option>
+                            <option value="Mengundurkan Diri">Mengundurkan Diri</option>
+                        <?php endif ?>
+                    </select>
+                </div>
+                <div class="border-top mt-3 pt-2">
+                    <label>Pilih Tahun Ajaran</label>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tahun Ajaran</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if (session('filterDataSiswa')) : ?>
+                                <?php foreach ($listTA as $ta) : ?>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="rdTA" id="rdTA<?= $ta['ta_id'] ?>" value="<?= $ta['ta_id'] ?>" <?= (session('filterDataSiswa')['ta'] == $ta['ta_id']) ? 'checked' : '' ?> required>
+                                        </td>
+                                        <td>
+                                            <label for="rdTA<?= $ta['ta_id'] ?>"><?= $ta['ta_tahun_ajaran'] ?></label>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            <?php else : ?>
+                                <?php foreach ($listTA as $ta) : ?>
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="rdTA" id="rdTA<?= $ta['ta_id'] ?>" value="<?= $ta['ta_id'] ?>" required>
+                                        </td>
+                                        <td>
+                                            <label for="rdTA<?= $ta['ta_id'] ?>"><?= $ta['ta_tahun_ajaran'] ?></label>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default btn-sm" onclick="window.location.href='<?= base_url('datasiswa/resetfilter') ?>'">Reset Filter</button>
+                <button type="submit" class="btn btn-primary btn-sm">Filter</button>
+            </div>
+            <?= form_close() ?>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <!-- Modal delete -->
 <?php foreach ($dt_siswa as $key => $dt) { ?>
     <div class="modal fade" id="delete<?= $dt['siswa_nisn'] ?>">

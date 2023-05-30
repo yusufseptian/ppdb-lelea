@@ -181,6 +181,7 @@ class Auth extends BaseController
     public function logout_admin()
     {
         session()->remove('log_auth');
+        session()->remove('filterDataSiswa');
         return redirect()->to(base_url('/auth/administrator'));
     }
 }

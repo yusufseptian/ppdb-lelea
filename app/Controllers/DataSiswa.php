@@ -33,10 +33,27 @@ class DataSiswa extends BaseController
             session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
             return $this->redirectBack();
         }
+        $dt_siswa = $this->Msiswa;
+        if (session('filterDataSiswa')) {
+            if (session('filterDataSiswa')['status'] == 'Mengundurkan Diri') {
+                $dt_siswa->onlyDeleted();
+            } elseif (session('filterDataSiswa')['status'] == 'All') {
+                $dt_siswa->withDeleted();
+            } else {
+                $dt_siswa->where('siswa_status_pendaftaran', session('filterDataSiswa')['status']);
+            }
+            $dt_siswa->where('siswa_ta_id', session('filterDataSiswa')['ta']);
+            $dtTA = $this->Mtahunajar->find(session('filterDataSiswa')['ta']);
+        } else {
+            $dt_siswa->where('siswa_ta_id', $dtTA['ta_id'])->withDeleted();
+        }
+        $dt_siswa = $dt_siswa->findAll();
         $data = [
             'title' => 'Admin',
             'subtitle' => 'Manajemen Data Siswa',
-            'dt_siswa' => $this->Msiswa->where('siswa_ta_id', $dtTA['ta_id'])->withDeleted()->findAll()
+            'dt_siswa' => $dt_siswa,
+            'dt_ta' => $dtTA,
+            'listTA' => $this->Mtahunajar->findAll()
         ];
         return view('admin/view_data_siswa', $data);
     }
@@ -88,5 +105,31 @@ class DataSiswa extends BaseController
         ];
         $this->Msiswa->update($getData['siswa_id'], $data);
         return redirect()->to(base_url('datasiswa'))->with('danger', 'Siswa berhasil ditolak');
+    }
+    public function filter()
+    {
+        if (!$this->validate([
+            'cmbStatusPendaftaran' => 'required|in_list[All,Terdaftar,Diterima,Tidak Diterima,Mengundurkan Diri]',
+            'rdTA' => 'required|is_natural_no_zero'
+        ])) {
+            session()->setFlashdata('danger', 'Mohon lengkapi data dengan sesuai');
+            return $this->redirectBack();
+        }
+        $dtTA = $this->Mtahunajar->find($this->request->getPost('rdTA'));
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran tidak ditemukan');
+            return $this->redirectBack();
+        }
+        $tmp = [
+            'ta' => $this->request->getPost('rdTA'),
+            'status' => ucfirst((string)$this->request->getPost('cmbStatusPendaftaran'))
+        ];
+        session()->set('filterDataSiswa', $tmp);
+        return redirect()->to(base_url('datasiswa'));
+    }
+    public function resetFilter()
+    {
+        session()->remove('filterDataSiswa');
+        return redirect()->to(base_url('datasiswa'));
     }
 }
