@@ -26,6 +26,8 @@
     <link href="<?= base_url() ?>/assets/Butterfly/assets/css/style.css" rel="stylesheet">
     <link href="<?= base_url() ?>/assets/Butterfly/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="<?= base_url() ?>/assets/Butterfly/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <!-- Sweet alert 2 -->
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.8/dist/sweetalert2.min.css " rel="stylesheet">
 </head>
 
 <body>
@@ -43,6 +45,8 @@
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                             <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
                             <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" style="cursor: pointer;" <?= ($isOpened) ? ' data-bs-toggle="modal" data-bs-target="#modalPengunduranDiri"' : '' ?> id="btnPengunduranDiri"><i class="fas fa-trash"></i>&ensp;Pengunduran Diri</a></li>
+                            <li class="dropdown-divider"></li>
                             <li><a href="<?= base_url('auth/logout_siswa') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a></li>
                         </ul>
                     </li>
@@ -57,6 +61,38 @@
         </div>
     </div>
 
+    <?php if ($isOpened) : ?>
+        <!-- Modal -->
+        <div class="modal fade" id="modalPengunduranDiri" tabindex="-1" aria-labelledby="modalPengunduranDiriLabel" aria-hidden="true">
+            <form action="<?= base_url('siswa/pengundurandiri') ?>" method="post">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger">
+                            <h5 class="modal-title" id="modalPengunduranDiriLabel">Pengunduran Diri</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" id="closePengunduranDiri" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-danger mb-3" role="alert">
+                                <b><i class="fas fa-exclamation-triangle"></i> Perhatian</b>
+                                <div class="ps-2">Jika anda mengundurkan diri maka anda tidak bisa mendaftar menggunakan data anda kembali pada tahun ajaran ini.</div>
+                            </div>
+                            <div>
+                                <label for="txtAlasan" class="mb-1 form-label" style="font-weight: normal;">Jika anda yakin, maka masukan alasan anda mengundurkan diri:</label>
+                                <textarea name="txtAlasan" id="txtAlasan" class="form-control" rows="3" placeholder="Masukan alasan pengunduran diri" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Lanjutkan</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    <?php endif ?>
+
     <!-- Vendor JS Files -->
     <script src="<?= base_url() ?>/assets/Butterfly/assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="<?= base_url() ?>/assets/Butterfly/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -64,7 +100,6 @@
     <script src="<?= base_url() ?>/assets/Butterfly/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="<?= base_url() ?>/assets/Butterfly/assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="<?= base_url() ?>/assets/Butterfly/assets/vendor/php-email-form/validate.js"></script>
-
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>/assets/Butterfly/assets/js/main.js"></script>
     <script src="<?= base_url() ?>assets/Butterfly/assets/vendor/jquery/jquery.min.js"></script>
@@ -81,8 +116,11 @@
     <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- Sweet alert 2 -->
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.8/dist/sweetalert2.all.min.js "></script>
 
     <script>
+        const isOpen = Boolean(<?= $isOpened ?>);
         // preview img
         function bacaGambar(input) {
             try {
@@ -107,6 +145,15 @@
             bacaGambar(this);
         });
         //end preview img
+        $("#btnPengunduranDiri").click(function() {
+            if (!isOpen) {
+                Swal.fire(
+                    'Perhatian!',
+                    'Saat ini bukan masa pendaftaran, untuk melakukan pengunduran diri silahkan mendatangi pihak sekolah',
+                    'info'
+                );
+            }
+        });
     </script>
     <?= $this->renderSection('bottomScript'); ?>
 </body>

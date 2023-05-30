@@ -103,15 +103,15 @@ class Auth extends BaseController
             $tbAkun->where('siswa_email', $siswa_email);
             $tbAkun->where('siswa_password', md5("$siswa_password"));
             $tbAkun->where('siswa_ta_id', $dtTA['ta_id']);
-            $dt = $tbAkun->get()->getResultArray();
-            if (count($dt) != 1) {
+            $dt = $tbAkun->first();
+            if (empty($dt)) {
                 session()->setFlashdata('logFailed', "Email atau password salah");
                 return redirect()->to(base_url('/auth'));
             }
             $data = [
-                'akunID' => $dt[0]['siswa_id'],
-                'akunName' => $dt[0]['siswa_nama'],
-                'akunNisn' => $dt[0]['siswa_nisn'],
+                'akunID' => $dt['siswa_id'],
+                'akunName' => $dt['siswa_nama'],
+                'akunNisn' => $dt['siswa_nisn'],
                 'akunRole' => 'siswa'
             ];
             session()->set('log_auth', $data);
@@ -173,6 +173,9 @@ class Auth extends BaseController
     public function logout_siswa()
     {
         session()->remove('log_auth');
+        if (session('success')) {
+            session()->setFlashdata('success', session('success'));
+        }
         return redirect()->to(base_url('/auth'));
     }
     public function logout_admin()

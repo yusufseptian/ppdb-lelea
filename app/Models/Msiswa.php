@@ -32,15 +32,19 @@ class Msiswa extends Model
         'siswa_sekolah_asal',
         'siswa_status_pendaftaran',
         'siswa_alasan_ditolak',
-        'siswa_ta_id'
+        'siswa_alasan_pengunduran',
+        'siswa_ta_id',
+        'siswa_deleted_at',
+        'siswa_deleted_by'
     ];
 
     // Dates
+    protected $useSoftDeletes   = true;
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'siswa_created_at';
     protected $updatedField  = 'siswa_edited_at';
-    protected $deletedField  = 'deleted_at';
+    protected $deletedField  = 'siswa_deleted_at';
 
     public function getRanking()
     {

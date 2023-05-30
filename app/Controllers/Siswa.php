@@ -43,8 +43,35 @@ class Siswa extends BaseController
             'subtitle' => 'Dashboard Siswa',
             'dt_siswa' => $data_siswa,
             'dtRanking' => $this->modelSiswa->getRankingByID($data_siswa['siswa_id']),
-            'dtTA' => $dtTA
+            'dtTA' => $dtTA,
+            'isOpened' => $this->modelTahunAjar->isOpened()
         ];
         return view('siswa/view_dashboard', $data);
+    }
+    public function pengunduranDiri()
+    {
+        $dtTA = $this->modelTahunAjar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
+            return $this->redirectBack();
+        }
+        if (!$this->modelTahunAjar->isOpened()) {
+            session()->setFlashdata('danger', 'Saat ini bukan masa pendaftaran, untuk melakukan pengunduran diri silahkan mendatangi pihak sekolah');
+            return $this->redirectBack();
+        }
+        if (!$this->validate([
+            'txtAlasan' => 'required'
+        ])) {
+            session()->setFlashdata('danger', 'Mohon isi alasan anda mengundurkan diri');
+            return $this->redirectBack();
+        }
+        $data = ['siswa_alasan_pengunduran' => $this->request->getPost('txtAlasan')];
+        $this->modelSiswa->update(session('log_auth')['akunID'], $data);
+        if ($this->modelSiswa->delete(session('log_auth')['akunID'])) {
+            session()->setFlashdata('success', 'Akun anda telah di non-aktifkan');
+            return redirect()->to(base_url('auth/logout_siswa'));
+        }
+        session()->setFlashdata('danger', 'Pengunduran diri gagal. Silahkan coba lagi nanti');
+        return $this->redirectBack();
     }
 }
