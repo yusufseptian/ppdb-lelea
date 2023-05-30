@@ -132,4 +132,30 @@ class DataSiswa extends BaseController
         session()->remove('filterDataSiswa');
         return redirect()->to(base_url('datasiswa'));
     }
+    public function filterTahun()
+    {
+        if (!$this->validate([
+            'rdTA' => 'required|is_natural_no_zero'
+        ])) {
+            session()->setFlashdata('danger', 'Mohon lengkapi data dengan sesuai');
+            return $this->redirectBack();
+        }
+        $dtTA = $this->Mtahunajar->find($this->request->getPost('rdTA'));
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran tidak ditemukan');
+            return $this->redirectBack();
+        }
+        if (session('filterDataSiswa')) {
+            $tmp = session('filterDataSiswa');
+            $tmp['ta'] = $dtTA['ta_id'];
+        } else {
+            $tmp = [
+                'status' => 'All',
+                'ta' => $dtTA['ta_id']
+            ];
+        }
+        session()->set('filterDataSiswa', $tmp);
+        session()->setFlashdata('success', 'Filter tahun berhasil dirubah');
+        return $this->redirectBack();
+    }
 }
