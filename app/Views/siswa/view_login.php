@@ -38,7 +38,7 @@
                         </div>
                     <?php endif; ?>
                     <div class="form-group">
-                        <input type="email" class="form-control px-4" <?= $validation->hasError('siswa_email') ? 'is-invalid' : '' ?> name="siswa_email" id="email" placeholder="email">
+                        <input type="email" class="form-control px-4" <?= $validation->hasError('siswa_email') ? 'is-invalid' : '' ?> name="siswa_email" id="email" placeholder="Email">
                         <div class="invalid-feedback" id="emailFeedback">
                             <?= $validation->getError('siswa_email') ?>
                         </div>
