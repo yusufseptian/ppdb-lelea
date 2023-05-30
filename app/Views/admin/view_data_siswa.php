@@ -6,7 +6,7 @@
     }
 
     label {
-        font-weight: normal !important;
+        font-weight: normal;
     }
 </style>
 <div class="col-sm-12">
