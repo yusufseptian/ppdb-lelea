@@ -91,7 +91,7 @@
 </div>
 <!-- Modal filter -->
 <div class="modal fade" id="modalFilter">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <h4 class="modal-title">Filter Data Siswa</h4>
@@ -102,8 +102,8 @@
             <?= form_open('datasiswa/filter/') ?>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="cmbStatusPendaftaran">Status Pendaftaran</label>
-                    <select name="cmbStatusPendaftaran" id="cmbStatusPendaftaran" class="form-control">
+                    <label for="cmbStatusPendaftaran" class="d-inline mr-2">Status Pendaftaran : </label>
+                    <select name="cmbStatusPendaftaran" id="cmbStatusPendaftaran" class="form-control d-inline" style="width: fit-content;">
                         <?php if (session('filterDataSiswa')) : ?>
                             <option value="All" <?= (session('filterDataSiswa')['status'] == 'All') ? 'selected' : '' ?>>Semua</option>
                             <option value="Terdaftar" <?= (session('filterDataSiswa')['status'] == 'Terdaftar') ? 'selected' : '' ?>>Terdaftar</option>
@@ -121,10 +121,10 @@
                 </div>
                 <div class="border-top mt-3 pt-2">
                     <label>Pilih Tahun Ajaran</label>
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped" id="tbTAFilter">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th class="cellFit">#</th>
                                 <th>Tahun Ajaran</th>
                             </tr>
                         </thead>
@@ -198,3 +198,8 @@
     <!-- /.modal -->
 <?php } ?>
 <?= $this->endSection() ?>
+<?= $this->section('bottomScript'); ?>
+<script>
+    $("#tbTAFilter").DataTable();
+</script>
+<?= $this->endSection(); ?>
