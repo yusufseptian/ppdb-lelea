@@ -4,6 +4,28 @@
     <div class="col">
         <!-- siswa -->
         <div class="row">
+            <?php if (!is_null($dt_siswa['siswa_deleted_at'])) : ?>
+                <div class="col-12">
+                    <div class="card border-info">
+                        <h5 class="card-header bg-danger text-white">Siswa Telah Mengundurkan Diri</h5>
+                        <div class="card-body">
+                            <table>
+                                <tr>
+                                    <td>Diurus oleh:</td>
+                                    <td>:</td>
+                                    <td>
+                                        <?= (is_null($dt_siswa['siswa_deleted_by'])) ? 'Diri sendiri' : $dt_siswa['user_username'] ?>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="form-group">
+                                <label for="txtAlasan">Alasan</label>
+                                <textarea id="txtAlasan" class="form-control" rows="3" disabled><?= $dt_siswa['siswa_alasan_pengunduran'] ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif ?>
             <div class="col-6">
                 <div class="card border-info">
                     <h5 class="card-header bg-info text-white">Data Siswa</h5>
@@ -75,57 +97,59 @@
                         </div>
                     </div>
                 </div>
-                <div class="card border-info">
-                    <h5 class="card-header bg-info text-white">Berkas Calon Peserta Didik</h5>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col text-center">
-                                <div class="form-group mb-3 mx-auto">
-                                    <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
-                                        <label>Ijazah/Surat Keterangan Lulus/Kartu Ujian</label><br>
-                                        <a href="<?= base_url('ijazah_siswa/' . $dt_siswa['berkas_ijazah'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                <?php if (is_null($dt_siswa['siswa_deleted_at'])) : ?>
+                    <div class="card border-info">
+                        <h5 class="card-header bg-info text-white">Berkas Calon Peserta Didik</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <div class="form-group mb-3 mx-auto">
+                                        <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
+                                            <label>Ijazah/Surat Keterangan Lulus/Kartu Ujian</label><br>
+                                            <a href="<?= base_url('ijazah_siswa/' . $dt_siswa['berkas_ijazah'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mb-3 mx-auto">
-                                    <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
-                                        <label>Akte Kelahiran/Surat Keterangan Lahir</label><br>
-                                        <a href="<?= base_url('akta_siswa/' . $dt_siswa['berkas_akta'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <div class="form-group mb-3 mx-auto">
+                                        <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
+                                            <label>Akte Kelahiran/Surat Keterangan Lahir</label><br>
+                                            <a href="<?= base_url('akta_siswa/' . $dt_siswa['berkas_akta'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mb-3 mx-auto">
-                                    <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
-                                        <label>Kartu Keluarga (minimal satu tahun)</label><br>
-                                        <a href="<?= base_url('kk_siswa/' . $dt_siswa['berkas_kk'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <div class="form-group mb-3 mx-auto">
+                                        <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
+                                            <label>Kartu Keluarga (minimal satu tahun)</label><br>
+                                            <a href="<?= base_url('kk_siswa/' . $dt_siswa['berkas_kk'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mb-3 mx-auto">
-                                    <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
-                                        <label>KTP Orang Tua</label><br>
-                                        <a href="<?= base_url('ktp_ortu_siswa/' . $dt_siswa['berkas_ktp_ortu'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <div class="form-group mb-3 mx-auto">
+                                        <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
+                                            <label>KTP Orang Tua</label><br>
+                                            <a href="<?= base_url('ktp_ortu_siswa/' . $dt_siswa['berkas_ktp_ortu'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mb-3 mx-auto">
-                                    <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
-                                        <label>Buku Raport(Kelas 4-6)</label><br>
-                                        <a href="<?= base_url('rapor_siswa/' . $dt_siswa['berkas_rapor'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <div class="form-group mb-3 mx-auto">
+                                        <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
+                                            <label>Buku Raport(Kelas 4-6)</label><br>
+                                            <a href="<?= base_url('rapor_siswa/' . $dt_siswa['berkas_rapor'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mb-3 mx-auto">
-                                    <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
-                                        <label>Surat Tanggung Jawab Mutlak Orang Tua</label><br>
-                                        <a href="<?= base_url('surat_mutlak_siswa/' . $dt_siswa['berkas_surat_mutlak'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <div class="form-group mb-3 mx-auto">
+                                        <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
+                                            <label>Surat Tanggung Jawab Mutlak Orang Tua</label><br>
+                                            <a href="<?= base_url('surat_mutlak_siswa/' . $dt_siswa['berkas_surat_mutlak'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mb-3 mx-auto">
-                                    <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
-                                        <label>Ijazah MDA/MDTA</label><br>
-                                        <a href="<?= base_url('ijazah_mda_siswa/' . $dt_siswa['berkas_ijazah_mda'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                    <div class="form-group mb-3 mx-auto">
+                                        <div class="btn" data-toggle="tooltip" data-placement="top" title="Cek File">
+                                            <label>Ijazah MDA/MDTA</label><br>
+                                            <a href="<?= base_url('ijazah_mda_siswa/' . $dt_siswa['berkas_ijazah_mda'])  ?>" target="_blank"><img width="50px" src="<?= base_url('/assets/pdf.png') ?>" alt=""></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php endif ?>
             </div>
         </div>
 
@@ -208,5 +232,37 @@
         </div>
     </div>
 </div>
-
+<?php if (is_null($dt_siswa['siswa_deleted_at'])) : ?>
+    <div class="w-100 text-center p-3">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalPengunduranDiri">Pengunduran Diri</button>
+    </div>
+    <div class="modal fade" id="modalPengunduranDiri" tabindex="-1" aria-labelledby="modalPengunduranDiriLabel" aria-hidden="true">
+        <form action="<?= base_url('siswa/pengundurandiri/' . $dt_siswa['siswa_nisn']) ?>" method="post">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                        <h5 class="modal-title" id="modalPengunduranDiriLabel">Pengunduran Diri</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" id="closePengunduranDiri" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger mb-3" role="alert">
+                            <b><i class="fas fa-exclamation-triangle"></i> Perhatian</b>
+                            <div class="ps-2">Jika mengundurkan diri data ini tidak bisa digunakan mendaftar kembali pada tahun ajaran ini.</div>
+                        </div>
+                        <div>
+                            <label for="txtAlasan" class="mb-1 form-label" style="font-weight: normal;">Jika anda yakin, maka masukan alasan pengunduran diri:</label>
+                            <textarea name="txtAlasan" id="txtAlasan" class="form-control" rows="3" placeholder="Masukan alasan pengunduran diri" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Lanjutkan</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<?php endif ?>
 <?= $this->endSection() ?>

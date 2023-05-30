@@ -26,12 +26,16 @@
                             <td><?= $value['siswa_nama'] ?></td>
                             <td><?= $value['siswa_sekolah_asal'] ?></td>
                             <td class="text-center p-0">
-                                <?php if ($value['siswa_status_pendaftaran'] == 'Terdaftar') { ?>
-                                    <div class="bg-primary p-3">Terdaftar</div>
-                                <?php } elseif ($value['siswa_status_pendaftaran'] == 'Diterima') { ?>
-                                    <div class="bg-success p-3">Diterima</div>
+                                <?php if (is_null($value['siswa_deleted_at'])) { ?>
+                                    <?php if ($value['siswa_status_pendaftaran'] == 'Terdaftar') { ?>
+                                        <div class="bg-primary p-3">Terdaftar</div>
+                                    <?php } elseif ($value['siswa_status_pendaftaran'] == 'Diterima') { ?>
+                                        <div class="bg-success p-3">Diterima</div>
+                                    <?php } else { ?>
+                                        <div class="bg-danger p-3">Tidak diterima</div>
+                                    <?php } ?>
                                 <?php } else { ?>
-                                    <div class="bg-danger p-3">Tidak diterima</div>
+                                    <div class="bg-danger p-3">Mengundurkan Diri</div>
                                 <?php } ?>
                             </td>
                             <td class="text-center">

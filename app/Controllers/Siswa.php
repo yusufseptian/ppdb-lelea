@@ -52,16 +52,18 @@ class Siswa extends BaseController
         ];
         return view('siswa/view_dashboard', $data);
     }
-    public function pengunduranDiri()
+    public function pengunduranDiri($nisnSiswa)
     {
         $dtTA = $this->modelTahunAjar->getTANow();
         if (empty($dtTA)) {
             session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
             return $this->redirectBack();
         }
-        if (!$this->modelTahunAjar->isOpened()) {
-            session()->setFlashdata('danger', 'Saat ini bukan masa pendaftaran, untuk melakukan pengunduran diri silahkan mendatangi pihak sekolah');
-            return $this->redirectBack();
+        if (session('log_auth')['akunRole'] == 'siswa') {
+            if (!$this->modelTahunAjar->isOpened()) {
+                session()->setFlashdata('danger', 'Saat ini bukan masa pendaftaran, untuk melakukan pengunduran diri silahkan mendatangi pihak sekolah');
+                return $this->redirectBack();
+            }
         }
         if (!$this->validate([
             'txtAlasan' => 'required'
@@ -69,7 +71,15 @@ class Siswa extends BaseController
             session()->setFlashdata('danger', 'Mohon isi alasan anda mengundurkan diri');
             return $this->redirectBack();
         }
-        $dtAkun = $this->modelSiswa->join('tb_berkas', 'berkas_siswa_id=siswa_id')->find(session('log_auth')['akunID']);
+        if (session('log_auth')['akunRole'] == 'siswa') {
+            $dtAkun = $this->modelSiswa->join('tb_berkas', 'berkas_siswa_id=siswa_id')->find(session('log_auth')['akunID']);
+        } else {
+            $dtAkun = $this->modelSiswa->join('tb_berkas', 'berkas_siswa_id=siswa_id', 'left')->where('siswa_nisn', $nisnSiswa)->where('siswa_ta_id', $dtTA['ta_id'])->first();
+            if (empty($dtAkun)) {
+                session()->setFlashdata('danger', 'Data siswa tidak ditemukan');
+                return $this->redirectBack();
+            }
+        }
         try {
             unlink('ijazah_siswa/' . $dtAkun['berkas_ijazah']);
         } catch (Exception $e) {
@@ -98,12 +108,26 @@ class Siswa extends BaseController
             unlink('ijazah_mda_siswa/' . $dtAkun['berkas_ijazah_mda']);
         } catch (Exception $e) {
         }
-        $this->modelBerkas->delete($dtAkun['berkas_id']);
-        $data = ['siswa_alasan_pengunduran' => $this->request->getPost('txtAlasan')];
-        $this->modelSiswa->update(session('log_auth')['akunID'], $data);
-        if ($this->modelSiswa->delete(session('log_auth')['akunID'])) {
-            session()->setFlashdata('success', 'Akun anda telah di non-aktifkan');
-            return redirect()->to(base_url('auth/logout_siswa'));
+        if (!is_null($dtAkun['berkas_id'])) {
+            $this->modelBerkas->delete($dtAkun['berkas_id']);
+        }
+        if (session('log_auth')['akunRole'] == 'siswa') {
+            $data = ['siswa_alasan_pengunduran' => $this->request->getPost('txtAlasan')];
+        } else {
+            $data = [
+                'siswa_alasan_pengunduran' => $this->request->getPost('txtAlasan'),
+                'siswa_deleted_by' => session('log_auth')['akunID']
+            ];
+        }
+        $this->modelSiswa->update($dtAkun['siswa_id'], $data);
+        if ($this->modelSiswa->delete($dtAkun['siswa_id'])) {
+            if (session('log_auth')['akunRole'] == 'siswa') {
+                session()->setFlashdata('success', 'Akun anda telah di non-aktifkan');
+                return redirect()->to(base_url('auth/logout_siswa'));
+            } else {
+                session()->setFlashdata('success', 'Data calon siswa berhasil dihapus');
+                return redirect()->to(base_url('datasiswa'));
+            }
         }
         session()->setFlashdata('danger', 'Pengunduran diri gagal. Silahkan coba lagi nanti');
         return $this->redirectBack();

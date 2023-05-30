@@ -36,22 +36,30 @@ class DataSiswa extends BaseController
         $data = [
             'title' => 'Admin',
             'subtitle' => 'Manajemen Data Siswa',
-            'dt_siswa' => $this->Msiswa->where('siswa_ta_id', $dtTA['ta_id'])->findAll()
+            'dt_siswa' => $this->Msiswa->where('siswa_ta_id', $dtTA['ta_id'])->withDeleted()->findAll()
         ];
         return view('admin/view_data_siswa', $data);
     }
     public function detail($siswa_nisn)
     {
+        $dtTA = $this->Mtahunajar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
+            return $this->redirectBack();
+        }
         $data_siswa = $this->Msiswa
             ->join('tb_orangtua', 'ortu_siswa_id = siswa_id')
-            ->join('tb_berkas', 'berkas_siswa_id = siswa_id')
+            ->join('tb_berkas', 'berkas_siswa_id = siswa_id', 'left')
             ->join('tb_nilai', 'nilai_siswa_id = siswa_id')
-            ->where('siswa_nisn', $siswa_nisn)->first();
+            ->join('tb_user', 'siswa_deleted_by=user_id', 'left')
+            ->where('siswa_nisn', $siswa_nisn)
+            ->withDeleted()->first();
         $data = [
             'title' => 'Admin',
             'subtitle' => 'Detail Data Siswa',
             'agama' => $this->agama,
-            'dt_siswa' => $data_siswa
+            'dt_siswa' => $data_siswa,
+            'isOpened' => $this->Mtahunajar->isOpened()
         ];
         // dd($data['dt_siswa']);
         return view('admin/view_detail_siswa', $data);
