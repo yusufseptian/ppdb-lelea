@@ -74,12 +74,18 @@
                                 <button class="btn btn-sm btn-flat btn-info" onclick="window.location.href='<?= base_url('datasiswa/detail/') . $value['siswa_nisn'] ?>'">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-flat btn-success" onclick="window.location.href='<?= base_url('datasiswa/diterima/') . $value['siswa_nisn'] ?>'">
-                                    <i class=" fas fa-check"></i>
-                                </button>
-                                <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['siswa_nisn'] ?>">
-                                    <i class="fas fa-times"></i>
-                                </button>
+                                <?php if (is_null($value['siswa_deleted_at'])) : ?>
+                                    <?php if ($value['siswa_status_pendaftaran'] == 'Terdaftar') : ?>
+                                        <button class="btn btn-sm btn-flat btn-success" onclick="window.location.href='<?= base_url('datasiswa/diterima/') . $value['siswa_nisn'] ?>'">
+                                            <i class=" fas fa-check"></i>
+                                        </button>
+                                    <?php endif ?>
+                                    <?php if ($value['siswa_status_pendaftaran'] != 'Tidak Diterima') : ?>
+                                        <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['siswa_nisn'] ?>">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    <?php endif ?>
+                                <?php endif ?>
                             </td>
                         </tr>
                     <?php } ?>
@@ -169,33 +175,37 @@
 <!-- /.modal -->
 <!-- Modal delete -->
 <?php foreach ($dt_siswa as $key => $dt) { ?>
-    <div class="modal fade" id="delete<?= $dt['siswa_nisn'] ?>">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-danger">
-                    <h4 class="modal-title">Hapus Siswa ?</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <?= form_open('datasiswa/ditolak/' . $dt['siswa_nisn']) ?>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Deskripsi</label>
-                        <textarea class="form-control" name="siswa_alasan_ditolak" id="" rows="5"><?= $dt['siswa_alasan_ditolak'] ?></textarea>
+    <?php if (is_null($dt['siswa_deleted_at'])) : ?>
+        <?php if ($dt['siswa_status_pendaftaran'] != 'Tidak Diterima') : ?>
+            <div class="modal fade" id="delete<?= $dt['siswa_nisn'] ?>">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger">
+                            <h4 class="modal-title">Tolak Berkas Pendaftaran Siswa?</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <?= form_open('datasiswa/ditolak/' . $dt['siswa_nisn']) ?>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Deskripsi</label>
+                                <textarea class="form-control" name="siswa_alasan_ditolak" id="" rows="5"><?= $dt['siswa_alasan_ditolak'] ?></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Ubah</button>
+                        </div>
+                        <?= form_close() ?>
                     </div>
+                    <!-- /.modal-content -->
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-danger btn-sm">Ubah</button>
-                </div>
-                <?= form_close() ?>
+                <!-- /.modal-dialog -->
             </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+            <!-- /.modal -->
+        <?php endif ?>
+    <?php endif ?>
 <?php } ?>
 <?= $this->endSection() ?>
 <?= $this->section('bottomScript'); ?>
