@@ -48,7 +48,7 @@
                 <tr>
                     <td width="150px">Nama</td>
                     <td class="px-2">:</td>
-                    <td></td>
+                    <td><?= $dtSekolah['profil_kepsek'] ?></td>
                 </tr>
                 <tr>
                     <td width="150px">NIP</td>
@@ -58,7 +58,7 @@
                 <tr>
                     <td width="150px">Jabatan</td>
                     <td class="px-2">:</td>
-                    <td></td>
+                    <td>Kepala Sekolah</td>
                 </tr>
             </table>
             <p class="my-3">Dengan ini menyatakan bahwa:</p>
@@ -66,27 +66,27 @@
                 <tr>
                     <td width="150px">Nama Lengkap</td>
                     <td class="px-2">:</td>
-                    <td>YUdi</td>
+                    <td><?= $dtSiswa['siswa_nama'] ?></td>
                 </tr>
                 <tr>
                     <td width="150px">Tempat, Tgl Lahir</td>
                     <td class="px-2">:</td>
-                    <td></td>
+                    <td><?= $dtSiswa['siswa_tempat_lahir'] ?>, <?= date('d-m-y', strtotime($dtSiswa['siswa_tgl_lahir'])) ?></td>
                 </tr>
                 <tr>
                     <td width="150px">Nama Orang Tua</td>
                     <td class="px-2">:</td>
-                    <td></td>
+                    <td><?= $dtSiswa['ortu_nama_ayah'] ?> & <?= $dtSiswa['ortu_nama_ibu'] ?></td>
                 </tr>
                 <tr>
                     <td width="150px">Alamat</td>
                     <td class="px-2">:</td>
-                    <td></td>
+                    <td><?= $dtSiswa['siswa_alamat'] ?></td>
                 </tr>
                 <tr>
                     <td width="150px">Asal Sekolah</td>
                     <td class="px-2">:</td>
-                    <td></td>
+                    <td><?= $dtSiswa['siswa_sekolah_asal'] ?></td>
                 </tr>
             </table>
             <div class="border border-dark border-2 my-5 mx-auto w-25">
@@ -97,7 +97,7 @@
             <div class="float-right mt-5">
                 <div>Lelea, <?= date('d M Y'); ?></div>
                 <div class="text-center">Kepala Sekolah</div>
-                <p class="font-weight-bold text-center text-uppercase" style="margin-top: 100px;">Wahyu</p>
+                <p class="font-weight-bold text-center text-uppercase" style="margin-top: 100px;"><?= $dtSekolah['profil_kepsek'] ?></p>
             </div>
         </div>
     </div>

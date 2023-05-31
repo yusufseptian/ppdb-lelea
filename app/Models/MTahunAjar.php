@@ -38,4 +38,13 @@ class MTahunAjar extends Model
         }
         return false;
     }
+
+    public function isFinished(): bool
+    {
+        $dtTA = $this->getTANow();
+        if (strtotime(date('Y-m-d H:i:s')) > strtotime($dtTA['ta_selesai_daftar'])) {
+            return true;
+        }
+        return false;
+    }
 }

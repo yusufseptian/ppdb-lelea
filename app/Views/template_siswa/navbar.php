@@ -20,7 +20,7 @@
                                <?php if (session('log_auth')['akunRole'] == 'siswa') : ?>
                                    <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-home"></i>&ensp;Dashboard</a></li>
                                    <li class="dropdown-divider"></li>
-                                   <li><a href="<?= base_url('siswa') ?>" class="dropdown-item"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
+                                   <li><a class="dropdown-item" id="btnPrintUndangan" style="cursor: pointer;"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
                                    <li class="dropdown-divider"></li>
                                    <li><a href="<?= base_url('auth/logout_siswa') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a></li>
                                <?php else : ?>

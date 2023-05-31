@@ -8,6 +8,7 @@ use App\Models\Muser;
 use App\Controllers\BaseController;
 use App\Models\Mberkas;
 use App\Models\MTahunAjar;
+use App\Models\MTentang;
 use Exception;
 
 class Siswa extends BaseController
@@ -17,6 +18,7 @@ class Siswa extends BaseController
     private $modelAdmin;
     private $modelTahunAjar;
     private $modelBerkas;
+    private $modelTentang;
 
     public function __construct()
     {
@@ -25,6 +27,7 @@ class Siswa extends BaseController
         $this->modelAdmin  = new Muser();
         $this->modelTahunAjar = new MTahunAjar();
         $this->modelBerkas = new Mberkas();
+        $this->modelTentang = new MTentang();
         helper('form');
         helper('text');
     }
@@ -48,15 +51,45 @@ class Siswa extends BaseController
             'dt_siswa' => $data_siswa,
             'dtRanking' => $this->modelSiswa->getRankingByID($data_siswa['siswa_id']),
             'dtTA' => $dtTA,
-            'isOpened' => $this->modelTahunAjar->isOpened()
+            'isOpened' => $this->modelTahunAjar->isOpened(),
+            'isFinished' => $this->modelTahunAjar->isFinished()
         ];
         return view('siswa/view_dashboard', $data);
     }
 
-    public function undangan()
+    public function undangan($nisnSiswa = null)
     {
+        $dtTA = $this->modelTahunAjar->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
+            return $this->redirectBack();
+        }
+        if (!$this->modelTahunAjar->isFinished()) {
+            session()->setFlashdata('danger', 'Cetak undangan hanya dapat dilakukan ketika waktu pendaftaran telah selsai');
+            return $this->redirectBack();
+        }
+        if (session('log_auth')['akunRole'] == 'siswa') {
+            $dtSiswa = $this->modelSiswa->join('tb_orangtua', 'ortu_siswa_id=siswa_id')->find(session('log_auth')['akunID']);
+        } else {
+            $dtSiswa = $this->modelSiswa->join('tb_orangtua', 'ortu_siswa_id=siswa_id')->where('siswa_nisn', $nisnSiswa)->first();
+        }
+        if (empty($dtSiswa)) {
+            session()->setFlashdata('danger', 'Data siswa tidak ditemukan');
+            return $this->redirectBack();
+        }
+        $dtRanking = $this->modelSiswa->getRankingByID($dtSiswa['siswa_id']);
+        if (empty($dtRanking)) {
+            session()->setFlashdata('danger', 'Data anda tidak ditemukan. Pastikan status pendaftaran anda sudah dalam keadaan diterima.');
+            return $this->redirectBack();
+        }
+        if ($dtRanking['ranking'] > $dtTA['ta_kuota']) {
+            session()->setFlashdata('danger', 'Mohon maaf anda tidak lolos seleksi nilai, sehingga tidak bisa mencetak kartu undangan');
+            return $this->redirectBack();
+        }
         $data = [
-            'title' => 'Surat Undangan'
+            'title' => 'Surat Undangan',
+            'dtSiswa' => $dtSiswa,
+            'dtSekolah' => $this->modelTentang->first()
         ];
         return view('siswa/view_surat_undangan', $data);
     }

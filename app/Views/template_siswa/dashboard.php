@@ -43,7 +43,7 @@
                             <i class="fas fa-user"></i>&ensp;<?= session('log_auth')['akunName'] ?>
                         </a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow p-0">
-                            <li class="dropdown-item p-0"><a onclick="window.location='<?= base_url('siswa/undangan') ?>'"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
+                            <li class="dropdown-item p-0"><a id="btnPrintUndangan" style="cursor: pointer;"><i class="fas fa-address-card"></i>&ensp;Formulir</a></li>
                             <li class="dropdown-divider p-0 m-0"></li>
                             <li class="dropdown-item p-0"><a class="text-danger" style="cursor: pointer;" <?= ($isOpened) ? ' data-bs-toggle="modal" data-bs-target="#modalPengunduranDiri"' : '' ?> id="btnPengunduranDiri"><i class="fas fa-trash"></i>&ensp;Pengunduran Diri</a></li>
                             <li class="dropdown-divider p-0 m-0"></li>
@@ -121,6 +121,7 @@
 
     <script>
         const isOpen = Boolean(<?= $isOpened ?>);
+        const isFinished = Boolean(<?= $isFinished ?>);
         // preview img
         function bacaGambar(input) {
             try {
@@ -157,6 +158,18 @@
 
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
+        });
+
+        $("#btnPrintUndangan").click(function() {
+            if (isFinished) {
+                window.location.href = '<?= base_url('siswa/undangan') ?>';
+            } else {
+                Swal.fire(
+                    'Perhatian!',
+                    'Cetak undangan hanya dapat dilakukan ketika waktu pendaftaran selesai',
+                    'info'
+                );
+            }
         });
     </script>
     <?= $this->renderSection('bottomScript'); ?>

@@ -65,7 +65,6 @@
             <?= $this->include('template_siswa/prestasi'); ?>
         </section><!-- End Prestasi Section -->
 
-
         <!-- ======= Gallery Section ======= -->
         <section id="gallery" class="gallery" style="min-height: 650px;">
             <?= $this->include('template_siswa/galeri'); ?>
@@ -121,6 +120,7 @@
         new Splide('.splide').mount();
     </script>
     <script>
+        const isFinished = Boolean(<?= $isFinished ?>)
         $(document).ready(function() {
             $('.owl-carousel').owlCarousel({
                 loop: true,
@@ -145,7 +145,19 @@
 
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
-        })
+        });
+
+        $("#btnPrintUndangan").click(function() {
+            if (isFinished) {
+                window.location.href = '<?= base_url('siswa/undangan') ?>';
+            } else {
+                Swal.fire(
+                    'Perhatian!',
+                    'Cetak undangan hanya dapat dilakukan ketika waktu pendaftaran selesai',
+                    'info'
+                );
+            }
+        });
     </script>
     <?= $this->include('/partial/notif.php'); ?>
 </body>
