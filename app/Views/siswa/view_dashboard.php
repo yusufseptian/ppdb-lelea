@@ -57,7 +57,7 @@ if ($dt_siswa['siswa_status_pendaftaran'] == 'Diterima') {
                         <div class="card-body" id="dataSiswaForm">
                             <div class="form-group mb-3">
                                 <label>NISN</label>
-                                <input type="text" class="form-control" name="siswa_nisn" value="<?= $dt_siswa['siswa_nisn'] ?>" required disabled>
+                                <input type="text" id="txtNISN" class="form-control" name="siswa_nisn" value="<?= $dt_siswa['siswa_nisn'] ?>" required disabled>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="bold">Nama Lengkap</label>
@@ -306,6 +306,7 @@ if ($dt_siswa['siswa_status_pendaftaran'] == 'Diterima') {
             $("#btnBatalEdit").removeClass('d-none');
             $("#previewBerkasForm").addClass('d-none');
             $("#btnEdit").addClass('d-none');
+            $("#txtNISN").attr('disabled', '');
         });
     <?php endif ?>
 </script>
