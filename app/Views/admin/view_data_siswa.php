@@ -75,12 +75,12 @@
                                     <i class="fas fa-eye"></i>
                                 </button>
                                 <?php if (is_null($value['siswa_deleted_at'])) : ?>
-                                    <?php if ($value['siswa_status_pendaftaran'] == 'Terdaftar') : ?>
+                                    <?php if ($value['siswa_status_pendaftaran'] != 'Diterima') : ?>
                                         <button class="btn btn-sm btn-flat btn-success" onclick="window.location.href='<?= base_url('datasiswa/diterima/') . $value['siswa_nisn'] ?>'">
                                             <i class=" fas fa-check"></i>
                                         </button>
                                     <?php endif ?>
-                                    <?php if ($value['siswa_status_pendaftaran'] != 'Tidak Diterima') : ?>
+                                    <?php if ($value['siswa_status_pendaftaran'] == 'Terdaftar') : ?>
                                         <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['siswa_nisn'] ?>">
                                             <i class="fas fa-times"></i>
                                         </button>

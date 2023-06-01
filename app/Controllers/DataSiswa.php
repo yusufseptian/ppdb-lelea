@@ -84,27 +84,37 @@ class DataSiswa extends BaseController
     public function diterima($siswa_nisn)
     {
         $getData = $this->Msiswa->where('siswa_nisn', $siswa_nisn)->first();
-        if ($getData['siswa_status_pendaftaran'] == 'Terdaftar') {
+        if (empty($getData)) {
+            session()->setFlashdata('danger', 'Data siswa tidak ditemukan');
+            return $this->redirectBack();
+        }
+        if ($getData['siswa_status_pendaftaran'] == 'Terdaftar' || $getData['siswa_status_pendaftaran'] == 'Tidak Diterima') {
             $statusBaru = 'Diterima';
             $data = [
                 'siswa_status_pendaftaran' => $statusBaru
             ];
             $this->Msiswa->update($getData['siswa_id'], $data);
+            return redirect()->to(base_url('datasiswa'))->with('success', 'Siswa berhasil diterima');
         }
-        return redirect()->to(base_url('datasiswa'))->with('success', 'Siswa berhasil diterima');
+        return redirect()->to(base_url('datasiswa'))->with('danger', 'Siswa yang diterima hanya yang memiliki status pendaftaran "TERDAFTAR" atau "TIDAK DITERIMA"');
     }
     public function ditolak($siswa_nisn)
     {
         $getData = $this->Msiswa->where('siswa_nisn', $siswa_nisn)->first();
+        if (empty($getData)) {
+            session()->setFlashdata('danger', 'Data siswa tidak ditemukan');
+            return $this->redirectBack();
+        }
         if ($getData['siswa_status_pendaftaran'] = 'Terdaftar') {
             $statusBaru = 'Tidak Diterima';
+            $data = [
+                'siswa_status_pendaftaran' => $statusBaru,
+                'siswa_alasan_ditolak'  => $this->request->getPost('siswa_alasan_ditolak')
+            ];
+            $this->Msiswa->update($getData['siswa_id'], $data);
+            return redirect()->to(base_url('datasiswa'))->with('success', 'Siswa berhasil ditolak');
         }
-        $data = [
-            'siswa_status_pendaftaran' => $statusBaru,
-            'siswa_alasan_ditolak'  => $this->request->getPost('siswa_alasan_ditolak')
-        ];
-        $this->Msiswa->update($getData['siswa_id'], $data);
-        return redirect()->to(base_url('datasiswa'))->with('danger', 'Siswa berhasil ditolak');
+        return redirect()->to(base_url('datasiswa'))->with('danger', 'Siswa yang dapat ditolah hanya yang memiliki status pendaftaran TERDAFTAR');
     }
     public function filter()
     {
