@@ -203,7 +203,6 @@ class Daftar extends BaseController
         $data_siswa = [
             'siswa_nama'            => $this->request->getPost('siswa_nama'),
             'siswa_sekolah_asal'    => $this->request->getPost('siswa_sekolah_asal'),
-            'siswa_password'        => $this->request->getPost('siswa_password'),
             'siswa_jk'              => $this->request->getPost('siswa_jk'),
             'siswa_tempat_lahir'    => $this->request->getPost('siswa_tempat_lahir'),
             'siswa_tgl_lahir'       => $this->request->getPost('siswa_tgl_lahir'),
