@@ -172,6 +172,7 @@
             }
         });
     </script>
+    <?= $this->include('partial/notif'); ?>
     <?= $this->renderSection('bottomScript'); ?>
 </body>
 

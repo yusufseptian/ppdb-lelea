@@ -41,7 +41,8 @@
                         <div class="card-body">
                             <div class="form-group mb-3">
                                 <label>NISN</label>
-                                <input type="text" class="form-control" name="siswa_nisn" required>
+                                <input type="text" class="form-control" name="siswa_nisn" required aria-describedby="nisnHelp">
+                                <small id="nisnHelp" class="form-text text-danger">NISN tidak bisa dirubah lagi.</small>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="bold">Nama Lengkap</label>
@@ -57,7 +58,8 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label>Foto</label>
-                                <input id="foto" type="file" accept="image/*" name="siswa_foto" class="form-control" onchange="bacaGambar(event)" required>
+                                <input id="foto" type="file" accept="image/*" name="siswa_foto" class="form-control" onchange="bacaGambar(event)" aria-describedby="fotoHelp" required>
+                                <small id="fotoHelp" class="form-text text-danger">Foto tidak bisa dirubah lagi.</small>
                             </div>
                             <div class="form-group mb-3" id="pre">
                                 <label for="gbr">Preview</label><br>
