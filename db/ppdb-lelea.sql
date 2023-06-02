@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Bulan Mei 2023 pada 06.41
+-- Waktu pembuatan: 02 Jun 2023 pada 13.20
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -45,7 +45,7 @@ CREATE TABLE `tb_berkas` (
 
 INSERT INTO `tb_berkas` (`berkas_id`, `berkas_ijazah`, `berkas_akta`, `berkas_kk`, `berkas_ktp_ortu`, `berkas_rapor`, `berkas_surat_mutlak`, `berkas_ijazah_mda`, `berkas_siswa_id`) VALUES
 (1, '62290ec2-e6f2-399d-b6e9-936c4774ca4f.pdf', '86776b9b-8be2-30ba-86f9-093309f3707f.pdf', 'b40147f7-ce89-3ed2-aa28-5748993c3bc2.pdf', 'ff4a4703-973e-3a8c-87ca-b5099eb71378.pdf', 'bfe807c6-ee3a-3cfc-877a-24aa3ecffb97.pdf', '6bebeb45-cb2d-3022-82d0-68bc85fff8cb.pdf', '187e01a4-93a8-3c3d-9bf3-5ee1681cb045.pdf', 1),
-(2, '9f9a9a6a-1b3f-38da-a934-dbab598d75e4.pdf', 'c7b3a16f-a3cb-3ede-8b95-744600a34f2d.pdf', '94d1ca32-03a8-3098-ae76-f8b2ce962ee4.pdf', 'e92d11cc-2216-3c11-8982-6944794724a6.pdf', 'b8ebb126-58e9-3798-8857-9ce32152dbfd.pdf', 'f0e0e761-9af4-3b61-aad5-e5815f05ee33.pdf', '1af2df2f-7762-3684-9dea-48d59a568b30.pdf', 2),
+(2, '1685641153_bee39e8844e02328c35a.pdf', '1685641153_cd996121a07eec0ae1d4.pdf', '1685641153_64cbaa3e740c1f21a1a5.pdf', '1685641153_8b3914ed2673c96bde25.pdf', '1685641153_f63a399a0c0ba95f7b2f.pdf', '1685641153_a08d3880feb71d46bbad.pdf', '1685641153_2af5aed8fc2f2eb0f168.pdf', 2),
 (3, 'd161f0d2-ad0c-3f09-b40b-7c0ee9209a47.pdf', '25ef186c-dbe3-3596-a3ea-b01bfb41e546.pdf', '93f1c0dc-1e31-38c9-babb-eb39b43dfe1e.pdf', 'df634dde-3c61-3fd7-aa3a-b66ed4eef892.pdf', '7b20ea49-0976-3ac3-87df-5663b1ad9817.pdf', 'd287f17d-43bd-3c89-b70d-97135e828ee9.pdf', 'db5a4cdb-9ac5-3f09-ab90-808035663309.pdf', 3),
 (4, '91079355-f9d9-37f0-94d7-05faba800985.pdf', 'de7bf9ef-eece-338f-83c1-f31be47e3738.pdf', '208c9f19-13f2-3295-a71d-eedb768bf5eb.pdf', 'b5a42656-9b7f-3a2f-b41a-71d551700b73.pdf', '5bf113c7-f044-3670-9565-8460e8858de2.pdf', '1a6042b9-7cd1-330f-96b2-d6df9269644a.pdf', 'a5a6c983-cae1-3fd4-9cdb-f7c8fb4beb58.pdf', 4),
 (5, '2acb6d5d-865d-3070-bf14-c069a64dd9db.pdf', '7ad3dd01-1392-3386-823b-4f2a2f38161a.pdf', 'fadb21a5-52f2-3070-9747-ec8011af3f79.pdf', '2e4f8846-de29-34fe-a969-608f266da69e.pdf', 'd2b85b37-ef35-378c-a4c7-c4540e405e9a.pdf', '92bf8ec3-df47-3d62-b587-da351a55d700.pdf', '5e2b3435-5986-3100-9c8a-4f884de31903.pdf', 5),
@@ -57,8 +57,7 @@ INSERT INTO `tb_berkas` (`berkas_id`, `berkas_ijazah`, `berkas_akta`, `berkas_kk
 (11, '77ff1881-2820-342a-821e-9b6c3cbd98ec.pdf', 'b40b6fda-90c6-32fd-b57a-8a7eb5ace828.pdf', 'e1ac0a41-008c-3f8b-ad4d-51e440961501.pdf', '3a54f0ea-01c5-3fce-961a-9a76fe3b045d.pdf', 'cf054d6e-738b-3988-9e10-8cfcf15c5a7f.pdf', '742a4906-c0e0-38e8-acc3-d18819349f2c.pdf', 'e3c3ec3d-38f6-3ae8-8473-3b7e183c68cb.pdf', 11),
 (12, '0155a2f1-e360-362c-8fdd-4de8b8a170fb.pdf', '4fec9311-a233-3a75-baaa-66add5ead45b.pdf', 'efa5d71b-8a0b-32f6-994e-78094c0e13f2.pdf', 'f84078da-5950-3910-9598-99d6528077d7.pdf', 'e201288e-8e63-317a-a552-3a3a794082f3.pdf', '94891b60-4247-3c61-b85c-73b8157eedfc.pdf', '417024bf-6560-3b8f-af10-7f7cff6a2434.pdf', 12),
 (13, '044253a9-cf2d-3a3b-8ddb-17943e8f395c.pdf', 'ab6373d0-633e-3522-bded-c019cd6aa35f.pdf', '812dc9b5-de79-3d87-895f-d2a93e636f72.pdf', '2a23a3ed-7e17-3315-9062-fefd1562bc36.pdf', 'c485dccc-a09f-3908-9f16-9cbccec71817.pdf', '3a11a645-ec39-3eaf-892c-8ca74af34e63.pdf', 'f9a20fb7-f93a-37be-8261-48f887f705b7.pdf', 13),
-(14, 'cac5e29e-6965-3577-86ae-07b5178a746f.pdf', 'c84ed88d-387e-3535-8a85-32c5dc674274.pdf', 'caae94c8-2cc8-302f-9e13-ecd3cc6090f8.pdf', 'd0aede16-7af0-38f8-b206-6cd6942ea458.pdf', '44137783-722b-3cb9-bf07-294b6d0122da.pdf', '12e308fc-0565-3519-9407-7af30e4d35c9.pdf', '7926d2e2-f21f-30d7-971e-bad824d0b5a3.pdf', 14),
-(15, '55f71a7a-02ea-31ff-a0d3-41071fc837b6.pdf', '7490513b-740b-3360-82d1-b440a673fa3b.pdf', '71a60b03-079a-3180-b459-47a7d85db9db.pdf', '89d613fc-b8d4-39f0-a1fe-a7a2dc7505d0.pdf', 'bcc7d727-43c8-31e6-ab23-01a8d8632232.pdf', '8ad5e674-e8a3-34af-8c95-12f050581619.pdf', 'f9e063a4-8ec0-3339-9599-c324f1b72132.pdf', 15);
+(14, 'cac5e29e-6965-3577-86ae-07b5178a746f.pdf', 'c84ed88d-387e-3535-8a85-32c5dc674274.pdf', 'caae94c8-2cc8-302f-9e13-ecd3cc6090f8.pdf', 'd0aede16-7af0-38f8-b206-6cd6942ea458.pdf', '44137783-722b-3cb9-bf07-294b6d0122da.pdf', '12e308fc-0565-3519-9407-7af30e4d35c9.pdf', '7926d2e2-f21f-30d7-971e-bad824d0b5a3.pdf', 14);
 
 -- --------------------------------------------------------
 
@@ -295,10 +294,10 @@ CREATE TABLE `tb_siswa` (
 --
 
 INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nisn`, `siswa_password`, `siswa_nama`, `siswa_sekolah_asal`, `siswa_jk`, `siswa_tempat_lahir`, `siswa_tgl_lahir`, `siswa_agama`, `siswa_status`, `siswa_alamat`, `siswa_telepon`, `siswa_email`, `siswa_foto`, `siswa_jarak`, `siswa_token`, `siswa_status_pendaftaran`, `siswa_alasan_ditolak`, `siswa_alasan_pengunduran`, `siswa_ta_id`, `siswa_created_at`, `siswa_edited_at`, `siswa_deleted_at`, `siswa_deleted_by`) VALUES
-(1, '4224437686', '81dc9bdb52d04dc20036dbd8313ed055', 'Ilyas Adriansyah', 'SD N 1 JAMBAK', 'Perempuan', 'Sumatera Barat', '2008-08-18', 'Islam', 'Anak Kandung', 'Ki. Rumah Sakit No. 797, Tomohon 48890, Indramayu', '0516 6426 1054', 'warta54@yahoo.com', '7aaf1fdc-3c27-3ceb-8372-5c90be2ed504.jpg', 3, 'LFG422', 'Diterima', NULL, 'Masuk sekolah lain', 1, NULL, '2023-05-30 11:18:56', '2023-05-30 11:18:56', NULL),
-(2, '0293691479', '81dc9bdb52d04dc20036dbd8313ed055', 'Karna Sihotang', 'SD N 2 TUGU', 'Laki-Laki', 'Bali', '2009-12-29', 'Katolik', 'Anak Kandung', 'Dk. B.Agam 1 No. 30, Binjai 40059, Indramayu', '0235 0161 182', 'talia73@gmail.com', '9f3db2b3-0fc8-39e6-b637-d4f8e14d6354.jpg', 1, 'PCR202', 'Tidak Diterima', 'wagu', NULL, 1, NULL, NULL, NULL, NULL),
-(3, '7780046648', '81dc9bdb52d04dc20036dbd8313ed055', 'Dian Padmasari', 'SD N 2 TUGU', 'Perempuan', 'Sulawesi Utara', '2009-07-11', 'Islam', 'Anak Kandung', 'Kpg. Basudewo No. 501, Bekasi 81276, Indramayu', '(+62) 496 8441 ', 'mulya66@gmail.com', '1eb4a46e-ae2f-334d-aa0c-2f689e9b00f3.jpg', 1, 'STP024', 'Terdaftar', NULL, NULL, 1, NULL, NULL, NULL, NULL),
-(4, '6802449374', '81dc9bdb52d04dc20036dbd8313ed055', 'Dimaz Lestari', 'SD N 1 JAMBAK', 'Perempuan', 'Jambi', '2009-06-02', 'Kristen', 'Anak Kandung', 'Dk. Sam Ratulangi No. 948, Sungai Penuh 59454, Indramayu', '(+62) 874 770 3', 'dimaz.lestari@gmail.com', 'd6d57d60-3fbe-3382-aeb2-56229a301ea2.jpg', 8, 'GWS340', 'Terdaftar', NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(1, '4224437686', '81dc9bdb52d04dc20036dbd8313ed055', 'Ilyas Adriansyah', 'SD N 1 JAMBAK', 'Perempuan', 'Sumatera Barat', '2008-08-18', 'Islam', 'Anak Kandung', 'Ki. Rumah Sakit No. 797, Tomohon 48890, Indramayu', '0516 6426 1054', 'warta54@yahoo.com', '7aaf1fdc-3c27-3ceb-8372-5c90be2ed504.jpg', 3, 'LFG422', 'Diterima', NULL, 'Orang tua pindah domisili', 1, NULL, '2023-05-30 13:47:22', '2023-05-30 11:18:56', 1),
+(2, '0293691479', '81dc9bdb52d04dc20036dbd8313ed055', 'Karna Sihotang', 'SD N 2 TUGU', 'Laki-Laki', 'Bali, 2009-12-29, 0000-00-00', '0000-00-00', 'Katolik', 'Anak Kandung', 'Dk. B.Agam 1 No. 30, Binjai 40059, Indramayu', '0235 0161 182', 'talia73@gmail.com', '9f3db2b3-0fc8-39e6-b637-d4f8e14d6354.jpg', 0, 'PCR202', 'Terdaftar', NULL, NULL, 1, NULL, '2023-06-02 00:39:13', NULL, NULL),
+(3, '7780046648', '81dc9bdb52d04dc20036dbd8313ed055', 'Dian Padmasari', 'SD N 2 TUGU', 'Perempuan', 'Sulawesi Utara', '2009-07-11', 'Islam', 'Anak Kandung', 'Kpg. Basudewo No. 501, Bekasi 81276, Indramayu', '(+62) 496 8441 ', 'mulya66@gmail.com', '1eb4a46e-ae2f-334d-aa0c-2f689e9b00f3.jpg', 1, 'STP024', 'Diterima', NULL, NULL, 1, NULL, '2023-05-31 10:30:02', NULL, NULL),
+(4, '6802449374', '81dc9bdb52d04dc20036dbd8313ed055', 'Dimaz Lestari', 'SD N 1 JAMBAK', 'Perempuan', 'Jambi', '2009-06-02', 'Kristen', 'Anak Kandung', 'Dk. Sam Ratulangi No. 948, Sungai Penuh 59454, Indramayu', '(+62) 874 770 3', 'dimaz.lestari@gmail.com', 'd6d57d60-3fbe-3382-aeb2-56229a301ea2.jpg', 8, 'GWS340', 'Diterima', NULL, NULL, 1, NULL, '2023-05-31 10:30:06', NULL, NULL),
 (5, '7608407069', '1234', 'Eka Agustina', 'SD N 1 NUNUK', 'Perempuan', 'DI Yogyakarta', '2009-12-07', 'Kristen', 'Anak Kandung', 'Jln. Merdeka No. 951, Padang 52002, Indramayu', '0636 8632 032', 'sihombing.simon@gmail.com', '1e0ba6aa-3b93-3cd9-9532-83a028133952.jpg', 5, 'KPB042', 'Terdaftar', NULL, NULL, 0, NULL, NULL, NULL, NULL),
 (6, '7073647531', '1234', 'Anita Andriani', 'SD N 2 TUGU', 'Perempuan', 'Maluku Utara', '2009-07-09', 'Konghucu', 'Anak Angkat', 'Jln. Muwardi No. 920, Pematangsiantar 51744, Indramayu', '(+62) 524 5308 ', 'harsanto.prasetya@gmail.com', '7c265764-dc1b-31a8-ae20-d5c4f74ae3af.jpg', 12, 'JWJ423', 'Terdaftar', NULL, NULL, 0, NULL, NULL, NULL, NULL),
 (7, '1605911542', '1234', 'Gamani Waluyo', 'SD N 1 NUNUK', 'Laki-Laki', 'Gorontalo', '2009-07-18', 'Katolik', 'Anak Angkat', 'Kpg. Casablanca No. 195, Bengkulu 73483, Indramayu', '(+62) 484 7971 ', 'kani.pangestu@gmail.co.id', 'd110a7e0-4d20-386b-a8cd-747d422954c4.jpg', 15, 'VBK234', 'Terdaftar', NULL, NULL, 0, NULL, NULL, NULL, NULL),
@@ -309,7 +308,7 @@ INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nisn`, `siswa_password`, `siswa_nama`
 (12, '0644576073', '1234', 'Hesti Novitasari', 'SD N 3 TELAGASARI', 'Perempuan', 'Kepulauan Riau', '2009-03-05', 'Islam', 'Anak Kandung', 'Jr. Tambak No. 311, Kupang 64640, Indramayu', '0379 3650 500', 'mala.suartini@gmail.com', 'e55c4d8d-d872-34b1-a14e-5b263918a4a4.jpg', 4, 'CAT312', 'Terdaftar', NULL, NULL, 0, NULL, NULL, NULL, NULL),
 (13, '8001305449', '1234', 'Cahyono Ganda Jailani', 'SD N 2 RANCASARI', 'Laki-Laki', 'Sulawesi Selatan', '2009-02-13', 'Islam', 'Anak Angkat', 'Jln. Umalas No. 746, Padangpanjang 10937, Indramayu', '(+62) 856 8287 ', 'ika28@yahoo.co.id', 'adaca4a1-08b6-3671-ac42-6da4796b01a6.jpg', 13, 'BDD324', 'Terdaftar', NULL, NULL, 0, NULL, NULL, NULL, NULL),
 (14, '682518847X', '1234', 'Manah Tampubolon', 'SD N 1 JAMBAK', 'Perempuan', 'Kalimantan Barat', '2009-03-03', 'Islam', 'Anak Kandung', 'Jr. Karel S. Tubun No. 207, Pematangsiantar 61935, Indramayu', '(+62) 418 4159 ', 'yuniar.kartika@yahoo.com', 'd95f4129-2c85-39e2-8100-6df50d30d752.jpg', 7, 'VMU234', 'Terdaftar', NULL, NULL, 0, NULL, NULL, NULL, NULL),
-(15, '046627212X', '1234', 'Harto Sitorus', 'SD N 2 TUGU', 'Laki-Laki', 'Jawa Tengah', '2009-08-15', 'Hindu', 'Anak Kandung', 'Kpg. Bank Dagang Negara No. 965, Tasikmalaya 39606, Indramayu', '0235 0118 412', 'prasetya.hardiansyah@yahoo.co.id', '8af90dbf-eb19-3659-a315-3c52477e26cd.jpg', 3, 'RIN343', 'Terdaftar', NULL, NULL, 0, NULL, NULL, NULL, NULL);
+(15, '046627212X', '1234', 'Harto Sitorus', 'SD N 2 TUGU', 'Laki-Laki', 'Jawa Tengah', '2009-08-15', 'Hindu', 'Anak Kandung', 'Kpg. Bank Dagang Negara No. 965, Tasikmalaya 39606, Indramayu', '0235 0118 412', 'prasetya.hardiansyah@yahoo.co.id', '8af90dbf-eb19-3659-a315-3c52477e26cd.jpg', 3, 'RIN343', 'Terdaftar', NULL, 'Ortu pindah domisili', 1, NULL, '2023-05-30 13:49:43', '2023-05-30 13:49:43', 1);
 
 -- --------------------------------------------------------
 
@@ -334,7 +333,7 @@ CREATE TABLE `tb_tahun_ajaran` (
 --
 
 INSERT INTO `tb_tahun_ajaran` (`ta_id`, `ta_tahun_ajaran`, `ta_kuota`, `ta_mulai_daftar`, `ta_selesai_daftar`, `ta_created_at`, `ta_created_by`, `ta_edited_at`, `ta_edited_by`) VALUES
-(1, '2023/2024', 180, '2023-05-29 00:00:00', '2023-05-30 20:07:00', '2023-05-26 17:03:22', 1, '2023-05-26 17:03:22', NULL);
+(1, '2023/2024', 180, '2023-05-29 00:00:00', '2023-06-03 20:07:00', '2023-05-26 17:03:22', 1, '2023-05-26 17:03:22', NULL);
 
 -- --------------------------------------------------------
 
