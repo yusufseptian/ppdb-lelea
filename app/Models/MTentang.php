@@ -17,6 +17,7 @@ class MTentang extends Model
         'profil_nama',
         'profil_alamat',
         'profil_kepsek',
+        'profil_nip_kepsek',
         'profil_email',
         'profil_kontak',
         'profil_npsb',

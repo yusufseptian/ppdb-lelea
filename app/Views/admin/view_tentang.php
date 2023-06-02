@@ -45,10 +45,26 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label>Alamat Sekolah</label>
+                                <input type="text" class="form-control" name="profil_alamat" id="" value="<?= $tentang['profil_alamat'] ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <label>Nama Kepala Sekolah</label>
                                 <input type="text" class="form-control" name="profil_kepsek" id="" value="<?= $tentang['profil_kepsek'] ?>">
                             </div>
+
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>NIP Kepala Sekolah</label>
+                                <input type="text" class="form-control" name="profil_nip_kepsek" id="" value="<?= $tentang['profil_nip_kepsek'] ?>">
+                            </div>
+                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-4">
