@@ -84,7 +84,7 @@ class Auth extends BaseController
         $valid = $this->validate([
             'siswa_email' => [
                 'label' => 'Email',
-                'rules' => 'required|valid_email|is_unique[tb_user.user_email]',
+                'rules' => 'required|valid_email',
                 'errors' => [
                     'required' => '{field} tidak boleh kosong'
                 ]

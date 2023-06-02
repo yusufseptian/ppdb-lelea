@@ -73,7 +73,7 @@ class Daftar extends BaseController
             'siswa_nisn'            => $this->request->getPost('siswa_nisn'),
             'siswa_nama'            => $this->request->getPost('siswa_nama'),
             'siswa_sekolah_asal'    => $this->request->getPost('siswa_sekolah_asal'),
-            'siswa_password'        => $this->request->getPost('siswa_password'),
+            'siswa_password'        => md5((string)$this->request->getPost('siswa_password')),
             'siswa_jk'              => $this->request->getPost('siswa_jk'),
             'siswa_tempat_lahir'    => $this->request->getPost('siswa_tempat_lahir'),
             'siswa_tgl_lahir'       => $this->request->getPost('siswa_tgl_lahir'),
@@ -85,6 +85,7 @@ class Daftar extends BaseController
             'siswa_foto'            => $nama_file,
             'siswa_jarak'           => $this->request->getPost('siswa_jarak'),
             'siswa_token'           => $token,
+            'siswa_ta_id'           => $dtTA['ta_id'],
             'siswa_status_pendaftaran' => 'Terdaftar'
         ];
         $file->move('foto_siswa/', $nama_file);
