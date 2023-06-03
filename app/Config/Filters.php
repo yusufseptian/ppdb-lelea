@@ -2,6 +2,9 @@
 
 namespace Config;
 
+use App\Filters\FilterAdmin;
+use App\Filters\FilterLogin;
+use App\Filters\FilterSiswa;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -21,6 +24,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'login'         => FilterLogin::class,
+        'admin'         => FilterAdmin::class,
+        'siswa'         => FilterSiswa::class
     ];
 
     /**
@@ -29,9 +35,9 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+            'login' => [
+                'except' => ['', '/', 'home', 'home/*', 'auth', 'auth/*', 'daftar', 'daftar/index', 'daftar/insertsiswa', 'daftar/berkas', 'daftar/insertberkas']
+            ]
         ],
         'after' => [
             'toolbar',
@@ -60,5 +66,12 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'admin' => [
+            'before' => ['admin', 'admin/*', 'tentang', 'tentang/*', 'prestasi', 'prestasi/*', 'ekskul', 'ekskul/*', 'galeri', 'galeri/*', 'datasiswa', 'datasiswa/*', 'ranking', 'ranking/index', 'tahunajar', 'tahunajar/*']
+        ],
+        'siswa' => [
+            'before' => ['daftar/upate', 'siswa', 'siswa/index', 'siswa/undangan', 'ranking/siswa']
+        ],
+    ];
 }
