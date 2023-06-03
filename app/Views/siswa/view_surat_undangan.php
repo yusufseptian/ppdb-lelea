@@ -53,7 +53,7 @@
                 <tr>
                     <td width="150px">NIP</td>
                     <td class="px-2">:</td>
-                    <td></td>
+                    <td><?= $dtSekolah['profil_nip_kepsek'] ?></td>
                 </tr>
                 <tr>
                     <td width="150px">Jabatan</td>
@@ -71,12 +71,12 @@
                 <tr>
                     <td width="150px">Tempat, Tgl Lahir</td>
                     <td class="px-2">:</td>
-                    <td><?= $dtSiswa['siswa_tempat_lahir'] ?>, <?= date('d-m-y', strtotime($dtSiswa['siswa_tgl_lahir'])) ?></td>
+                    <td><?= $dtSiswa['siswa_tempat_lahir'] ?>, <?= date("d-m-Y", strtotime($dtSiswa['siswa_tgl_lahir'])) ?></td>
                 </tr>
                 <tr>
                     <td width="150px">Nama Orang Tua</td>
                     <td class="px-2">:</td>
-                    <td><?= $dtSiswa['ortu_nama_ayah'] ?> & <?= $dtSiswa['ortu_nama_ibu'] ?></td>
+                    <td>Bpk. <?= $dtSiswa['ortu_nama_ayah'] ?> & Ibu <?= $dtSiswa['ortu_nama_ibu'] ?></td>
                 </tr>
                 <tr>
                     <td width="150px">Alamat</td>
@@ -95,14 +95,12 @@
             <p class="my-3">Sebagai siswa kelas VII SMP Negeri 2 Lelea Tahun Pelajaran 2023/2024 setelah memenuhi semua persyaratan sesuai dengan peraturan perundang-undangan yang berlaku.</p>
             <p class="my-3">Demikian Surat Pernyataan ini kami buat dengan sesungguh-sungguhnya untuk dipergunakan sebagaimana mestinya.</p>
             <div class="float-right mt-5">
-                <div>Lelea, <?= date('d M Y'); ?></div>
+                <div class="text-center">Lelea, <?= date('d M Y'); ?></div>
                 <div class="text-center">Kepala Sekolah</div>
                 <p class="font-weight-bold text-center text-uppercase" style="margin-top: 100px;"><?= $dtSekolah['profil_kepsek'] ?></p>
             </div>
         </div>
     </div>
-
-
     <script>
         window.print();
     </script>

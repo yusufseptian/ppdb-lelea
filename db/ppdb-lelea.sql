@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 02 Jun 2023 pada 14.44
--- Versi server: 8.0.30
--- Versi PHP: 8.1.10
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 03 Jun 2023 pada 10.18
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tb_berkas` (
-  `berkas_id` int NOT NULL,
+  `berkas_id` int(11) NOT NULL,
   `berkas_ijazah` varchar(100) NOT NULL,
   `berkas_akta` varchar(100) NOT NULL,
   `berkas_kk` varchar(100) NOT NULL,
@@ -36,8 +36,8 @@ CREATE TABLE `tb_berkas` (
   `berkas_rapor` varchar(100) NOT NULL,
   `berkas_surat_mutlak` varchar(100) NOT NULL,
   `berkas_ijazah_mda` varchar(100) NOT NULL,
-  `berkas_siswa_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `berkas_siswa_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_berkas`
@@ -66,11 +66,11 @@ INSERT INTO `tb_berkas` (`berkas_id`, `berkas_ijazah`, `berkas_akta`, `berkas_kk
 --
 
 CREATE TABLE `tb_ekskul` (
-  `eks_id` int NOT NULL,
+  `eks_id` int(11) NOT NULL,
   `eks_nama` varchar(100) NOT NULL,
   `eks_kategori` enum('Wajib','Pilihan') NOT NULL,
   `eks_foto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_ekskul`
@@ -90,10 +90,10 @@ INSERT INTO `tb_ekskul` (`eks_id`, `eks_nama`, `eks_kategori`, `eks_foto`) VALUE
 --
 
 CREATE TABLE `tb_galeri` (
-  `galeri_id` int NOT NULL,
+  `galeri_id` int(11) NOT NULL,
   `galeri_nama` varchar(100) NOT NULL,
   `galeri_foto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_galeri`
@@ -113,12 +113,12 @@ INSERT INTO `tb_galeri` (`galeri_id`, `galeri_nama`, `galeri_foto`) VALUES
 --
 
 CREATE TABLE `tb_nilai` (
-  `nilai_id` int NOT NULL,
-  `nilai_ipa` int NOT NULL,
-  `nilai_mtk` int NOT NULL,
-  `nilai_indo` int NOT NULL,
-  `nilai_siswa_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nilai_id` int(11) NOT NULL,
+  `nilai_ipa` int(11) NOT NULL,
+  `nilai_mtk` int(11) NOT NULL,
+  `nilai_indo` int(11) NOT NULL,
+  `nilai_siswa_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_nilai`
@@ -148,7 +148,7 @@ INSERT INTO `tb_nilai` (`nilai_id`, `nilai_ipa`, `nilai_mtk`, `nilai_indo`, `nil
 --
 
 CREATE TABLE `tb_orangtua` (
-  `ortu_id` int NOT NULL,
+  `ortu_id` int(11) NOT NULL,
   `ortu_nama_ayah` varchar(100) NOT NULL,
   `ortu_pendidikan_ayah` varchar(100) NOT NULL,
   `ortu_telepon_ayah` varchar(15) NOT NULL,
@@ -161,8 +161,8 @@ CREATE TABLE `tb_orangtua` (
   `ortu_pekerjaan_wali` varchar(50) NOT NULL,
   `ortu_pendidikan_wali` varchar(100) NOT NULL,
   `ortu_telepon_wali` varchar(15) NOT NULL,
-  `ortu_siswa_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `ortu_siswa_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_orangtua`
@@ -192,14 +192,14 @@ INSERT INTO `tb_orangtua` (`ortu_id`, `ortu_nama_ayah`, `ortu_pendidikan_ayah`, 
 --
 
 CREATE TABLE `tb_prestasi` (
-  `p_id` int NOT NULL,
+  `p_id` int(11) NOT NULL,
   `p_nama` varchar(100) NOT NULL,
   `p_keterangan` varchar(225) NOT NULL,
   `p_tahun` date NOT NULL,
   `p_tingkat` varchar(15) NOT NULL,
   `p_prestasi` varchar(10) NOT NULL,
   `p_foto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_prestasi`
@@ -218,21 +218,21 @@ INSERT INTO `tb_prestasi` (`p_id`, `p_nama`, `p_keterangan`, `p_tahun`, `p_tingk
 --
 
 CREATE TABLE `tb_profil` (
-  `profil_id` int NOT NULL,
+  `profil_id` int(11) NOT NULL,
   `profil_nama` varchar(50) NOT NULL,
   `profil_alamat` varchar(100) NOT NULL,
   `profil_kepsek` varchar(50) NOT NULL,
   `profil_nip_kepsek` varchar(50) NOT NULL,
   `profil_email` varchar(50) NOT NULL,
   `profil_kontak` varchar(15) NOT NULL,
-  `profil_npsb` int NOT NULL,
+  `profil_npsb` int(11) NOT NULL,
   `profil_status` varchar(10) NOT NULL,
   `profil_akreditasi` varchar(5) NOT NULL,
   `profil_visi` text NOT NULL,
   `profil_misi` text NOT NULL,
   `profil_deskripsi` varchar(255) NOT NULL,
   `profil_foto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_profil`
@@ -248,14 +248,14 @@ INSERT INTO `tb_profil` (`profil_id`, `profil_nama`, `profil_alamat`, `profil_ke
 --
 
 CREATE TABLE `tb_sekolah_asal` (
-  `sa_id` int NOT NULL,
+  `sa_id` int(11) NOT NULL,
   `sa_npsn` varchar(25) NOT NULL,
   `sa_nama_sekolah` varchar(100) NOT NULL,
   `sa_status_sekolah` enum('Negeri','Swasta') NOT NULL,
   `sa_alamat_sekolah` varchar(100) NOT NULL,
-  `sa_tahun_lulus` year NOT NULL,
-  `sa_siswa_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `sa_tahun_lulus` year(4) NOT NULL,
+  `sa_siswa_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -264,7 +264,7 @@ CREATE TABLE `tb_sekolah_asal` (
 --
 
 CREATE TABLE `tb_siswa` (
-  `siswa_id` int NOT NULL,
+  `siswa_id` int(11) NOT NULL,
   `siswa_nisn` varchar(25) NOT NULL,
   `siswa_password` varchar(100) NOT NULL,
   `siswa_nama` varchar(100) NOT NULL,
@@ -281,14 +281,14 @@ CREATE TABLE `tb_siswa` (
   `siswa_jarak` float NOT NULL,
   `siswa_token` varchar(10) NOT NULL,
   `siswa_status_pendaftaran` enum('Terdaftar','Diterima','Tidak Diterima') NOT NULL,
-  `siswa_alasan_ditolak` text,
-  `siswa_alasan_pengunduran` text,
-  `siswa_ta_id` int UNSIGNED NOT NULL,
+  `siswa_alasan_ditolak` text DEFAULT NULL,
+  `siswa_alasan_pengunduran` text DEFAULT NULL,
+  `siswa_ta_id` int(10) UNSIGNED NOT NULL,
   `siswa_created_at` datetime DEFAULT NULL,
   `siswa_edited_at` datetime DEFAULT NULL,
   `siswa_deleted_at` datetime DEFAULT NULL,
-  `siswa_deleted_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `siswa_deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_siswa`
@@ -296,7 +296,7 @@ CREATE TABLE `tb_siswa` (
 
 INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nisn`, `siswa_password`, `siswa_nama`, `siswa_sekolah_asal`, `siswa_jk`, `siswa_tempat_lahir`, `siswa_tgl_lahir`, `siswa_agama`, `siswa_status`, `siswa_alamat`, `siswa_telepon`, `siswa_email`, `siswa_foto`, `siswa_jarak`, `siswa_token`, `siswa_status_pendaftaran`, `siswa_alasan_ditolak`, `siswa_alasan_pengunduran`, `siswa_ta_id`, `siswa_created_at`, `siswa_edited_at`, `siswa_deleted_at`, `siswa_deleted_by`) VALUES
 (1, '4224437686', '81dc9bdb52d04dc20036dbd8313ed055', 'Ilyas Adriansyah', 'SD N 1 JAMBAK', 'Perempuan', 'Sumatera Barat', '2008-08-18', 'Islam', 'Anak Kandung', 'Ki. Rumah Sakit No. 797, Tomohon 48890, Indramayu', '0516 6426 1054', 'warta54@yahoo.com', '7aaf1fdc-3c27-3ceb-8372-5c90be2ed504.jpg', 3, 'LFG422', 'Diterima', NULL, 'Orang tua pindah domisili', 1, NULL, '2023-05-30 13:47:22', '2023-05-30 11:18:56', 1),
-(2, '0293691479', '81dc9bdb52d04dc20036dbd8313ed055', 'Karna Sihotang', 'SD N 2 TUGU', 'Laki-Laki', 'Bali, 2009-12-29, 0000-00-00', '0000-00-00', 'Katolik', 'Anak Kandung', 'Dk. B.Agam 1 No. 30, Binjai 40059, Indramayu', '0235 0161 182', 'talia73@gmail.com', '9f3db2b3-0fc8-39e6-b637-d4f8e14d6354.jpg', 0, 'PCR202', 'Terdaftar', NULL, NULL, 1, NULL, '2023-06-02 00:39:13', NULL, NULL),
+(2, '0293691479', '81dc9bdb52d04dc20036dbd8313ed055', 'Karna Sihotang', 'SD N 2 TUGU', 'Laki-Laki', 'Bali', '2008-07-17', 'Katolik', 'Anak Kandung', 'Dk. B.Agam 1 No. 30, Binjai 40059, Indramayu', '0235 0161 182', 'talia73@gmail.com', '9f3db2b3-0fc8-39e6-b637-d4f8e14d6354.jpg', 0, 'PCR202', 'Diterima', NULL, NULL, 1, NULL, '2023-06-03 14:58:23', NULL, NULL),
 (3, '7780046648', '81dc9bdb52d04dc20036dbd8313ed055', 'Dian Padmasari', 'SD N 2 TUGU', 'Perempuan', 'Sulawesi Utara', '2009-07-11', 'Islam', 'Anak Kandung', 'Kpg. Basudewo No. 501, Bekasi 81276, Indramayu', '(+62) 496 8441 ', 'mulya66@gmail.com', '1eb4a46e-ae2f-334d-aa0c-2f689e9b00f3.jpg', 1, 'STP024', 'Diterima', NULL, NULL, 1, NULL, '2023-05-31 10:30:02', NULL, NULL),
 (4, '6802449374', '81dc9bdb52d04dc20036dbd8313ed055', 'Dimaz Lestari', 'SD N 1 JAMBAK', 'Perempuan', 'Jambi', '2009-06-02', 'Kristen', 'Anak Kandung', 'Dk. Sam Ratulangi No. 948, Sungai Penuh 59454, Indramayu', '(+62) 874 770 3', 'dimaz.lestari@gmail.com', 'd6d57d60-3fbe-3382-aeb2-56229a301ea2.jpg', 8, 'GWS340', 'Diterima', NULL, NULL, 1, NULL, '2023-05-31 10:30:06', NULL, NULL),
 (5, '7608407069', '1234', 'Eka Agustina', 'SD N 1 NUNUK', 'Perempuan', 'DI Yogyakarta', '2009-12-07', 'Kristen', 'Anak Kandung', 'Jln. Merdeka No. 951, Padang 52002, Indramayu', '0636 8632 032', 'sihombing.simon@gmail.com', '1e0ba6aa-3b93-3cd9-9532-83a028133952.jpg', 5, 'KPB042', 'Terdaftar', NULL, NULL, 0, NULL, NULL, NULL, NULL),
@@ -318,23 +318,23 @@ INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nisn`, `siswa_password`, `siswa_nama`
 --
 
 CREATE TABLE `tb_tahun_ajaran` (
-  `ta_id` int NOT NULL,
+  `ta_id` int(11) NOT NULL,
   `ta_tahun_ajaran` varchar(25) NOT NULL,
-  `ta_kuota` int NOT NULL,
+  `ta_kuota` int(11) NOT NULL,
   `ta_mulai_daftar` datetime DEFAULT NULL,
   `ta_selesai_daftar` datetime DEFAULT NULL,
   `ta_created_at` datetime NOT NULL,
-  `ta_created_by` int UNSIGNED NOT NULL,
+  `ta_created_by` int(10) UNSIGNED NOT NULL,
   `ta_edited_at` datetime DEFAULT NULL,
-  `ta_edited_by` int UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `ta_edited_by` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_tahun_ajaran`
 --
 
 INSERT INTO `tb_tahun_ajaran` (`ta_id`, `ta_tahun_ajaran`, `ta_kuota`, `ta_mulai_daftar`, `ta_selesai_daftar`, `ta_created_at`, `ta_created_by`, `ta_edited_at`, `ta_edited_by`) VALUES
-(1, '2023/2024', 180, '2023-05-29 00:00:00', '2023-06-03 20:07:00', '2023-05-26 17:03:22', 1, '2023-05-26 17:03:22', NULL);
+(1, '2023/2024', 180, '2023-05-29 00:00:00', '2023-06-02 20:07:00', '2023-05-26 17:03:22', 1, '2023-05-26 17:03:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -343,11 +343,11 @@ INSERT INTO `tb_tahun_ajaran` (`ta_id`, `ta_tahun_ajaran`, `ta_kuota`, `ta_mulai
 --
 
 CREATE TABLE `tb_user` (
-  `user_id` int NOT NULL,
+  `user_id` int(11) NOT NULL,
   `user_username` varchar(50) NOT NULL,
   `user_password` varchar(100) NOT NULL,
   `user_email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_user`
@@ -434,67 +434,67 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT untuk tabel `tb_berkas`
 --
 ALTER TABLE `tb_berkas`
-  MODIFY `berkas_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `berkas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_ekskul`
 --
 ALTER TABLE `tb_ekskul`
-  MODIFY `eks_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `eks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_galeri`
 --
 ALTER TABLE `tb_galeri`
-  MODIFY `galeri_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
-  MODIFY `nilai_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `nilai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_orangtua`
 --
 ALTER TABLE `tb_orangtua`
-  MODIFY `ortu_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ortu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_prestasi`
 --
 ALTER TABLE `tb_prestasi`
-  MODIFY `p_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_profil`
 --
 ALTER TABLE `tb_profil`
-  MODIFY `profil_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `profil_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sekolah_asal`
 --
 ALTER TABLE `tb_sekolah_asal`
-  MODIFY `sa_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `sa_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `siswa_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tahun_ajaran`
 --
 ALTER TABLE `tb_tahun_ajaran`
-  MODIFY `ta_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

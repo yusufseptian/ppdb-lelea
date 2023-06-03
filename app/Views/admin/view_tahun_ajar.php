@@ -28,19 +28,20 @@
                     <?php $no = 1;
                     foreach ($dt_ta as $key => $value) { ?>
                         <tr>
-                            <td><?= $no++ ?></td>
+                            <td class="text-center"><?= $no++ ?></td>
                             <td><?= $value['ta_tahun_ajaran'] ?></td>
-                            <td><?= $value['ta_kuota'] ?></td>
+                            <td class="text-center"><?= $value['ta_kuota'] ?></td>
                             <td><?= $value['ta_mulai_daftar'] ?></td>
                             <td><?= $value['ta_selesai_daftar'] ?></td>
-
-                            <td>
-                                <button class="btn btn-sm btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['ta_id'] ?>">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['ta_id'] ?>">
-                                    <i class="fas fa-trash"></i>
-                                </button>
+                            <td class="text-center">
+                                <?php if ($no == 2) : ?>
+                                    <button class="btn btn-sm btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['ta_id'] ?>">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['ta_id'] ?>">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                <?php endif ?>
                             </td>
                         </tr>
                     <?php } ?>
@@ -131,7 +132,9 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-<?php } ?>
+<?php
+    break;
+} ?>
 <!-- Modal Delete -->
 <?php foreach ($dt_ta as $key => $value) { ?>
     <div class="modal fade" id="delete<?= $value['ta_id'] ?>">

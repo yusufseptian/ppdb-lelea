@@ -23,10 +23,15 @@ class Ranking extends BaseController
             session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
             return $this->redirectBack();
         }
+        if (session('filterDataSiswa')) {
+            $dtTA = $this->modelTahunAjar->find(session('filterDataSiswa')['ta']);
+        }
         $data = [
             'title' => 'Pendaftaran',
-            'subtitle' => 'Pendaftaran',
-            'dtSiswa' => $this->modelSiswa->getRanking(),
+            'subtitle' => 'Perangkingan PPDB',
+            'dtSiswa' => $this->modelSiswa->getRanking($dtTA['ta_id']),
+            'dtTA' => $dtTA,
+            'listTA' => $this->modelTahunAjar->findAll()
         ];
         return view('admin/view_ranking', $data);
     }

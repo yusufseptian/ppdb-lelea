@@ -17,7 +17,7 @@ class TahunAjar extends BaseController
         $data = [
             'title' => 'Admin',
             'subtitle' => 'Tahun Ajaran',
-            'dt_ta' => $this->modelTa->findAll()
+            'dt_ta' => $this->modelTa->orderBy('ta_id', 'desc')->findAll()
         ];
         return view('admin/view_tahun_ajar', $data);
     }

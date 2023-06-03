@@ -102,6 +102,10 @@ if ($dt_siswa['siswa_status_pendaftaran'] == 'Diterima') {
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="siswa_email" value="<?= $dt_siswa['siswa_email'] ?>" required disabled>
                             </div>
+                            <div class="form-group mb-3">
+                                <label>Jarak dari Rumah ke Sekolah</label>
+                                <input type="text" class="form-control" name="siswa_jarak" value="<?= $dt_siswa['siswa_jarak'] ?>" required disabled>
+                            </div>
                         </div>
                     </div>
                 </div>

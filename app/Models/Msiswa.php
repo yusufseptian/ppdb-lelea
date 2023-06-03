@@ -46,10 +46,13 @@ class Msiswa extends Model
     protected $updatedField  = 'siswa_edited_at';
     protected $deletedField  = 'siswa_deleted_at';
 
-    public function getRanking()
+    public function getRanking($idTACustom = null)
     {
         $modelTahunAjar = new MTahunAjar();
         $idTA = $modelTahunAjar->getTANow()['ta_id'];
+        if (!is_null($idTACustom)) {
+            $idTA = $idTACustom;
+        }
         $dtSiswa = $this->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->findAll();
         $maxIPA = $this->select('max(nilai_ipa) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
         $maxMTK = $this->select('max(nilai_mtk) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
@@ -57,10 +60,26 @@ class Msiswa extends Model
         $minJarak = $this->select('min(siswa_jarak) as min')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
         $index = 0;
         foreach ($dtSiswa as $dt) {
-            $nIPA = $dt['nilai_ipa'] / ($maxIPA['max']);
-            $nMTK = $dt['nilai_mtk'] / ($maxMTK['max']);
-            $nINDO = $dt['nilai_indo'] / ($maxIndo['max']);
-            $nJarak = ($minJarak['min']) / $dt['siswa_jarak'];
+            if ($maxIPA['max'] == 0) {
+                $nIPA = 1;
+            } else {
+                $nIPA = $dt['nilai_ipa'] / ($maxIPA['max']);
+            }
+            if ($maxMTK['max'] == 0) {
+                $nMTK = 1;
+            } else {
+                $nMTK = $dt['nilai_mtk'] / ($maxMTK['max']);
+            }
+            if ($maxIndo['max'] == 0) {
+                $nINDO = 1;
+            } else {
+                $nINDO = $dt['nilai_indo'] / ($maxIndo['max']);
+            }
+            if ($dt['siswa_jarak'] == 0) {
+                $nJarak = 1;
+            } else {
+                $nJarak = ($minJarak['min']) / $dt['siswa_jarak'];
+            }
             $dtSiswa[$index]['totalNilai'] = (is_int(($nIPA * 0.25) + ($nMTK * 0.25) + ($nINDO * 0.25) + ($nJarak * 0.25))) ? ($nIPA * 0.25) + ($nMTK * 0.25) + ($nINDO * 0.25) + ($nJarak * 0.25) : round(($nIPA * 0.25) + ($nMTK * 0.25) + ($nINDO * 0.25) + ($nJarak * 0.25), 4);
             $index++;
         }
