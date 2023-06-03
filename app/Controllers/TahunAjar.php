@@ -31,10 +31,19 @@ class TahunAjar extends BaseController
             'ta_created_by' => session('log_auth')['akunID']
         ];
         $this->modelTa->insert($data);
-        return redirect()->to('tahunajar')->with('success', 'Data berhasil ditambah');
+        return redirect()->to(base_url('tahunajar'))->with('success', 'Data berhasil ditambah');
     }
     public function editdata($ta_id)
     {
+        $dtTA = $this->modelTa->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
+            return $this->redirectBack();
+        }
+        if ($ta_id != $dtTA['ta_id']) {
+            session()->setFlashdata('danger', 'Hanya dapat merubah tahun ajaran terbaru saja');
+            return $this->redirectBack();
+        }
         $data = [
             'ta_tahun_ajaran' => $this->request->getPost('ta_tahun_ajaran'),
             'ta_kuota' => $this->request->getPost('ta_kuota'),
@@ -43,14 +52,22 @@ class TahunAjar extends BaseController
             'ta_edited_by' => session('log_auth')['akunID']
         ];
         $this->modelTa->update($ta_id, $data);
-        return redirect()->to('tahunajar')->with('success', 'Data berhasil ditambah');
+        return redirect()->to(base_url('tahunajar'))->with('success', 'Data berhasil ditambah');
     }
     public function deleteData($ta_id)
     {
+        $dtTA = $this->modelTa->getTANow();
+        if (empty($dtTA)) {
+            session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
+            return $this->redirectBack();
+        }
+        if ($ta_id != $dtTA['ta_id']) {
+            session()->setFlashdata('danger', 'Hanya dapat menghapus tahun ajaran terbaru saja');
+        }
         $data = [
             'ta_id' => $ta_id,
         ];
         $this->modelTa->delete($data);
-        return redirect()->to('tahunajar')->with('danger', 'Data berhasil dihapus');
+        return redirect()->to(base_url('tahunajar'))->with('danger', 'Data berhasil dihapus');
     }
 }
