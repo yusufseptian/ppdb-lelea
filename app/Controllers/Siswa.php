@@ -93,7 +93,7 @@ class Siswa extends BaseController
         ];
         return view('siswa/view_surat_undangan', $data);
     }
-    public function pengunduranDiri($nisnSiswa)
+    public function pengunduranDiri($nisnSiswa = null)
     {
         $dtTA = $this->modelTahunAjar->getTANow();
         if (empty($dtTA)) {
