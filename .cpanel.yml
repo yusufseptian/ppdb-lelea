@@ -1,6 +1,5 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ppdblele/ppdblelea/
     - export DEPLOYPATHPUBLIC=/home/ppdblele/public_html/
     - /bin/rm -rf $DEPLOYPATHPUBLIC
     - /bin/mkdir $DEPLOYPATHPUBLIC
