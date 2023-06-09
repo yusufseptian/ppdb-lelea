@@ -53,7 +53,7 @@ class Msiswa extends Model
         if (!is_null($idTACustom)) {
             $idTA = $idTACustom;
         }
-        $dtSiswa = $this->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->findAll();
+        $dtSiswa = $this->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->orderBy('siswa_created_at', 'asc')->findAll();
         $maxIPA = $this->select('max(nilai_ipa) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
         $maxMTK = $this->select('max(nilai_mtk) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
         $maxIndo = $this->select('max(nilai_indo) as max')->join('tb_nilai', 'siswa_id=nilai_siswa_id')->where('siswa_ta_id', $idTA)->where('siswa_status_pendaftaran', 'Diterima')->first();
@@ -106,6 +106,7 @@ class Msiswa extends Model
                 $dtSiswa = $tmp;
                 break;
             }
+            $index++;
         }
         return $dtSiswa;
     }

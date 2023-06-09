@@ -50,6 +50,7 @@ class Siswa extends BaseController
             'subtitle' => 'Dashboard Siswa',
             'dt_siswa' => $data_siswa,
             'dtRanking' => $this->modelSiswa->getRankingByID($data_siswa['siswa_id']),
+            'dtRanking' => $this->modelSiswa->getRankingByID(session('log_auth')['akunID']),
             'dtTA' => $dtTA,
             'isOpened' => $this->modelTahunAjar->isOpened(),
             'isFinished' => $this->modelTahunAjar->isFinished()

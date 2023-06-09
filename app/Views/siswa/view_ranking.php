@@ -58,6 +58,7 @@
                             <th colspan="3">Nilai</th>
                             <th rowspan="2">Jarak (km)</th>
                             <th rowspan="2">Nilai</th>
+                            <th rowspan="2">Tanggal Daftar</th>
                         </tr>
                         <tr>
                             <th>Matematika</th>
@@ -72,7 +73,7 @@
                         $i = 0;
                         $count = 0;
                         foreach ($dtSiswa as $key => $value) { ?>
-                            <tr class="<?= ($i > $dtTA['ta_kuota']) ? 'bg-danger' : '' ?>">
+                            <tr class="<?= ($i + 1 > $dtTA['ta_kuota']) ? 'bg-danger' : '' ?>">
                                 <td class="text-center"><?= $i + 1 ?></td>
                                 <td>
                                     <?php
@@ -96,6 +97,7 @@
                                 <td><?= $value['nilai_ipa'] ?></td>
                                 <td><?= $value['siswa_jarak'] ?></td>
                                 <td><?= $value['totalNilai'] ?></td>
+                                <td><?= date("d-m-Y H:i:s", strtotime($value['siswa_created_at'])) ?></td>
                             </tr>
                         <?php
                             $tmpNilai = $value['totalNilai'];
