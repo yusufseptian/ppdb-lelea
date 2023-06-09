@@ -53,7 +53,7 @@
                     $i = 0;
                     $count = 0;
                     foreach ($dtSiswa as $key => $value) { ?>
-                        <tr class="<?= ($i >= 7) ? 'bg-danger' : '' ?>">
+                        <tr class="<?= ($i >= $dtTA['ta_kuota']) ? 'bg-danger' : '' ?>">
                             <td class="text-center"><?= $i + 1 ?></td>
                             <td>
                                 <?php

@@ -80,14 +80,14 @@
     <footer id="footer">
         <div class="container py-4">
             <div class="copyright">
-                &copy; Copyright <strong><span>Barokah Coding</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>SMP N 2 Lelea</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/butterfly-free-bootstrap-theme/ -->
-                Designed by <a href="">BarokahCoding</a>
+                Designed by <a href="">SMPN2LELEA</a>
             </div>
         </div>
     </footer><!-- End Footer -->
@@ -115,7 +115,7 @@
     <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script src="<?= base_url() ?>/assets/plugins/splide/dist/js/splide.min.js"></script>
-    <script src="<?= base_url() ?>/assets/plugins/owlcarousel/dist/owl.carousel.min.js"></script>
+    <script src="<?= base_url() ?>/assets/plugins/OwlCarousel/dist/owl.carousel.min.js"></script>
     <script>
         new Splide('.splide').mount();
     </script>

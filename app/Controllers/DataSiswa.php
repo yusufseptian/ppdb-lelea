@@ -8,7 +8,7 @@ use App\Models\Mortu;
 use App\Models\Msiswa;
 use App\Models\MTahunAjar;
 
-class DataSiswa extends BaseController
+class Datasiswa extends BaseController
 {
     private $Msiswa;
     private $Mortu;

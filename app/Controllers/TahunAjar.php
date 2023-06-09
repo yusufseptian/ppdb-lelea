@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\MTahunAjar;
 
-class TahunAjar extends BaseController
+class Tahunajar extends BaseController
 {
     private $modelTa = null;
     public function __construct()
