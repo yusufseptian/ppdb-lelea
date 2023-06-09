@@ -2,5 +2,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/ppdblele/ppdblelea/
     - export DEPLOYPATHPUBLIC=/home/ppdblele/public_html/
-    - /bin/cp -R app/. $DEPLOYPATH
+    - /bin/cp -R . $DEPLOYPATH
     - /bin/cp -R public/. $DEPLOYPATHPUBLIC
