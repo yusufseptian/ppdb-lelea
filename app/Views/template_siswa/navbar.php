@@ -4,10 +4,10 @@
            <a href="" class="logo"><img src="<?= base_url() ?>/assets/logo.png" alt="" style="max-height: 60px !important;" class="img-fluid"></a>
            <nav id="navbar" class="navbar">
                <ul>
-                   <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                   <li><a class="nav-link scrollto" href="#hero">Home</a></li>
                    <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
                    <li><a class="nav-link scrollto" href="#prestasi">Prestasi</a></li>
-                   <li><a class="nav-link scrollto " href="#gallery">Galeri</a></li>
+                   <li><a class="nav-link scrollto" href="#gallery">Galeri</a></li>
                    <li><a class="nav-link scrollto" href="#ekskul">Ekskul</a></li>
                    <?php if (session('log_auth')) : ?>
                        <li class="nav-item dropdown">
