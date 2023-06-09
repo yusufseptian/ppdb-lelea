@@ -2,7 +2,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/ppdblele/ppdblelea/
     - export DEPLOYPATHPUBLIC=/home/ppdblele/public_html/
-    - /bin/cp -R . $DEPLOYPATH
+    - /bin/cp -R * $DEPLOYPATH
     - /bin/rm -rf $DEPLOYPATHPUBLIC
     - /bin/mkdir $DEPLOYPATHPUBLIC
-    - /bin/cp -R public/. $DEPLOYPATHPUBLIC
+    - /bin/cp -R public/* $DEPLOYPATHPUBLIC
