@@ -41,7 +41,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <h1>SMP Negeri 2 Lelea</h1>
+                    <h1>SMP Negeri </h1>
                     <h2><?= $tentang['profil_deskripsi'] ?></h2>
                     <div><a href="<?= base_url('daftar') ?>" class="btn-get-started bg-danger scrollto">Daftar Klik Disini</a></div>
                 </div>
