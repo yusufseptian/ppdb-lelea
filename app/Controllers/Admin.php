@@ -42,6 +42,16 @@ class Admin extends BaseController
             $dtSiswaMengundurkanDiri->where('siswa_ta_id', $dtTA['ta_id']);
         }
         $dtSiswaMengundurkanDiri = $dtSiswaMengundurkanDiri->findAll();
+        $siswaLolos = 0;
+        $siswaTdkLolos = 0;
+        if (!empty($dtTA)) {
+            if ($dtTA['ta_kuota'] >= $dtSiswaDiterima) {
+                $siswaLolos = count($dtSiswaDiterima);
+            } else {
+                $siswaLolos = $dtTA['ta_kuota'];
+                $siswaTdkLolos = count($dtSiswaDiterima) - $dtTA['ta_kuota'];
+            }
+        }
         $data = [
             'title' => 'Admin',
             'subtitle' => 'Dashboard Admin',
@@ -50,6 +60,8 @@ class Admin extends BaseController
             'dtSiswaTidakDiterima' => $dtSiswaTidakDiterima,
             'dtSiswaMengundurkanDiri' => $dtSiswaMengundurkanDiri,
             'dtTA' => $dtTA,
+            'siswaLolos' => $siswaLolos,
+            'siswaTdkLolos' => $siswaTdkLolos,
             'listTA' => $this->modelTahunAjaran->findAll()
         ];
         return view('admin/view_dashboard', $data);

@@ -15,7 +15,7 @@
                 <div class="small-box bg-blue">
                     <div class="inner">
                         <h3><?= count($dtSiswaTerdaftar) ?></h3>
-                        <p>Jumlah Siswa Terdaftar</p>
+                        <p>Siswa Mengunngu ACC Berkas</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-address-book"></i>
@@ -47,7 +47,7 @@
                 <div class="small-box bg-yellow">
                     <div class="inner">
                         <h3><?= count($dtSiswaTidakDiterima) ?></h3>
-                        <p>Jumlah Siswa Ditolak</p>
+                        <p>Berkas Siswa Ditolak</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-user-times"></i>
@@ -73,6 +73,42 @@
                     <button type="submit" class="small-box-footer btn btn-link w-100">Selengkapnya<i class="fas fa-arrow-circle-right pl-2"></i></button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+<div class="col-12 px-3 mb-3 d-flex justify-content-between">
+    <div>Hasil Perangkingan</div>
+    <div>Jumlah Kuota Pendaftaran: <?= $dtTA['ta_kuota'] ?></div>
+</div>
+<div class="col-12 px-4">
+    <div class="row">
+        <div class="col-lg-3 col-md-2">
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3><?= $siswaLolos ?></h3>
+                    <p>Siswa Lolos</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user-check"></i>
+                </div>
+                <input type="hidden" name="rdTA" value="<?= $dtTA['ta_id'] ?>">
+                <input type="hidden" name="cmbStatusPendaftaran" value="Diterima">
+                <button type="button" class="small-box-footer btn btn-link w-100" onclick="window.location.href='<?= base_url('ranking') ?>'">Selengkapnya<i class="fas fa-arrow-circle-right pl-2"></i></button>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-2">
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3><?= $siswaTdkLolos ?></h3>
+                    <p>Siswa Tidak Lolos</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user-times"></i>
+                </div>
+                <input type="hidden" name="rdTA" value="<?= $dtTA['ta_id'] ?>">
+                <input type="hidden" name="cmbStatusPendaftaran" value="Diterima">
+                <button type="button" class="small-box-footer btn btn-link w-100" onclick="window.location.href='<?= base_url('ranking') ?>'">Selengkapnya<i class="fas fa-arrow-circle-right pl-2"></i></button>
+            </div>
         </div>
     </div>
 </div>
