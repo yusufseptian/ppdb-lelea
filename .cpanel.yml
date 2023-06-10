@@ -1,4 +1,27 @@
+---
 deployment:
   tasks:
-    - export DEPLOYPATHPUBLIC=/home/ppdblele/public_html/
-    - /bin/cp -R public/. $DEPLOYPATHPUBLIC
+    - export AKTAPATH=/home/ppdblele/public_html/akta_siswa/
+    - /bin/cp -R public/akta_siswa/. $AKTAPATH
+    - export ASSETSPATH=/home/ppdblele/public_html/assets/
+    - /bin/cp -R public/assets/. $ASSETSPATH
+    - export FTEKSKULPATH=/home/ppdblele/public_html/foto_ekskul/
+    - /bin/cp -R public/foto_ekskul/. $FTEKSKULPATH
+    - export FTGALERIPATH=/home/ppdblele/public_html/foto_galeri/
+    - /bin/cp -R public/foto_galeri/. $FTGALERIPATH
+    - export FTPRESTASIPATH=/home/ppdblele/public_html/foto_prestasi/
+    - /bin/cp -R public/foto_prestasi/. $FTPRESTASIPATH
+    - export FTSISWAPATH=/home/ppdblele/public_html/foto_siswa/
+    - /bin/cp -R public/foto_siswa/. $FTSISWAPATH
+    - export FTMDAPATH=/home/ppdblele/public_html/ijazah_mda_siswa/
+    - /bin/cp -R public/ijazah_mda_siswa/. $FTMDAPATH
+    - export FTIJAZAHPATH=/home/ppdblele/public_html/ijazah_siswa/
+    - /bin/cp -R public/ijazah_siswa/. $FTIJAZAHPATH
+    - export FTKKPATH=/home/ppdblele/public_html/kk_siswa/
+    - /bin/cp -R public/kk_siswa/. $FTKKPATH
+    - export FTKTPPATH=/home/ppdblele/public_html/ktp_ortu_siswa/
+    - /bin/cp -R public/ktp_ortu_siswa/. $FTKTPPATH
+    - export FTRAPORPATH=/home/ppdblele/public_html/rapor_siswa/
+    - /bin/cp -R public/rapor_siswa/. $FTRAPORPATH
+    - export FTSMUTLAKPATH=/home/ppdblele/public_html/surat_mutlak_siswa/
+    - /bin/cp -R public/surat_mutlak_siswa/. $FTSMUTLAKPATH
