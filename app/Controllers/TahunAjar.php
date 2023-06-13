@@ -14,6 +14,7 @@ class Tahunajar extends BaseController
     }
     public function index()
     {
+        // Test
         $data = [
             'title' => 'Admin',
             'subtitle' => 'Tahun Ajaran',

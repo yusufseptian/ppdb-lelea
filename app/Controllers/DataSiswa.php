@@ -28,6 +28,7 @@ class Datasiswa extends BaseController
     }
     public function index()
     {
+        // test
         $dtTA = $this->Mtahunajar->getTANow();
         if (empty($dtTA)) {
             session()->setFlashdata('danger', 'Data tahun ajaran masih kosong');
