@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php header("Content-Security-Policy: img-src 'self' blob: data: " . base_url()); ?>
+
     <title>PPDB | <?= $title ?></title>
 
     <link rel="icon" href="<?= base_url('assets/logo.png') ?>">

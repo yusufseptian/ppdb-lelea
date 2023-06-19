@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <?php header("Content-Security-Policy: img-src 'self' blob: data: " . base_url()); ?>
 
     <title>PPDB | <?= $title ?></title>
     <meta content="" name="description">
